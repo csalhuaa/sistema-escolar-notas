@@ -4,7 +4,7 @@ require_once 'includes/modals/modal.php';
 ?>  
 
 <!-- <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css"> -->
-<script src="js/plugins/jquery.dataTables.min.js"></script>
+<script src="../js/plugins/jquery.dataTables.min.js"></script>
 <main class="app-content">
     <div class="app-title">
         <div>
@@ -27,52 +27,14 @@ require_once 'includes/modals/modal.php';
                                     <th>ACCIONES</th>
                                     <th>ID</th>
                                     <th>USUARIO</th>
-                                    <th>ROL</th>
+                                    <th>TIPO USUARIO</th>
+                                    <th>ID ROL</th>
+                                    <th>CONTACTO</th>
+                                    <th>ESPECIALIDAD</th>
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr> 
-                                    <th>
-                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
-                                    </th>
-                                    <th>1</th>
-                                    <th>admin</th>
-                                    <th>Administrador</th>
-                                    <th><span class="badge badge-success">Activo</span></th>
-                                </tr>
-                                <tr> 
-                                    <th>
-                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
-                                    </th>
-                                    <th>1</th>
-                                    <th>admin</th>
-                                    <th>Administrador</th>
-                                    <th><span class="badge badge-success">Activo</span></th>
-                                </tr>
-                                <tr> 
-                                    <th>
-                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
-                                    </th>
-                                    <th>1</th>
-                                    <th>admin</th>
-                                    <th>Administrador</th>
-                                    <th><span class="badge badge-success">Activo</span></th>
-                                </tr>
-                                <tr> 
-                                    <th>
-                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
-                                    </th>
-                                    <th>1</th>
-                                    <th>admin</th>
-                                    <th>Administrador</th>
-                                    <th><span class="badge badge-success">Activo</span></th>
-                                </tr>
-                        </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
