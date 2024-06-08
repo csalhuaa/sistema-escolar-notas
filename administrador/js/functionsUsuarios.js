@@ -1,8 +1,8 @@
-$("#users").DataTable
+$("#tableUsuarios").DataTable();
 
-var users;
-$(document).ready(function() {
-    users = $('#users').DataTable({
+// let tableUsuarios = new DataTable('#tableUsuarios');
+document.addEventListener('DOMContentLoaded', function(){
+    tableUsuarios = $('#tableUsuarios').DataTable({
         "aProcessing": true,
         "aServerSide": true,
         "language": {
@@ -15,10 +15,10 @@ $(document).ready(function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "Usuario_Id"},
-            {"data": "Usuario_Nombre"},
-            {"data": "RolNombre"},
-            {"data": "Usuario_EstReg"},
+            {"data": "ID"},
+            {"data": "nombre_usuario"},
+            {"data": "tipo_usuario"},
+            {"data": "Est_Reg"},
         ],
         "responsive": true,
         "bDestroy": true,

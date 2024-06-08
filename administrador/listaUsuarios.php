@@ -2,8 +2,9 @@
 require_once 'includes/header.php';
 require_once 'includes/modals/modal.php';
 ?>  
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" /> -->
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" /> -->
+
+<!-- <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css"> -->
+<script src="js/plugins/jquery.dataTables.min.js"></script>
 <main class="app-content">
     <div class="app-title">
         <div>
@@ -20,7 +21,7 @@ require_once 'includes/modals/modal.php';
             <div class="tile">
                 <div class="tile-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered" id="users">
+                        <table class="table table-hover table-bordered" id="tableUsuarios">
                             <thead>
                                 <tr>
                                     <th>ACCIONES</th>
@@ -31,15 +32,54 @@ require_once 'includes/modals/modal.php';
                                 </tr>
                             </thead>
                             <tbody>
-                            </tbody>
+                                <tr> 
+                                    <th>
+                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
+                                    </th>
+                                    <th>1</th>
+                                    <th>admin</th>
+                                    <th>Administrador</th>
+                                    <th><span class="badge badge-success">Activo</span></th>
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
+                                    </th>
+                                    <th>1</th>
+                                    <th>admin</th>
+                                    <th>Administrador</th>
+                                    <th><span class="badge badge-success">Activo</span></th>
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
+                                    </th>
+                                    <th>1</th>
+                                    <th>admin</th>
+                                    <th>Administrador</th>
+                                    <th><span class="badge badge-success">Activo</span></th>
+                                </tr>
+                                <tr> 
+                                    <th>
+                                        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario(1)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario(1)"><i class="fas fa-trash-alt"></i></button>
+                                    </th>
+                                    <th>1</th>
+                                    <th>admin</th>
+                                    <th>Administrador</th>
+                                    <th><span class="badge badge-success">Activo</span></th>
+                                </tr>
+                        </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
 </main>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-<!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> -->
+
 <?php
 require_once 'includes/footer.php';
 ?>

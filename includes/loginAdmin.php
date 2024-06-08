@@ -10,7 +10,7 @@ if (!empty($_POST)) {
         if ($pdo) {
             $login = $_POST['login'];
             $pass = $_POST['pass'];
-            $sql = 'SELECT * FROM Usuarios AS u INNER JOIN Roles AS r ON u.Usuario_Rol = r.RolId WHERE u.Usuario_Nombre = ?';
+            $sql = 'SELECT * FROM Usuarios AS u INNER JOIN Roles AS r ON u.tipo_usuario = r.ID WHERE u.nombre_usuario = ?';
             
             // Prepara y ejecuta la consulta SQL
             $query = $pdo->prepare($sql);
@@ -22,12 +22,12 @@ if (!empty($_POST)) {
             // Verifica si se obtuvieron filas
             if ($result) {
                 // Verifica la contraseña usando password_verify
-                if (password_verify($pass, $result['Usuario_Password'])) {
+                if (password_verify($pass, $result['contraseña'])) {
                     $_SESSION['active'] = true;
-                    $_SESSION['nombre'] = $result['Usuario_Nombre'];
-                    $_SESSION['id_usuario'] = $result['Usuario_Id'];
-                    $_SESSION['rol'] = $result['RolId'];
-                    $_SESSION['nombre_rol'] = $result['RolNombre'];
+                    $_SESSION['nombre'] = $result['nombre_usuario'];
+                    $_SESSION['id_usuario'] = $result['ID'];
+                    $_SESSION['rol'] = $result['ID'];
+                    $_SESSION['nombre_rol'] = $result['nombre_rol'];
 
                     echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"></button>Redirecting</div>';
                 } else {
