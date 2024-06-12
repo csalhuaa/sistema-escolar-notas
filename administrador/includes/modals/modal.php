@@ -9,19 +9,19 @@
         <form id="formulario" name="formulario">
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" name="nombre" id="nombre">
+            <input type="text" class="form-control" name="Nombre" id="Nombre">
           </div>
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Apellido Paterno:</label>
-            <input type="text" class="form-control" name="apePat" id="apePat">
+            <input type="text" class="form-control" name="Apellido_Paterno" id="Apellido_Paterno">
           </div>
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Apellido Materno:</label>
-            <input type="text" class="form-control" name="apeMat" id="apeMat">
+            <input type="text" class="form-control" name="Apellido_Materno" id="Apellido_Materno">
           </div>
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario" name="usuario">
+            <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario">
           </div>
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Contraseña:</label>
@@ -29,23 +29,38 @@
           </div>
           <div class="mb-3">
             <label for="control-label" class="col-form-label">Contacto:</label>
-            <input type="text" class="form-control" name="contacto" id="contacto">
+            <input type="text" class="form-control" name="info_contacto" id="info_contacto">
           </div>
           <div class="form-group">
             <label for="listRol">Rol</label>
-            <select class="form-control" name="listRol" id="listRol">
-              <option value="1">Administrador</option>
-              <option value="2">Docente</option>
-              <option value="3">Tutor</option>
+            <select class="form-control" name="tipo_usuario" id="tipo_usuario">
+              <option value="administrador">Administrador</option>
+              <option value="docente">Docente</option>
+              <option value="tutor">Tutor</option>
             </select>
+          </div>
+          <div class="mb-3">
+            <label for="control-label" class="col-form-label">ID Rol:</label>
+            <input type="text" class="form-control" name="id_rol" id="id_rol">
+          </div>
+          <div class="mb-3">
+            <label for="control-label" class="col-form-label">Especialidad:</label>
+            <input type="text" class="form-control" name="especialidad" id="especialidad">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+<<<<<<< HEAD
         <button type="button" class="btn btn-primary">Guardar</button>
+=======
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Guardar </button>
+>>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473
       </div>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+=======
+>>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473
