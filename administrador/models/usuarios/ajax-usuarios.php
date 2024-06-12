@@ -16,7 +16,6 @@ if (!empty($_POST)) {
         $info_contacto = !empty($_POST['info_contacto']) ? $_POST['info_contacto'] : null;
         $especialidad = !empty($_POST['especialidad']) ? $_POST['especialidad'] : null;
 
-<<<<<<< HEAD
     if(!empty($_POST)) {
         echo '<pre>';
         print_r($_POST);
@@ -31,29 +30,10 @@ if (!empty($_POST)) {
             $contraseña = $_POST['contraseña'];
             $contacto = $_POST['contacto'];
             $rol = $_POST['listRol']; 
-=======
-        // Encriptar la contraseña
-        $contraseña = password_hash($contraseña, PASSWORD_DEFAULT);
-
-        // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ?';
-        $query = $pdo->prepare($sql);
-        $query->execute(array($nombre_usuario));
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-
-        if ($result) {
-            $respuesta = array('status' => false, 'msg' => 'El nombre de usuario ya existe');
-        } else {
-            // Inserta el nuevo usuario
-            $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
-            $queryInsert = $pdo->prepare($sqlInsert);
-            $resultInsert = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad));
->>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473
 
             if ($resultInsert) {
                 $respuesta = array('status' => true, 'msg' => 'Usuario creado correctamente');
             } else {
-<<<<<<< HEAD
                 $sqlInsert = 'INSERT INTO usuarios (nombre, apePat, apeMat, usuario, contraseña, contacto, rol) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
                 $resultInsert = $queryInsert->execute(array($nombre, $apePat, $apeMat, $usuario, $contraseña, $contacto, $rol));
@@ -66,14 +46,6 @@ if (!empty($_POST)) {
             }
         }
         echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
-    }
-=======
-                $respuesta = array('status' => false, 'msg' => 'Error al crear el usuario');
-            }
         }
     }
-    // Envía la respuesta en formato JSON
-    echo json_encode($respuesta);
 }
-?>
->>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473

@@ -51,16 +51,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-<<<<<<< HEAD
         <button type="button" class="btn btn-primary">Guardar</button>
-=======
-        <button type="button" class="btn btn-primary" onclick="submitForm()">Guardar </button>
->>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473
       </div>
     </div>
   </div>
 </div>
-<<<<<<< HEAD
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-=======
->>>>>>> 910fae2431ee83cbedb257fdd6d61b2383454473
