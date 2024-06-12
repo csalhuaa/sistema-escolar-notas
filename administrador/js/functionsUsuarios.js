@@ -38,8 +38,11 @@ formUsuario.onsubmit = function(e) {
     e.preventDefault();
 
     var nombre = document.querySelector('#nombre').value;
+    var apePat = document.querySelector('#apePat').value;
+    var apeMat = document.querySelector('#apeMat').value;
     var usuario = document.querySelector('#usuario').value;
     var contraseña = document.querySelector('#contraseña').value;
+    var contacto = document.querySelector('#contacto').value;
     var listRol = document.querySelector('#listRol').value;
 
     if(nombre == '' || usuario == '' || contraseña == ''){
