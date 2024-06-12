@@ -4,6 +4,11 @@ require_once 'includes/modals/modal.php';
 ?>  
 <!-- <script src="../js/jquery-3.7.0.min.js"></script> -->
 
+<<<<<<< HEAD
+=======
+<!-- <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css"> -->
+<script src="../js/plugins/jquery.dataTables.min.js"></script>
+>>>>>>> refs/remotes/origin/main
 <main class="app-content">
     <div class="app-title">
         <div>
@@ -29,6 +34,7 @@ require_once 'includes/modals/modal.php';
                                     <th>APELLIDO PATERNO</th>
                                     <th>APELLIDO MATERNO</th>
                                     <th>USUARIO</th>
+<<<<<<< HEAD
                                     <th>CONTACTO</th>
                                     <th>ROL</th>
                                     <th>ESTADO</th>
@@ -36,6 +42,16 @@ require_once 'includes/modals/modal.php';
                             </thead>
                             <tbody>
                         </tbody>
+=======
+                                    <th>TIPO USUARIO</th>
+                                    <th>ID ROL</th>
+                                    <th>CONTACTO</th>
+                                    <th>ESPECIALIDAD</th>
+                                    <th>ESTADO</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+>>>>>>> refs/remotes/origin/main
                         </table>
                     </div>
                 </div>

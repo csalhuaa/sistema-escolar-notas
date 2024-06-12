@@ -2,6 +2,7 @@ $("#usuarios").DataTable();
 
 var tables;
 
+// let tableUsuarios = new DataTable('#tableUsuarios');
 document.addEventListener('DOMContentLoaded', function(){
     tables = $('#usuarios').DataTable({
         "aProcessing": true,
@@ -23,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function(){
             {"data": "nombre_usuario"},
             {"data": "info_contacto"},
             {"data": "tipo_usuario"},
+            {"data": "id_rol"},
+            {"data": "info_contacto"},
+            {"data": "especialidad"},
             {"data": "Est_Reg"},
         ],
         "responsive": true,
