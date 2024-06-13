@@ -87,7 +87,7 @@ function editarUsuario(ID) {
     document.querySelector('#action').innerHTML = 'Actualizar'
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/usuarios/edit-usuarios.php?idusuario=' + idusuario;
+    var url = './models/usuarios/edit-usuarios.php?idusuario='+idusuario;
     request.open('GET', url, true);
     request.send();
     request.onreadystatechange = function() {
