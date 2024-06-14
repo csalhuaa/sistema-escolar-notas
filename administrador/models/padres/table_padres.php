@@ -9,9 +9,9 @@ require_once "../../../includes/conexion.php";
 
     for ($i = 0; $i < count($consulta); $i++) {
         if ($consulta[$i]['Est_Reg'] == 'A') {
-                $consulta[$i]['Est_Reg'] = '<span class="badge badge-success bg-black">Activo</span>';
+                $consulta[$i]['Est_Reg'] = '<span class="me-1 badge bg-success">Activo</span>';
         } else {
-            $consulta[$i]['Est_Reg'] = '<span class="badge badge-danger">Inactivo</span>';
+            $consulta[$i]['Est_Reg'] = '<span class="me-1 badge bg-danger">Inactivo</span>';
         }
 
         $consulta[$i]['acciones'] = '

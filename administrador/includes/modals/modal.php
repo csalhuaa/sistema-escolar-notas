@@ -51,8 +51,8 @@
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="activo">A</option>
-                            <option value="inactivo">I</option>
+                            <option value="A">A</option>
+                            <option value="I">I</option>
                         </select>
                     </div>
                     <div class="modal-footer">
