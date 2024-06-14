@@ -1,13 +1,19 @@
 <?php
-    session_start();
-    if(isset($_SESSION['active'])){
-        header('Location: administrador/');
-    } else if(isset($_SESSION['activeP'])){
-        header('Location: profesor/');
-    } else if(isset($_SESSION['activePa'])){
-        header('Location: padre/');
-    }
+session_start();
+
+// Verificar si el usuario ya está autenticado y redirigir
+if (isset($_SESSION['active'])) {
+    header('Location: administrador/');
+    exit();
+} else if (isset($_SESSION['activeP'])) {
+    header('Location: profesor/');
+    exit();
+} else if (isset($_SESSION['activePa'])) {
+    header('Location: padre/');
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -8,12 +8,11 @@ $(document).ready(function(){
     $('#loginPadre').on('click', function(){
         loginPadre();
     });
-})
+});
 
-//Admin
 function loginAdmin(){
-    var login = $('#usuario').val()
-    var pass = $('#pass').val()
+    var login = $('#usuario').val();
+    var pass = $('#pass').val();
 
     $.ajax({
         url: './includes/loginAdmin.php',
@@ -26,16 +25,15 @@ function loginAdmin(){
             $('#messageAdmin').html(data);
 
             if(data.indexOf('Redirecting') >= 0){
-                window.location = 'administrador/'
+                window.location = 'administrador/';
             }
-        },
-    })
+        }
+    });
 }
 
-//Profesor
 function loginProfesor(){
-    var loginProfesor = $('#usuarioProfesor').val()
-    var passProfesor = $('#passProfesor').val()
+    var loginProfesor = $('#usuarioProfesor').val();
+    var passProfesor = $('#passProfesor').val();
 
     $.ajax({
         url: './includes/loginProfesor.php',
@@ -48,16 +46,15 @@ function loginProfesor(){
             $('#messageProfesor').html(data);
 
             if(data.indexOf('Redirecting') >= 0){
-                window.location = 'profesor/'
+                window.location = 'profesor/';
             }
         }
-    })
+    });
 }
 
-//Padre
 function loginPadre(){
-    var login = $('#usuarioPadre').val()
-    var pass = $('#passPadre').val()
+    var loginPadre = $('#usuarioPadre').val();
+    var passPadre = $('#passPadre').val();
 
     $.ajax({
         url: './includes/loginPadre.php',
@@ -70,8 +67,8 @@ function loginPadre(){
             $('#messagePadre').html(data);
 
             if(data.indexOf('Redirecting') >= 0){
-                window.location = 'padre/'
+                window.location = 'padre/';
             }
         }
-    })
+    });
 }
