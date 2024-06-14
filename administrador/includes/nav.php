@@ -3,8 +3,12 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Image">
         <div>
-            <p class="app-sidebar__user-name">John Doe</p>
-            <p class="app-sidebar__user-designation">Frontend Developer</p>
+            <p class="app-sidebar__user-name">
+                <?= $_SESSION['nombre']; ?>
+            </p>
+            <p class="app-sidebar__user-designation">
+                <?= $_SESSION['nombre_rol']; ?>
+            </p>
         </div>
     </div>
     <ul class="app-menu">
