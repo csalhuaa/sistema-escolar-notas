@@ -31,7 +31,10 @@ require_once 'includes/modals/modal_padre.php';
                                     <th>USUARIO</th>
                                     <th>CONTACTO</th>
                                     <th>ROL</th>
+<<<<<<< HEAD
                                     <th>ID ROL</th>
+=======
+>>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>

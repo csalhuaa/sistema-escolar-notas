@@ -30,7 +30,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="control-label" class="col-form-label">Contacto:</label>
+<<<<<<< HEAD
                         <input type="email" class="form-control" name="info_contacto" id="info_contacto">
+=======
+                        <input type="text" class="form-control" name="info_contacto" id="info_contacto">
+>>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                     </div>
                     <div class="form-group">
                         <label for="listRol">Rol</label>
@@ -38,6 +42,7 @@
                             <option value="tutor">Tutor</option>
                         </select>
                     </div>
+<<<<<<< HEAD
                     <div class="mb-3">
                         <!-- <label for="control-label" class="col-form-label">ID Rol:</label> -->
                         <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="3">
@@ -48,6 +53,14 @@
                             <option value="3">3</option>
                         </select>
                     </div> -->
+=======
+                    <div class="form-group">
+                        <label for="id_rol">ID Rol</label>
+                        <select class="form-control" name="id_rol" id="id_rol">
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+>>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                     <!-- <div class="mb-3">
                         <label for="control-label" class="col-form-label">Especialidad:</label>
                         <input type="text" class="form-control" name="especialidad" id="especialidad">
@@ -55,8 +68,13 @@
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
+<<<<<<< HEAD
                             <option value="A">A</option>
                             <option value="I">I</option>
+=======
+                            <option value="activo">A</option>
+                            <option value="inactivo">I</option>
+>>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                         </select>
                     </div>
                     <div class="modal-footer">
