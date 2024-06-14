@@ -17,7 +17,7 @@ if (!empty($_POST)) {
         $contraseña = $_POST['contraseña'];
         $tipo_usuario = $_POST['tipo_usuario'];
         $id_rol = $_POST['id_rol'];
-        $info_contacto = !empty($_POST['info_contacto']) ? $_POST['info_contacto'] : null;
+        $info_contacto = !empty($_POST['info_contacto']);
         $especialidad = !empty($_POST['especialidad']) ? $_POST['especialidad'] : null;
 
         // Encriptar la contraseña solo si se proporciona

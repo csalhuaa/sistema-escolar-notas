@@ -13,6 +13,7 @@
     <script src="js/functionsUsuarios.js"></script>
     <script src="js/functionsProfesores.js"></script>
     <script src="js/functionsAlumnos.js"></script>
+    <script src="js/functionsPadres.js"></script>
     
 </body>
 </html>

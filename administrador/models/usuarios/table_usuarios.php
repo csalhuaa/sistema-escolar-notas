@@ -1,7 +1,7 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM usuarios WHERE Est_Reg = "A" AND tipo_usuario = "administrador" ORDER BY ID ASC';
+    $sql = 'SELECT * FROM usuarios WHERE Est_Reg = "A" AND tipo_usuario = "administrador"';
     $query = $pdo->prepare($sql);
     $query->execute();  
 

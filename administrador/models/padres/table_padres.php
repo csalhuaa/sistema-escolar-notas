@@ -1,7 +1,7 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM estudiantes WHERE Est_Reg = "A"';
+    $sql = 'SELECT * FROM usuarios WHERE Est_Reg = "A" AND tipo_usuario = "tutor" ORDER BY ID ASC';
     $query = $pdo->prepare($sql);
     $query->execute();  
 
@@ -15,8 +15,8 @@ require_once "../../../includes/conexion.php";
         }
 
         $consulta[$i]['acciones'] = '
-            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarAlumno('.$consulta[$i]['ID'].')"><i class="fas fa-edit"></i>Editar</button>
-            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarAlumno('.$consulta[$i]['ID'].')"><i class="fas fa-trash-alt">Eliminar</i></button>
+            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarPadre('.$consulta[$i]['ID'].')"><i class="fas fa-edit"></i>Editar</button>
+            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarPadre('.$consulta[$i]['ID'].')"><i class="fas fa-trash-alt">Eliminar</i></button>
         ';
     }
 

@@ -21,11 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "fecha_nacimiento"},
             {"data": "direccion"},
             {"data": "id_tutor"},
-            // {"data": "nombre_usuario"},
-            // {"data": "info_contacto"},
-            // {"data": "tipo_usuario"},
-            // {"data": "id_rol"},
-            // {"data": "especialidad"},
             {"data": "Est_Reg"},
         ],
         "responsive": true,
@@ -40,98 +35,81 @@ var formAlumno = document.querySelector('#formAlumno');
 formAlumno.onsubmit = function(e) {
     e.preventDefault();
 
-    // var formProfesor = document.querySelector('#formProfesor');
     var idalumno = document.querySelector('#idalumno').value;
     var nombre = document.querySelector('#Nombre').value;
-    // var apellido_paterno = document.querySelector('#Apellido_Paterno').value;
-    // var apellido_materno = document.querySelector('#Apellido_Materno').value;
-    // var nombre_usuario = document.querySelector('#nombre_usuario').value;
-    // var contraseña = document.querySelector('#contraseña').value;
-    // var tipo_usuario = document.querySelector('#tipo_usuario').value;
-    // var id_rol = document.querySelector('#id_rol').value;
-    // var info_contacto = document.querySelector('#info_contacto').value;
-    // var especialidad = document.querySelector('#especialidad').value;
-    var fecha_nacimiento = document.querySelector('#fecha_nacimiento').value;
+    var fecha_nacimiento = document.querySelector('#fecha_nac').value;
     var direccion = document.querySelector('#direccion').value;
-    var id_tutor = document.querySelector('#id_tutor').value;
+    var id_tutor = document.querySelector('#listpadre').value;
     var Est_Reg = document.querySelector('#est_reg').value;
 
-    if (nombre == '' || fecha_nacimiento == '' || id_tutor == '' || Est_Reg == '') {
-        alert("Todos los campos deben llenarse")
-        // swal("Atención", "Todos los campos son necesarios", "error");
+    if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || Est_Reg == '') {
+        alert("Todos los campos deben llenarse");
         return false;
     }
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/profesores/ajax-profesores.php';
-    var form = new FormData(formProfesor);
+    var url = './models/alumnos/ajax-alumnos.php';
+    var formData = new FormData(formAlumno);
     request.open('POST', url, true);
-    request.send(form);
+    request.send(formData);
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
                 $('#modalAlumno').modal('hide');
-                formProfesor.reset();
-                // swal('Profesor', data.msg, 'success');
-                alert("Alumno Creado")
-                tables.ajax.reload();
+                formAlumno.reset();
+                alert(data.msg);
+                tables.ajax.reload(); // Recargar la tabla si se usa DataTables
             } else {
-                swal('Atención', data.msg, 'error');
+                alert(data.msg);
             }
         }
     }
 }
 
 function openModal() {
-    document.querySelector('#idalumno').value = ''
-    document.querySelector('#modalTitulo').innerHTML = 'Nuevo Alumno'
-    document.querySelector('#action').innerHTML = 'Guardar'
-    document.querySelector('#formAlumno').reset();
+    document.querySelector('#idalumno').value = '';
+    document.querySelector('#modalTitulo').innerHTML = 'Nuevo Alumno';
+    document.querySelector('#action').innerHTML = 'Guardar';
+    formAlumno.reset();
     $("#modalAlumno").modal('show');
 }
 
-function editarProfesor(ID) {
-    var idprofesor = ID;
-    console.log(idprofesor);
+function editarAlumno(ID) {
+    var idalumno = ID;
 
-    document.querySelector('#modalTitulo').innerHTML = 'Actualizar Profesor'
-    document.querySelector('#action').innerHTML = 'Actualizar'
+    document.querySelector('#modalTitulo').innerHTML = 'Actualizar Alumno';
+    document.querySelector('#action').innerHTML = 'Actualizar';
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/profesores/edit-profesores.php?idprofesor='+idprofesor;
+    var url = './models/alumnos/edit-alumnos.php?idalumno=' + idalumno;
     request.open('GET', url, true);
     request.send();
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
-            console.log(request.responseText); 
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idprofesor').value = data.data.ID;
-                document.querySelector('#Nombre').value = data.data.Nombre;
-                document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
-                document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
-                document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-                // document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
-                document.querySelector('#info_contacto').value = data.data.info_contacto;
-                document.querySelector('#especialidad').value = data.data.especialidad;
-                // document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#idalumno').value = data.data.ID;
+                document.querySelector('#Nombre').value = data.data.nombre;
+                document.querySelector('#fecha_nac').value = data.data.fecha_nacimiento;
+                document.querySelector('#direccion').value = data.data.direccion;
+                document.querySelector('#listpadre').value = data.data.id_tutor;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
-                $("#modalProfesor").modal('show');
-
+                $("#modalAlumno").modal('show');
             } else {
-                swal('Profesor', data.msg, 'error');
+                alert(data.msg);
             }
         }
     }
 }
 
-function eliminarProfesor(ID){
-    var idprofesor = ID;
+function eliminarAlumno(ID){
+    var idalumno = ID;
 
     swal({
-        title: "Eliminar Profesor",
-        text: "¿Desea eliminar al Profesor?",
+        title: "Eliminar Alumno",
+        text: "¿Desea eliminar al Alumno?",
         type: "warning",
         showCancelButton: true,
         confirmButtonText: "Si, eliminar",
@@ -141,9 +119,9 @@ function eliminarProfesor(ID){
     }, function(confirm){
         if(confirm){
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var url = './models/profesores/delete-profesores.php';
+            var url = './models/alumnos/delete-alumnos.php';
             request.open('POST', url, true);
-            var strData = "idprofesor="+idprofesor;
+            var strData = "idalumno="+idalumno;
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
 
@@ -162,3 +140,26 @@ function eliminarProfesor(ID){
         }
     })
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para cargar apoderados
+    function cargarApoderados() {
+        fetch('./models/alumnos/get_apoderados.php')
+            .then(response => response.json())
+            .then(data => {
+                let selectPadre = document.getElementById('listpadre');
+                selectPadre.innerHTML = ''; // Limpiar las opciones existentes
+                data.forEach(apoderado => {
+                    let option = document.createElement('option');
+                    option.value = apoderado.ID;
+                    option.text = `${apoderado.Nombre} ${apoderado.Apellido_Paterno} ${apoderado.Apellido_Materno}`;
+                    selectPadre.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Llamar a la función cuando se abre el modal
+    let modal = document.getElementById('modalAlumno');
+    modal.addEventListener('show.bs.modal', cargarApoderados);
+});

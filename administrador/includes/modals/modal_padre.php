@@ -1,13 +1,13 @@
-<div class="modal fade" id="modalProfesor" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalPadre" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modal">Nuevo Profesor</h1>
+                <h1 class="modal-title fs-5" id="modal">Nuevo Padre</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formProfesor" name="formProfesor">
-                <input type="hidden" id="idprofesor" name="idprofesor" value="">
+                <form id="formPadre" name="formPadre">
+                <input type="hidden" id="idpadre" name="idpadre" value="">
                     <div class="mb-3">
                         <label for="control-label" class="col-form-label">Nombre:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre">
@@ -35,19 +35,19 @@
                     <div class="form-group">
                         <label for="listRol">Rol</label>
                         <select class="form-control" name="tipo_usuario" id="tipo_usuario">
-                            <option value="profesor">Profesor</option>
+                            <option value="tutor">Tutor</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="id_rol">ID Rol</label>
                         <select class="form-control" name="id_rol" id="id_rol">
-                            <option value="docente">2</option>
+                            <option value="tutor">3</option>
                         </select>
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="control-label" class="col-form-label">Especialidad:</label>
                         <input type="text" class="form-control" name="especialidad" id="especialidad">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
