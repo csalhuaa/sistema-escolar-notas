@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "nombre_usuario"},
             {"data": "info_contacto"},
             {"data": "tipo_usuario"},
-            // {"data": "id_rol"},
+            {"data": "id_rol"},
             // {"data": "especialidad"},
             {"data": "Est_Reg"},
         ],

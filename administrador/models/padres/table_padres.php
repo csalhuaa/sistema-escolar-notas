@@ -1,7 +1,7 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM usuarios WHERE Est_Reg = "A" AND tipo_usuario = "tutor" ORDER BY ID ASC';
+    $sql = 'SELECT * FROM usuarios WHERE tipo_usuario = "tutor" ORDER BY ID ASC';
     $query = $pdo->prepare($sql);
     $query->execute();  
 
@@ -9,7 +9,7 @@ require_once "../../../includes/conexion.php";
 
     for ($i = 0; $i < count($consulta); $i++) {
         if ($consulta[$i]['Est_Reg'] == 'A') {
-                $consulta[$i]['Est_Reg'] = '<span class="me-1 badge bg-success">Activo</span>';
+            $consulta[$i]['Est_Reg'] = '<span class="me-1 badge bg-success">Activo</span>';
         } else {
             $consulta[$i]['Est_Reg'] = '<span class="me-1 badge bg-danger">Inactivo</span>';
         }
