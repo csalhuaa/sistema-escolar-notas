@@ -38,12 +38,16 @@
                             <option value="tutor">Tutor</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
+                        <!-- <label for="control-label" class="col-form-label">ID Rol:</label> -->
+                        <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="3">
+                    </div>
+                    <!-- <div class="form-group">
                         <label for="id_rol">ID Rol</label>
-                        <select class="form-control" name="id_rol" id="id_rol">
+                        <select class="form-control" name="id_rol" id="id_rol" type="hidden">
                             <option value="3">3</option>
                         </select>
-                    </div>
+                    </div> -->
                     <!-- <div class="mb-3">
                         <label for="control-label" class="col-form-label">Especialidad:</label>
                         <input type="text" class="form-control" name="especialidad" id="especialidad">

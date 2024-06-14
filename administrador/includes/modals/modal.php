@@ -39,8 +39,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="control-label">ID Rol:</label>
-                        <input type="text" class="form-control" name="id_rol" id="id_rol" value="1">
+                        <!-- <label for="control-label" class="col-form-label">ID Rol:</label> -->
+                        <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="1">
                     </div>
                     <!-- <div class="mb-3">
                         <label for="control-label">Especialidad:</label>
@@ -49,8 +49,8 @@
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="activo">A</option>
-                            <option value="inactivo">I</option>
+                            <option value="A">A</option>
+                            <option value="I">I</option>
                         </select>
                     </div>
                     <div class="modal-footer">

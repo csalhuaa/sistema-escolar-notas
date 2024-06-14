@@ -21,6 +21,7 @@ if (!empty($_POST)) {
         $id_rol = $_POST['id_rol'];
         $info_contacto = !empty($_POST['info_contacto']) ? $_POST['info_contacto'] : null;
         $especialidad = !empty($_POST['especialidad']) ? $_POST['especialidad'] : null;
+        $est = $_POST['est_reg'];
 
         // Encriptar la contraseña solo si se proporciona
         if (!empty($contraseña)) {
@@ -41,20 +42,20 @@ if (!empty($_POST)) {
             );
         } else {
             if ($idusuario == "") {      
-                $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
-                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad));
+                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est));
                 $accion = 1;
             } else {
                 if (empty($contraseña)) {
-                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ? WHERE ID = ?';
+                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idusuario));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est,$idusuario));
                     $accion = 2;
                 } else {
                     $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, contraseña = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idusuario));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est, $idusuario));
                     $accion = 3;
                 }
             }
