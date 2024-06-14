@@ -6,10 +6,10 @@ if (!empty($_POST)) {
         $respuesta = array(
             'status' => false, 
             'msg' => 'Todos los campos requeridos son necesarios',
-            'idusuario' => $_POST['$idusuario']);
+            'idpadre' => $_POST['$idpadre']);
     } else {
         // Asigna las variables desde el formulario
-        $idusuario = $_POST['idusuario'];
+        $idpadre = $_POST['idpadre'];
         $nombre = $_POST['Nombre'];
         $apellido_paterno = $_POST['Apellido_Paterno'];
         $apellido_materno = $_POST['Apellido_Materno'];
@@ -26,20 +26,20 @@ if (!empty($_POST)) {
         }
 
         // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ?';
+        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ? AND Est_Reg != "A"';
         $query = $pdo->prepare($sql);
-        $query->execute(array($nombre_usuario, $idusuario));
+        $query->execute(array($nombre_usuario, $idpadre));
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($result > 0) {
             $respuesta = array(
                 'status' => false, 
                 'msg' => 'El nombre de usuario ya existe',
-                'idusuario' => $_POST['$idusuario']
+                'idpadre' => $_POST['$idpadre']
             );
         } else {
             // Inserta o actualiza el usuario
-            if ($idusuario == "") {
+            if ($idpadre == "") {
                 $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
                 $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad));
@@ -48,12 +48,12 @@ if (!empty($_POST)) {
                 if (empty($contraseña)) {
                     $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idusuario));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idpadre));
                     $accion = 2;
                 } else {
                     $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idusuario));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $idpadre));
                     $accion = 3;
                 }
             }
@@ -63,20 +63,20 @@ if (!empty($_POST)) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario creado correctamente',
-                        'idusuario' => $idusuario // Agregar el idusuario a la respuesta
+                        'idpadre' => $idpadre // Agregar el idusuario a la respuesta
                     );
                 } else if ($accion == 2 || $accion == 3) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario actualizado correctamente',
-                        'idusuario' => $idusuario // Agregar el idusuario a la respuesta
+                        'idpadre' => $idpadre // Agregar el idusuario a la respuesta
                     );
                 }
             } else {
                 $respuesta = array(
                     'status' => false,
                     'msg' => 'No se pudo ejecutar la operación',
-                    'idusuario' => $idusuario // Agregar el idusuario a la respuesta
+                    'idpadre' => $idpadre // Agregar el idusuario a la respuesta
                 );
             }
         }

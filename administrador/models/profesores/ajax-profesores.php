@@ -14,8 +14,8 @@ if (!empty($_POST)) {
         $contraseña = $_POST['contraseña'];
         $tipo_usuario = $_POST['tipo_usuario'];
         $id_rol = $_POST['id_rol'];
-        $info_contacto = !empty($_POST['info_contacto']); 
-        $especialidad = !empty($_POST['especialidad']);
+        $info_contacto = ($_POST['info_contacto']); 
+        $especialidad = ($_POST['especialidad']);
         $est = $_POST['est_reg'];
 
         // Encriptar la contraseña solo si se proporciona
