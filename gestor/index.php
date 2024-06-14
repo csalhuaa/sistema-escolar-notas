@@ -28,8 +28,8 @@ if (isset($_SESSION['active'])) {
 <body>
     <header class="main-header">
         <div class="main-cont">
-            <div class="desc-header">
-                <!-- <img src="logo.png" alt="image school"> -->
+            <div class="desc-header bg-white">
+                <img src="logo.png" alt="logo school">
                 <!-- <p>School</p> -->
             </div>
         </div>   
