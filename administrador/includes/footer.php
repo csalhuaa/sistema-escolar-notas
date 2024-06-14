@@ -4,11 +4,14 @@
     <script src="../js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="../js/plugins/pace.min.js"></script>
-    <script type="text/javascript" src="../js/plugins/sweetalert.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/plugins/sweetalert.min.js"></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Data table plugin-->
     <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
     <script src="js/functionsUsuarios.js"></script>
-    
+    <script src="js/functionsProfesores.js"></script>
+    <script src="js/functionsAlumnos.js"></script>
+    <script src="js/functionsPadres.js"></script>
 </body>
 </html>

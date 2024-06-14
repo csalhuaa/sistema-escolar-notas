@@ -34,7 +34,7 @@ if (!empty($_POST)) {
                     echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!</div>';
                 }
             } else {
-                echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!</div>';
+                echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!aea</div>';
             }
         } else {    
             // Mensaje de error si la conexión no fue exitosa
