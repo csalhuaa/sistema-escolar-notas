@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModal() {
+function openModalProfesores() {
     document.querySelector('#idprofesor').value = "";
     document.querySelector('#tituloModal').innerHTML = 'Nuevo Profesor';
     document.querySelector('#action').innerHTML = 'Guardar';

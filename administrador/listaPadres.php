@@ -8,7 +8,7 @@ require_once 'includes/modals/modal_padre.php';
     <div class="app-title">
         <div>
             <h1><i class="fa fa-dashboard"></i> Lista de Padres</h1>
-            <button class="btn btn-success" type="button" onclick="openModal()">Nuevo Padre</button>
+            <button class="btn btn-success" type="button" onclick="openModalPadres()">Nuevo Padre</button>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>

@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         text: data.msg,
                         icon: 'success'
                     });
-                    alert("Padre Creado")
                     tablePadres.ajax.reload();
                 } else {
                     Swal.fire({
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModal() {
+function openModalPadres() {
     document.querySelector('#idpadre').value = "";
     document.querySelector('#tituloModal').innerHTML = 'Nuevo Padre';
     document.querySelector('#action').innerHTML = 'Guardar';
@@ -167,7 +166,7 @@ function eliminarPadre(ID){
                             text: data.msg,
                             icon: 'success'
                         });
-                        tables.ajax.reload();
+                        tablePadres.ajax.reload();
                     } else {
                         Swal.fire({
                             title: 'Atención',

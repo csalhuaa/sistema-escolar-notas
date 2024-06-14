@@ -8,7 +8,7 @@ require_once 'includes/modals/modal_alumno.php';
     <div class="app-title">
         <div>
             <h1><i class="fa fa-dashboard"></i>Lista de Alumnos</h1>
-            <button class="btn btn-success" type="button" onclick="openModal()">Nuevo Alumno</button>
+            <button class="btn btn-success" type="button" onclick="openModalAlumnos()">Nuevo Alumno</button>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>

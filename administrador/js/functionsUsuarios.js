@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModal() {
+function openModalUsuarios() {
     document.querySelector('#idusuario').value = "";
     document.querySelector('#tituloModal').innerHTML = 'Nuevo Usuario';
     document.querySelector('#action').innerHTML = 'Guardar';

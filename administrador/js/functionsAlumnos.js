@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModal() {
+function openModalAlumnos() {
     document.querySelector('#idalumno').value = '';
     document.querySelector('#modalTitulo').innerHTML = 'Nuevo Alumno';
     document.querySelector('#action').innerHTML = 'Guardar';
