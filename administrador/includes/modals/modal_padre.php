@@ -39,10 +39,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="id_rol">ID Rol</label>
-                        <select class="form-control" name="id_rol" id="id_rol">
-                            <option value="3">3</option>
-                        </select>
+                        <!-- <label for="id_rol">ID Rol</label> -->
+                        <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="3">
                     </div>
                     <!-- <div class="mb-3">
                         <label for="control-label" class="col-form-label">Especialidad:</label>

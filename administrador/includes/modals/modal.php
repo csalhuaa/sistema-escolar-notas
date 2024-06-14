@@ -36,18 +36,16 @@
                         <label for="listRol">Rol</label>
                         <select class="form-control" name="tipo_usuario" id="tipo_usuario">
                             <option value="administrador">Administrador</option>
-                            <option value="docente">Docente</option>
-                            <option value="tutor">Tutor</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="control-label">ID Rol:</label>
-                        <input type="text" class="form-control" name="id_rol" id="id_rol">
+                        <!-- <label for="control-label">ID Rol:</label> -->
+                        <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="1">
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="control-label">Especialidad:</label>
                         <input type="text" class="form-control" name="especialidad" id="especialidad">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
