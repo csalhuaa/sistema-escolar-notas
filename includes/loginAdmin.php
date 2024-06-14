@@ -24,7 +24,7 @@ if (!empty($_POST)) {
                 // Verifica la contraseña usando password_verify
                 if (password_verify($pass, $result['contraseña'])) {
                     $_SESSION['active'] = true;
-                    $_SESSION['nombre_usuario'] = $result['nombre_usuario'];
+                    $_SESSION['nombre'] = $result['nombre_usuario'];
                     $_SESSION['id_usuario'] = $result['ID'];
                     $_SESSION['rol'] = $result['ID'];
                     $_SESSION['nombre_rol'] = $result['nombre_rol'];

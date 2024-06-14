@@ -38,25 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
     formProfesor.onsubmit = function(e) {
         e.preventDefault();
 
-<<<<<<< HEAD
-=======
         // var formUsuario = document.querySelector('#formulario');
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
         var idprofesor = document.querySelector('#idprofesor').value;
         var nombre = document.querySelector('#Nombre').value;
         var apellido_paterno = document.querySelector('#Apellido_Paterno').value;
         var apellido_materno = document.querySelector('#Apellido_Materno').value;
         var nombre_usuario = document.querySelector('#nombre_usuario').value;
         var contraseña = document.querySelector('#contraseña').value;
-<<<<<<< HEAD
-        var info_contacto = document.querySelector('#info_contacto').value;
-        var tipo_usuario = document.querySelector('#tipo_usuario').value;
-        var id_rol = document.querySelector('#id_rol').value;
-=======
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
         var info_contacto = document.querySelector('#info_contacto').value;
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
         var especialidad = document.querySelector('#especialidad').value;
         var Est_Reg = document.querySelector('#est_reg').value;
 
@@ -128,17 +119,10 @@ function editarProfesor(ID) {
                 document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
                 document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-<<<<<<< HEAD
-                document.querySelector('#info_contacto').value = data.data.info_contacto;
-                document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
-                document.querySelector('#especialidad').value = data.data.especialidad;
-                document.querySelector('#est_reg').value = data.data.Est_Reg;
-=======
                 // document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
                 document.querySelector('#info_contacto').value = data.data.info_contacto;
                 document.querySelector('#especialidad').value = data.data.especialidad;
                 // document.querySelector('#est_reg').value = data.data.Est_Reg;
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
 
                 $("#modalProfesor").modal('show');
             } else {

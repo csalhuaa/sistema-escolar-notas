@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var apellido_materno = document.querySelector('#Apellido_Materno').value;
         var nombre_usuario = document.querySelector('#nombre_usuario').value;
         var contraseña = document.querySelector('#contraseña').value;
-        var info_contacto = document.querySelector('#info_contacto').value;
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
+        var info_contacto = document.querySelector('#info_contacto').value;
         // var especialidad = document.querySelector('#especialidad').value;
         var Est_Reg = document.querySelector('#est_reg').value;
 
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         text: data.msg,
                         icon: 'success'
                     });
+                    tablePadres.ajax.reload();
                 } else {
                     Swal.fire({
                         title: 'Usuario',
@@ -83,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         icon: 'error'
                     });
                 }
-                tablePadres.ajax.reload();
             }
         }
     }
@@ -118,14 +118,12 @@ function editarPadre(ID) {
                 document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
                 document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-                document.querySelector('#info_contacto').value = data.data.info_contacto;
                 document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
-                document.querySelector('#id_rol').value = data.data.id_rol;
+                document.querySelector('#info_contacto').value = data.data.info_contacto;
                 // document.querySelector('#especialidad').value = data.data.especialidad;
                 document.querySelector('#est_reg').value = data.data.Est_Reg;
 
                 $("#modalPadre").modal('show');
-                // tablePadres.ajax.reload();
 
             } else {
                 Swal.fire({

@@ -2,7 +2,7 @@
 require_once '../../../includes/conexion.php';
 
 if (!empty($_POST)) {
-    if (empty($_POST['Nombre']) || empty($_POST['Apellido_Paterno']) || empty($_POST['Apellido_Materno']) || empty($_POST['nombre_usuario']) || empty($_POST['info_contacto']) || empty($_POST['tipo_usuario']) || empty($_POST['id_rol'] || empty($_POST['especialidad']) ||empty($_POST['est_reg']))) {
+    if (empty($_POST['Nombre']) || empty($_POST['Apellido_Paterno']) || empty($_POST['Apellido_Materno']) || empty($_POST['nombre_usuario']) || empty($_POST['info_contacto']) || empty($_POST['tipo_usuario']) || empty($_POST['id_rol'])) {
         $respuesta = array('status' => false, 'msg' => 'Todos los campos requeridos son necesarios');
     } else {
         // Asigna las variables desde el formulario
@@ -12,9 +12,9 @@ if (!empty($_POST)) {
         $apellido_materno = $_POST['Apellido_Materno'];
         $nombre_usuario = $_POST['nombre_usuario'];
         $contraseña = $_POST['contraseña'];
-        $info_contacto = ($_POST['info_contacto']); 
         $tipo_usuario = $_POST['tipo_usuario'];
         $id_rol = $_POST['id_rol'];
+        $info_contacto = ($_POST['info_contacto']); 
         $especialidad = ($_POST['especialidad']);
         $est = $_POST['est_reg'];
 
@@ -37,20 +37,20 @@ if (!empty($_POST)) {
             );
         } else {
             if ($idprofesor == "") { 
-                $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, info_contacto, tipo_usuario, id_rol,  especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
-                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $info_contacto, $tipo_usuario, $id_rol, $especialidad, $est));
+                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est));
                 $accion = 1;
             } else {
                 if (!empty($contraseña)) {
-                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, info_contacto = ?, tipo_usuario = ?, id_rol = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
+                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario,  $info_contacto, $tipo_usuario, $id_rol, $especialidad, $est, $idprofesor));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est, $idprofesor));
                     $accion = 2;
                 } else {
-                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, contraseña = ?, info_contacto = ?, tipo_usuario = ?, id_rol = ?,  especialidad = ?, est_reg = ? WHERE ID = ?';
+                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, contraseña = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $info_contacto, $tipo_usuario, $id_rol, $especialidad, $est, $idprofesor));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est, $idprofesor));
                     $accion = 3;
                 }
             }

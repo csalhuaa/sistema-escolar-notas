@@ -47,11 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
         var info_contacto = document.querySelector('#info_contacto').value;
-<<<<<<< HEAD
-        // var especialidad = document.querySelector('#especialidad').value;
-=======
         var especialidad = document.querySelector('#especialidad').value;
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
         var Est_Reg = document.querySelector('#est_reg').value;
 
         if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
@@ -94,11 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-<<<<<<< HEAD
-function openModal() {
-=======
 function openModalUsuarios() {
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
     document.querySelector('#idusuario').value = "";
     document.querySelector('#tituloModal').innerHTML = 'Nuevo Usuario';
     document.querySelector('#action').innerHTML = 'Guardar';
@@ -126,13 +118,7 @@ function editarUsuario(ID) {
                 document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
                 document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-<<<<<<< HEAD
-                document.querySelector('#info_contacto').value = data.data.info_contacto;
                 document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
-                document.querySelector('#id_rol').value = data.data.id_rol;
-=======
-                document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                 document.querySelector('#est_reg').value = data.data.Est_Reg;
 
                 $("#modalUsuario").modal('show');

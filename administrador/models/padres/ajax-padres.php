@@ -6,7 +6,8 @@ if (!empty($_POST)) {
         $respuesta = array(
             'status' => false, 
             'msg' => 'Todos los campos requeridos son necesarios',
-            'idpadre' => $_POST['idpadre']);
+            'idpadre' => $_POST['$idpadre']
+        );
     } else {
         // Asigna las variables desde el formulario
         $idpadre = $_POST['idpadre'];
@@ -15,9 +16,9 @@ if (!empty($_POST)) {
         $apellido_materno = $_POST['Apellido_Materno'];
         $nombre_usuario = $_POST['nombre_usuario'];
         $contraseña = $_POST['contraseña'];
-        $info_contacto = ($_POST['info_contacto']);
         $tipo_usuario = $_POST['tipo_usuario'];
         $id_rol = $_POST['id_rol'];
+        $info_contacto = $_POST['info_contacto'];
         $especialidad = !empty($_POST['especialidad']) ? $_POST['especialidad'] : null;
         $est = $_POST['est_reg'];
 
@@ -27,7 +28,7 @@ if (!empty($_POST)) {
         }
 
         // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ?';
+        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ? AND Est_Reg != "A"';
         $query = $pdo->prepare($sql);
         $query->execute(array($nombre_usuario, $idpadre));
         $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -36,7 +37,7 @@ if (!empty($_POST)) {
             $respuesta = array(
                 'status' => false, 
                 'msg' => 'El nombre de usuario ya existe',
-                'idpadre' => $_POST['idpadre']
+                'idpadre' => $_POST['$idpadre']
             );
         } else {
             // Inserta o actualiza el usuario
@@ -49,7 +50,7 @@ if (!empty($_POST)) {
                 if (empty($contraseña)) {
                     $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, info_contacto = ?, tipo_usuario = ?, id_rol = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
                     $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $info_contacto, $tipo_usuario, $id_rol,  $especialidad, $est, $idpadre));
+                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $info_contacto, $tipo_usuario, $id_rol, $especialidad, $est, $idpadre));
                     $accion = 2;
                 } else {
                     $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, contraseña = ?, info_contacto = ?, tipo_usuario = ?, id_rol = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
@@ -64,13 +65,13 @@ if (!empty($_POST)) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario creado correctamente',
-                        'idpadre' => $idpadre // Agregar el idpadre a la respuesta
+                        'idpadre' => $idpadre // Agregar el idusuario a la respuesta
                     );
                 } else if ($accion == 2 || $accion == 3) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario actualizado correctamente',
-                        'idpadre' => $idpadre // Agregar el idpadre a la respuesta
+                        'idpadre' => $idpadre // Agregar el idusuario a la respuesta
                     );
                 }
             } else {
@@ -82,6 +83,7 @@ if (!empty($_POST)) {
             }
         }
     }
+    header('Content-Type: application/json');
     echo json_encode($respuesta);
 }
-?>  
+?>

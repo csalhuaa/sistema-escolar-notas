@@ -30,11 +30,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="control-label" class="col-form-label">Contacto:</label>
-<<<<<<< HEAD
-                        <input type="email" class="form-control" name="info_contacto" id="info_contacto">
-=======
                         <input type="text" class="form-control" name="info_contacto" id="info_contacto">
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                     </div>
                     <div class="form-group">
                         <label for="listRol">Rol</label>
@@ -42,17 +38,11 @@
                             <option value="docente">Profesor</option>
                         </select>
                     </div>
-<<<<<<< HEAD
-                    <div class="mb-3">
-                        <!-- <label for="control-label" class="col-form-label">ID Rol:</label> -->
-                        <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="2">
-=======
                     <div class="form-group">
                         <label for="id_rol">ID Rol</label>
                         <select class="form-control" name="id_rol" id="id_rol">
                             <option value="2">2</option>
                         </select>
->>>>>>> 1b3c3f534f844a8532a401a3bf81853f1b61d016
                     </div>
                     <div class="mb-3">
                         <label for="control-label" class="col-form-label">Especialidad:</label>
