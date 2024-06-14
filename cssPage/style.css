@@ -26,8 +26,8 @@ header {
     z-index: 10;
 }
 .menu .logo {
-    width: 150px; /* Ajusta el ancho del logo según sea necesario */
-    height: 100px; /* Ajusta la altura automáticamente */
+    width: 150px; 
+    height: 100px; 
 }
 .menu.abajo {
     background-color: #fff;
@@ -121,32 +121,32 @@ header .logo {
 
 .contenedor-main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas autoajustables */
-    gap: 20px; /* Espacio entre las celdas */
-    padding: 20px; /* Espaciado interno */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+    padding: 20px; 
 }
 
 .item {
-    background-color: #f0f0f0; /* Color de fondo del contenedor */
-    padding: 20px; /* Espaciado interno del contenedor */
-    border-radius: 8px; /* Borde redondeado */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: flex; /* Para usar flexbox */
-    flex-direction: column; /* Apilar elementos verticalmente */
-    justify-content: center; /* Centrar verticalmente */
-    align-items: center; /* Centrar horizontalmente */
-    text-align: center; /* Centrar el texto dentro del contenedor */
+    background-color: #f0f0f0; 
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center; 
 }
 
 .item img {
-    max-width: 100%; /* Imagen no supera el ancho del contenedor */
-    height: auto; /* Altura automática para mantener la proporción */
-    border-radius: 8px; /* Borde redondeado para la imagen */
-    margin-bottom: 15px; /* Espacio opcional entre la imagen y el párrafo */
+    max-width: 100%;
+    height: auto; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
 }
 
 .item p {
-    margin-top: 10px; /* Margen superior para separar la imagen del texto */
+    margin-top: 10px; 
 }
 .subtitulo{
     text-align: center;
@@ -169,7 +169,7 @@ header .logo {
 }
 .imagen_light{
     position: fixed;
-    background: rgba(0,0,0.6);
+    background: rgba(0,0,0,.6);
     width: 100%;
     height: 100%;
     top:0;
@@ -179,7 +179,11 @@ header .logo {
     align-items: center;
     transform: translate(100%);
     transition: transform .2s ease-in-out;
+    z-index: 9999; /* Asegúrate de que sea más alto que el menú */
 
+}
+.menu.abajo {
+    z-index: 1000; /* Menor que la imagen lightbox */
 }
 
 .show{
@@ -187,6 +191,7 @@ header .logo {
 
 }
 .agregar-imagen{
+    object-fit: cover;
     width: 60%;
     border-radius: 10px;
     transform: scale(0);
@@ -203,35 +208,7 @@ header .logo {
     width: 40px;
     cursor: pointer;
 }
-.social-media{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-}
-.social-media-icon{
-    display: flex;
-    margin-left: 20px;
-    width: 60px;
-    height: 60px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    text-align: center;
-    color: #fff;
-}
-.social-media-icon:hover{
-    background: #fff;
-    color: #764ba2;
-}
-.social-media-icon i{
-    font-size: 30px;
-    line-height: 60px;
-}
-.line{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 2px;
-}
+
 
 /* 
 FOOTER */
@@ -240,7 +217,7 @@ footer {
     color: white;
     padding: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Cambiar a columna */
     align-items: center;
 }
 
@@ -264,13 +241,39 @@ footer {
     text-align: left;
 }
 
-@media (max-width: 600px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+.social-media {
+    width: 80%; 
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0; 
+}
 
-    .footer-logo img {
-        margin: 0 0 10px 0;
-    }
+.social-media-icon {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    transition: background 0.3s, color 0.3s; /* Añadir transición para hover */
+}
+
+.social-media-icon:hover {
+    background: #fff;
+    color: #764ba2;
+}
+
+.social-media-icon i {
+    font-size: 30px;
+}
+
+.line {
+    width: 90%;
+    max-width: 1200px;
+    height: 2px;
+    background: #fff;
+    margin-top: 20px; 
 }
