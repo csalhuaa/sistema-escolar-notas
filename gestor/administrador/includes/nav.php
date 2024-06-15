@@ -21,6 +21,14 @@
             <a class="app-menu__item" href="listaPadres.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Padres</span></a>
         </li>
         <li>
+            <a class="app-menu__item" href="listaGrados.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Grados</span></a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="listaSecciones.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Secciones</span></a>
+        </li><li>
+            <a class="app-menu__item" href="listaCursos.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Cursos</span></a>
+        </li>
+        <li>
             <a class="app-menu__item" href="../logout.php"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Salir</span></a>
         </li>
     </ul>

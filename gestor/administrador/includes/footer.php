@@ -13,5 +13,8 @@
     <script src="js/functionsProfesores.js"></script>
     <script src="js/functionsAlumnos.js"></script>
     <script src="js/functionsPadres.js"></script>
+    <script src="js/functionsGrados.js"></script>
+    <script src="js/functionsSecciones.js"></script>
+    <script src="js/functionsCursos.js"></script>
 </body>
 </html>
