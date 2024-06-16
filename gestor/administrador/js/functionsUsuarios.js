@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
         var info_contacto = document.querySelector('#info_contacto').value;
-        var especialidad = document.querySelector('#especialidad').value;
         var Est_Reg = document.querySelector('#est_reg').value;
 
         if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     Swal.fire({
                         title: 'Usuario',
                         text: data.msg,
-                        icon: 'success'
+                        icon: 'error'
                     });
                     tableUsuarios.ajax.reload();
                 } else {
@@ -118,6 +117,7 @@ function editarUsuario(ID) {
                 document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
                 document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
+                document.querySelector('#info_contacto').value = data.data.info_contacto;
                 document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
                 document.querySelector('#est_reg').value = data.data.Est_Reg;
 

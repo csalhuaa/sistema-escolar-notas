@@ -23,20 +23,28 @@ if (!empty($_POST)) {
             $contraseña = password_hash($contraseña, PASSWORD_DEFAULT);
         }
 
-        // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ? AND Est_Reg != "A"';
+        // Verifica si el nombre de usuario o la combinación de nombre completo ya existen
+        $sql = 'SELECT * FROM usuarios WHERE (nombre_usuario = ? OR (Nombre = ? AND Apellido_Paterno = ? AND Apellido_Materno = ?)) AND est_reg = "A"';
+        $params = [$nombre_usuario, $nombre, $apellido_paterno, $apellido_materno];
+
+        if (!empty($idprofesor)) {
+            $sql .= ' AND ID != ?';
+            $params[] = $idprofesor;
+        }
+
         $query = $pdo->prepare($sql);
-        $query->execute(array($nombre_usuario, $idprofesor));
+        $query->execute($params);
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($result > 0) {
+        if ($result) {
             $respuesta = array(
                 'status' => false,
-                'msg' => 'El nombre de usuario ya existe',
+                'msg' => 'El nombre de usuario o la combinación de nombre completo ya existen',
                 'idprofesor' => $idprofesor // Agregar el idusuario a la respuesta
             );
         } else {
-            if ($idprofesor == "") { 
+            // Si $idusuario está vacío, estamos insertando un nuevo usuario
+            if (empty($idprofesor)) {
                 $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
                 $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est));

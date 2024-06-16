@@ -167,6 +167,7 @@ function eliminarAlumno(ID){
 
 document.addEventListener('DOMContentLoaded', function() {
     // Función para cargar apoderados
+    console.log("Si entra a la función cargarApoderados");
     function cargarApoderados() {
         fetch('./models/alumnos/get_apoderados.php')
             .then(response => response.json())

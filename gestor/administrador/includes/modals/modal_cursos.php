@@ -9,7 +9,7 @@
                 <form id="formCurso" name="formCurso">
                     <input type="hidden" id="idcurso" name="idcurso" value="">
                     <div class="mb-3">
-                        <label for="Nombre" class="col-form-label">Nombre Curso:</label>
+                        <label class="col-form-label">Nombre Curso:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre">
                     </div>
                     <div class="mb-3">

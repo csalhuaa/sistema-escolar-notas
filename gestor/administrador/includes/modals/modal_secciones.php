@@ -9,8 +9,8 @@
                 <form id="formSeccion" name="formSeccion">
                     <input type="hidden" id="idseccion" name="idseccion" value="">
                     <div class="mb-3">
-                        <label for="Nombre" class="col-form-label">Nombre Sección:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre">
+                        <label for="control-label">Nombre Sección:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" style="text-transform: uppercase;">
                     </div>
                     <div class="form-group">
                         <label for="listGrado">Grado: </label>:</label>

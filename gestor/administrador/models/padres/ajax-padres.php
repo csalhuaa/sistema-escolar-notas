@@ -27,21 +27,28 @@ if (!empty($_POST)) {
             $contraseña = password_hash($contraseña, PASSWORD_DEFAULT);
         }
 
-        // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM usuarios WHERE nombre_usuario = ? AND ID != ? AND Est_Reg != "A"';
+        // Verifica si el nombre de usuario o la combinación de nombre completo ya existen
+        $sql = 'SELECT * FROM usuarios WHERE (nombre_usuario = ? OR (Nombre = ? AND Apellido_Paterno = ? AND Apellido_Materno = ?)) AND est_reg = "A"';
+        $params = [$nombre_usuario, $nombre, $apellido_paterno, $apellido_materno];
+
+        if (!empty($idpadre)) {
+            $sql .= ' AND ID != ?';
+            $params[] = $idpadre;
+        }
+
         $query = $pdo->prepare($sql);
-        $query->execute(array($nombre_usuario, $idpadre));
+        $query->execute($params);
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($result > 0) {
+        if ($result) {
             $respuesta = array(
-                'status' => false, 
-                'msg' => 'El nombre de usuario ya existe',
-                'idpadre' => $_POST['$idpadre']
+                'status' => false,
+                'msg' => 'El nombre de usuario o la combinación de nombre completo ya existen',
+                'idpadre' => $idpadre // Agregar el idusuario a la respuesta
             );
         } else {
-            // Inserta o actualiza el usuario
-            if ($idpadre == "") {
+            // Si $idusuario está vacío, estamos insertando un nuevo usuario
+            if (empty($idpadre)) {
                 $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, info_contacto, tipo_usuario, id_rol, especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
                 $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $info_contacto, $tipo_usuario, $id_rol, $especialidad, $est));

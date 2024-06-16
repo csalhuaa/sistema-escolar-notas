@@ -100,7 +100,7 @@ function editarCurso(ID) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
                 document.querySelector('#idcurso').value = data.data.ID;
-                document.querySelector('#Nombre').value = data.data.nombre_Curso;
+                document.querySelector('#Nombre').value = data.data.nombre;
                 document.querySelector('#descripcion').value = data.data.descripcion;
                 document.querySelector('#est_reg').value = data.data.Est_Reg;
 

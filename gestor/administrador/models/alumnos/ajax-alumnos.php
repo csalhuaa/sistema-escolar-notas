@@ -14,20 +14,27 @@ if (!empty($_POST)) {
         $id_tutor = $_POST['listpadre'];
         $est_reg = $_POST['est_reg'];
 
-        // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM estudiantes WHERE nombre = ? AND ID != ? AND Est_Reg = "A"';
+        // Verifica si el nombre de usuario ya existe
+        $sql = 'SELECT * FROM estudiantes WHERE nombre = ? AND id_tutor = ? AND est_reg = "A"';
+        $params = [$nombre, $id_tutor];
+
+        if (!empty($idalumno)) {
+            $sql .= ' AND ID != ?';
+            $params[] = $idalumno;
+        }
+
         $query = $pdo->prepare($sql);
-        $query->execute(array($nombre, $idalumno));
+        $query->execute($params);
         $result = $query->fetch(PDO::FETCH_ASSOC);
 
-        if ($result > 0) {
+        if ($result) {
             $respuesta = array(
                 'status' => false,
-                'msg' => 'El nombre de usuario ya existe',
-                'idusuario' => $idusuario // Agregar el idusuario a la respuesta
+                'msg' => 'El alumno ya existe',
+                'idalumno' => $idalumno // Agregar el idusuario a la respuesta
             );
         } else {
-            if ($idalumno == "") {      
+            if (empty($idalumno)) {    
                 $sqlInsert = 'INSERT INTO estudiantes (nombre, fecha_nacimiento, direccion, id_tutor, est_reg) VALUES (?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
                 $request = $queryInsert->execute(array($nombre, $fecha_nacimiento, $direccion, $id_tutor, $est_reg));
