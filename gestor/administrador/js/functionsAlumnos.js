@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
+            {"data": "estudiante_id"},
             {"data": "nombre"},
             {"data": "fecha_nacimiento"},
             {"data": "direccion"},
-            {"data": "id_tutor"},
+            {"data": "tutor_nombre_completo"},
             {"data": "Est_Reg"},
         ],
         "responsive": true,

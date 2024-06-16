@@ -28,7 +28,7 @@ require_once 'includes/modals/modal_alumno.php';
                                     <th>NOMBRE</th>
                                     <th>FECHA NACIMIENTO</th>
                                     <th>DIRECCIÓN</th>
-                                    <th>ID_TUTOR</th>
+                                    <th>TUTOR NOMBRE COMPLETO</th>
                                     <!-- <th>PADRE</th> -->
                                     <!-- <th>APELLIDO PATERNO</th>
                                     <th>APELLIDO MATERNO</th>
@@ -36,8 +36,7 @@ require_once 'includes/modals/modal_alumno.php';
                                     <th>CONTACTO</th>
                                     <th>ROL</th>
                                     <th>ID ROL</th>
-                                    <th>ESPECIALIDAD</th>
-                                    <th>ESTADO</th> -->
+                                    <th>ESPECIALIDAD</th> -->
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>

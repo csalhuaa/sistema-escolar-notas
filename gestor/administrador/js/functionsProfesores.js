@@ -1,3 +1,4 @@
+ls
 $('#tableProfesores').DataTable();
 var tableProfesores;
 
