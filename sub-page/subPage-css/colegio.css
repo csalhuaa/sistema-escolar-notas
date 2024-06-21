@@ -91,6 +91,49 @@ header .logo {
     box-shadow: 0 0 6px rgba(0,0,0,.5);
     
 }
+.content-mv{
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20em;
+    
+}
+
+.content-mv .mv{
+    height: auto;
+    border: 1px solid #000;
+    background-color: #C8C5C4;
+}
+.text-mv, .text-h1, .text-p{
+    padding: 1em ;
+    
+    
+}
+.text-p{
+    text-indent: 2em; /* Aplica sangría de 2em a la primera línea */
+    line-height: 1.5; /* Establece la separación de línea al 150% de la altura de la fuente */
+    margin-bottom: 1em;
+    
+}
+.objetivo{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20em;
+    gap: 15px;
+    padding-bottom: 2em;
+    
+}
+.objetivo-var{
+    border: 1px solid #000;
+    background-color: #C8C5C4;
+    
+}
+.objetivo-var h1{
+    text-align: center;
+}
+
+
 
 
 /* 
