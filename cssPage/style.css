@@ -12,7 +12,6 @@ header {
     height: 100vh;
     position: relative;
     z-index: 10;
-    background: rgba(24, 19, 19, 0.1);
 }
 
 .menu {
@@ -157,7 +156,6 @@ header .logo {
     align-items: center;
     
 }
-
 .text-container h3 {
     margin-bottom: 10px; /* Espacio entre el título y el párrafo */
     font-size: 1.5em; /* Tamaño de fuente del título */
@@ -178,63 +176,103 @@ header .logo {
     font-weight: 300;
     color: #9f8ad0;
     margin: 40px;
-
-}
-.contenido_galeria{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-.imagen_galeria{
-    width: 30%;
-    display: block;
-    margin-bottom: 15px;
-    box-shadow: 0 0 6px rgba(0,0,0, .5);
-    cursor: pointer;
-}
-.imagen_light{
-    position: fixed;
-    background: rgba(0,0,0,.6);
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(100%);
-    transition: transform .2s ease-in-out;
-    z-index: 9999; /* Asegúrate de que sea más alto que el menú */
-
 }
 .menu.abajo {
     z-index: 1000; /* Menor que la imagen lightbox */
 }
 
-.show{
-    transform: translate(0);
+.valor{
+    width: 100%;
+    height: auto;
+    background-color: #e6be1e;
+    flex-wrap: wrap;
 
 }
-.agregar-imagen{
-    object-fit: cover;
-    width: 60%;
-    border-radius: 10px;
-    transform: scale(0);
-    transition: transform .3s .2s;
+.valor-text{
+    color:#fff;
+    margin:0 50px 0 50px; 
+    padding: 2em;
 }
-.showImage{
-    transform: scale(1);
+.valor-sub{
+    padding-bottom: 1em;
+}
+.valor-imagen{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-around;
+    padding-bottom: 2em;
+    
+}
+.valor-img{
+    width: 180px;
+    height: 180px;
+    padding: 12px;
+    border-radius: 60%;
+    align-items: center;
+}
+.cont-margin{
+    width: 190px;
+    height: 190px;
+    border-radius: 60%;
+    border: 1px solid #fff;
+}
+.item-texto-valor{
+    text-align: center;
+    padding-bottom: 1em;
+    color: #fff;
+}
+ .valor-text .text-valores{
+    padding-bottom: 1em;
+}
+.motivacion-main {
+    padding-top: 3em;
+}
 
+.content-motivacion {
+    width: 100%;
+    height: 50vh;
+    position: relative; /* Posiciona el contenedor para el uso de posicionamiento absoluto del overlay */
 }
-.close{
+
+.elementos-motivacion {
+    width: 100%;
+    height: 100%;
+    background-image: url('../imgPage/motivacion.jpg');
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.overlay {
     position: absolute;
-    top:15px;
-    right: 15px;
-    width: 40px;
-    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo difuminado */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-
+.overlay h1 {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+    padding: 1em;
+}
+.text-moti {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1em;
+}
+.moti-element{
+    padding: 50px;
+    color: #fff;
+}
 /* 
 FOOTER */
 footer {
