@@ -5,7 +5,7 @@
     if($_POST){
         $idseccion = $_POST['idseccion'];
 
-        $sql = "UPDATE secciones SET Est_Reg = 'I' WHERE ID = ?";
+        $sql = "UPDATE secciones SET est_reg = 'I' WHERE id_seccion = ?";
         $query = $pdo->prepare($sql);
         $result = $query->execute(array($idseccion));
 

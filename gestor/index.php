@@ -2,18 +2,17 @@
 session_start();
 
 // Verificar si el usuario ya está autenticado y redirigir
-if (isset($_SESSION['active'])) {
+if (!empty($_SESSION['active'])) {
     header('Location: administrador/');
-    exit();
-} else if (isset($_SESSION['activeP'])) {
+    exit(); // Asegurar que se detenga la ejecución aquí
+} else if (!empty($_SESSION['activeP'])) {
     header('Location: profesor/');
     exit();
-} else if (isset($_SESSION['activePa'])) {
+} else if (!empty($_SESSION['activePa'])) {
     header('Location: padre/');
     exit();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +48,7 @@ if (isset($_SESSION['active'])) {
                 </ul>
                 <div class="tab-content justify-content-center" id="myTabContent">
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                        <form action="" method="POST" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()">
                             <label for="usuario">Usuario</label>
                             <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario">
                             <label for="password">Contraseña</label>
@@ -60,7 +59,7 @@ if (isset($_SESSION['active'])) {
                     </div>
 
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                        <form action="" method="POST" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()">
                             <label for="usuario">Usuario</label>
                             <input type="text" name="usuarioProfesor" id="usuarioProfesor" placeholder="Nombre de usuario">
                             <label for="password">Contraseña</label>
@@ -71,7 +70,7 @@ if (isset($_SESSION['active'])) {
                     </div>
 
                     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                        <form action="" method="POST" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()">
                             <label for="usuario">Usuario</label>
                             <input type="text" name="usuarioPadre" id="usuarioPadre" placeholder="Nombre de usuario">
                             <label for="password">Contraseña</label>

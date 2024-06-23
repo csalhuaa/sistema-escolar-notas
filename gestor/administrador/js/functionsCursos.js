@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
+            {"data": "id_curso"},
             {"data": "nombre"},
             {"data": "descripcion"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"},
         ],
         "responsive": true,
         "bDestroy": true,
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
         var idcurso = document.querySelector('#idcurso').value;
         var nombre = document.querySelector('#Nombre').value;
         var descripcion = document.querySelector('#descripcion').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+        var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || descripcion == '' || Est_Reg == '') {
+        if (nombre == '' || descripcion == '' || est_reg == '') {
             Swal.fire({
                 title: 'Atención',
                 text: 'Todos los campos son necesarios',
@@ -99,10 +99,10 @@ function editarCurso(ID) {
             console.log(request.responseText); 
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idcurso').value = data.data.ID;
+                document.querySelector('#idcurso').value = data.data.id_curso;
                 document.querySelector('#Nombre').value = data.data.nombre;
                 document.querySelector('#descripcion').value = data.data.descripcion;
-                document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalCurso").modal('show');
 

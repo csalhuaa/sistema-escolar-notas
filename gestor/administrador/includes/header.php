@@ -1,7 +1,8 @@
 <?php
   session_start();
-  if(!empty($_SESSION['active'])) {
-    header('Location: ./');
+  if(empty($_SESSION['active'])) {
+    header('Location: ../');
+    exit();
   }
 ?>
 

@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
+            {"data": "id_grado"},
             {"data": "nombre_grado"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"},
         ],
         "responsive": true,
         "bDestroy": true,
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var idgrado = document.querySelector('#idgrado').value;
         var nombre = document.querySelector('#Nombre').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+        var est_reg = document.querySelector('#est_reg').value;
 
         if (nombre == '') {
             Swal.fire({
@@ -97,9 +97,9 @@ function editarGrado(ID) {
             console.log(request.responseText); 
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idgrado').value = data.data.ID;
+                document.querySelector('#idgrado').value = data.data.id_grado;
                 document.querySelector('#Nombre').value = data.data.nombre_grado;
-                document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalGrado").modal('show');
 

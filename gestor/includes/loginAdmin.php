@@ -10,7 +10,7 @@ if (!empty($_POST)) {
         if ($pdo) {
             $login = $_POST['login'];
             $pass = $_POST['pass'];
-            $sql = 'SELECT * FROM Usuarios AS u INNER JOIN Roles AS r ON u.tipo_usuario = r.ID WHERE u.nombre_usuario = ?';
+            $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'administrador' AND est_reg = 'A'";
             
             // Prepara y ejecuta la consulta SQL
             $query = $pdo->prepare($sql);
@@ -24,17 +24,17 @@ if (!empty($_POST)) {
                 // Verifica la contraseña usando password_verify
                 if (password_verify($pass, $result['contraseña'])) {
                     $_SESSION['active'] = true;
-                    $_SESSION['nombre'] = $result['nombre_usuario'];
-                    $_SESSION['id_usuario'] = $result['ID'];
-                    $_SESSION['rol'] = $result['ID'];
-                    $_SESSION['nombre_rol'] = $result['nombre_rol'];
+                    $_SESSION['id_usuario'] = $result['id_usuario'];
+                    $_SESSION['nombre'] = $result['nombre'];
+                    $_SESSION['nombre_usuario'] = $result['nombre_usuario'];
+                    $_SESSION['tipo_usuario'] = $result['tipo_usuario'];
 
                     echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert"></button>Redirecting</div>';
                 } else {
                     echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!</div>';
                 }
             } else {
-                echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!aea</div>';
+                echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Usuario o clave incorrecta!</div>';
             }
         } else {    
             // Mensaje de error si la conexión no fue exitosa

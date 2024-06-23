@@ -60,8 +60,8 @@ function loginPadre(){
         url: './includes/loginPadre.php',
         method: 'POST',
         data: {
-            loginPadre: loginPadre,
-            passPadre: passPadre,
+            login: loginPadre,
+            pass: passPadre,
         },
         success: function(data) {
             $('#messagePadre').html(data);

@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
+            {"data": "id_seccion"},
             {"data": "nombre_seccion"},
             {"data": "id_grado"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"},
         ],
         "responsive": true,
         "bDestroy": true,
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var idseccion = document.querySelector('#idseccion').value;
         var nombre = document.querySelector('#Nombre').value;
         var listGrado = document.querySelector('#listGrado').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+        var est_reg = document.querySelector('#est_reg').value;
 
         if (nombre == '' || listGrado == '') {
             Swal.fire({
@@ -83,6 +83,28 @@ function openModalSeccion() {
     $("#modalSeccion").modal('show');
 }
 
+window.addEventListener('load', function() {
+    showGrados();
+}, false);
+
+function showGrados() {
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var url = './models/options/optionsGrados.php';
+
+    request.open('GET', url, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            var data = JSON.parse(request.responseText);
+            data.forEach(function(valor) {
+                data += '<option value="' + valor.id_grado + '">' + valor.nombre_grado + '</option>';
+            });
+            document.querySelector('#listGrado').innerHTML = data;
+        }
+    }
+}
+
+
 function editarSeccion(ID) {
     var idseccion = ID;
     console.log(idseccion);
@@ -99,10 +121,10 @@ function editarSeccion(ID) {
             console.log(request.responseText); 
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idseccion').value = data.data.ID;
+                document.querySelector('#idseccion').value = data.data.id_seccion;
                 document.querySelector('#Nombre').value = data.data.nombre_seccion;
                 document.querySelector('#listGrado').value = data.data.id_grado;
-                document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalSeccion").modal('show');
 

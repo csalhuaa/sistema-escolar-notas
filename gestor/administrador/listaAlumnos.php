@@ -26,12 +26,12 @@ require_once 'includes/modals/modal_alumno.php';
                                     <th>ACCIONES</th>
                                     <th>ID</th>
                                     <th>NOMBRE</th>
+                                    <th>APELLIDO PATERNO</th>
+                                    <th>APELLIDO MATERNO</th>
                                     <th>FECHA NACIMIENTO</th>
                                     <th>DIRECCIÓN</th>
-                                    <th>TUTOR NOMBRE COMPLETO</th>
-                                    <!-- <th>PADRE</th> -->
-                                    <!-- <th>APELLIDO PATERNO</th>
-                                    <th>APELLIDO MATERNO</th>
+                                    <th>APODERADO</th>
+                                    <!-- 
                                     <th>USUARIO</th>
                                     <th>CONTACTO</th>
                                     <th>ROL</th>

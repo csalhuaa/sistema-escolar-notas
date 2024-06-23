@@ -16,14 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
-            {"data": "Nombre"},
-            {"data": "Apellido_Paterno"},
-            {"data": "Apellido_Materno"},
+            {"data": "id_usuario"},
+            {"data": "nombre"},
+            {"data": "apellido_paterno"},
+            {"data": "apellido_materno"},
             {"data": "nombre_usuario"},
+            {"data": "numero_contacto"},
             {"data": "info_contacto"},
             {"data": "tipo_usuario"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"},
         ],
         "responsive": true,
         "bDestroy": true,
@@ -39,15 +40,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // var formUsuario = document.querySelector('#formulario');
         var idusuario = document.querySelector('#idusuario').value;
-        var nombre = document.querySelector('#Nombre').value;
-        var apellido_paterno = document.querySelector('#Apellido_Paterno').value;
-        var apellido_materno = document.querySelector('#Apellido_Materno').value;
+        var nombre = document.querySelector('#nombre').value;
+        var apellido_paterno = document.querySelector('#apellido_paterno').value;
+        var apellido_materno = document.querySelector('#apellido_materno').value;
         var nombre_usuario = document.querySelector('#nombre_usuario').value;
         var contraseña = document.querySelector('#contraseña').value;
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
         var info_contacto = document.querySelector('#info_contacto').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+        var est_reg = document.querySelector('#est_reg').value;
 
         if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
             Swal.fire({
@@ -99,7 +100,7 @@ function openModalUsuarios() {
 
 function editarUsuario(ID) {
     var idusuario = ID;
-
+    console.log("ID: ", idusuario);
     document.querySelector('#tituloModal').innerHTML = 'Actualizar Usuario';
     document.querySelector('#action').innerHTML = 'Actualizar';
 
@@ -112,14 +113,15 @@ function editarUsuario(ID) {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idusuario').value = data.data.ID; // Asegúrate de que este ID se está asignando correctamente
-                document.querySelector('#Nombre').value = data.data.Nombre;
-                document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
-                document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
+                document.querySelector('#idusuario').value = data.data.id_usuario; // Asegúrate de que este ID se está asignando correctamente
+                document.querySelector('#nombre').value = data.data.nombre;
+                document.querySelector('#apellido_paterno').value = data.data.apellido_paterno;
+                document.querySelector('#apellido_materno').value = data.data.apellido_materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
+                document.querySelector('#numero_contacto').value = data.data.numero_contacto;
                 document.querySelector('#info_contacto').value = data.data.info_contacto;
                 document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
-                document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalUsuario").modal('show');
             } else {

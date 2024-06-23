@@ -15,12 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "estudiante_id"},
+            {"data": "id_estudiante"},
             {"data": "nombre"},
+            {"data": "apellido_paterno"},
+            {"data": "apellido_materno"},
             {"data": "fecha_nacimiento"},
             {"data": "direccion"},
             {"data": "tutor_nombre_completo"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"},
         ],
         "responsive": true,
         "bDestroy": true,
@@ -35,16 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // var formAlumno = document.querySelector('#formulario');
         var idalumno = document.querySelector('#idalumno').value;
-        var nombre = document.querySelector('#Nombre').value;
+        var nombre = document.querySelector('#nombre').value;
+        var apellido_paterno = document.querySelector('#apellido_paterno').value;
+        var apellido_materno = document.querySelector('#apellido_materno').value;
         var fecha_nacimiento = document.querySelector('#fecha_nac').value;
         var direccion = document.querySelector('#direccion').value;
         var id_tutor = document.querySelector('#listpadre').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+        var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || Est_Reg == '') {
+        if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || est_reg == '') {
             Swal.fire({
                 title: 'Atención',
-                text: 'Todos los campos son necesarios',
+                text: 'Todos los campos son necesarios1',
                 icon: 'error'
             });
             return false;
@@ -88,6 +92,28 @@ function openModalAlumnos() {
     $("#modalAlumno").modal('show');
 }
 
+
+window.addEventListener('load', function() {
+    showPadres();
+}, false);
+
+function showPadres() {
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var url = './models/options/optionsPadres.php';
+
+    request.open('GET', url, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            var data = JSON.parse(request.responseText);
+            data.forEach(function(valor) {
+                data += '<option value="' + valor.id_usuario + '">' + valor.nombre + '</option>';
+            });
+            document.querySelector('#listpadre').innerHTML = data;
+        }
+    }
+}
+
 function editarAlumno(ID) {
     var idalumno = ID;
 
@@ -102,8 +128,10 @@ function editarAlumno(ID) {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idalumno').value = data.data.ID;
-                document.querySelector('#Nombre').value = data.data.nombre;
+                document.querySelector('#idalumno').value = data.data.id_estudiante;
+                document.querySelector('#nombre').value = data.data.nombre;
+                document.querySelector('#apellido_paterno').value = data.data.apellido_paterno;
+                document.querySelector('#apellido_materno').value = data.data.apellido_materno;
                 document.querySelector('#fecha_nac').value = data.data.fecha_nacimiento;
                 document.querySelector('#direccion').value = data.data.direccion;
                 document.querySelector('#listpadre').value = data.data.id_tutor;
@@ -123,7 +151,7 @@ function editarAlumno(ID) {
 
 function eliminarAlumno(ID){
     var idalumno = ID;
-
+    console.log(idalumno)
     Swal.fire({
         title: "Eliminar Alumno",
         text: "¿Desea eliminar al Alumno?",
@@ -164,27 +192,3 @@ function eliminarAlumno(ID){
         }
     })
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Función para cargar apoderados
-    console.log("Si entra a la función cargarApoderados");
-    function cargarApoderados() {
-        fetch('./models/alumnos/get_apoderados.php')
-            .then(response => response.json())
-            .then(data => {
-                let selectPadre = document.getElementById('listpadre');
-                selectPadre.innerHTML = ''; // Limpiar las opciones existentes
-                data.forEach(apoderado => {
-                    let option = document.createElement('option');
-                    option.value = apoderado.ID;
-                    option.text = `${apoderado.Nombre} ${apoderado.Apellido_Paterno} ${apoderado.Apellido_Materno}`;
-                    selectPadre.appendChild(option);
-                });
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    // Llamar a la función cuando se abre el modal
-    let modal = document.getElementById('modalAlumno');
-    modal.addEventListener('show.bs.modal', cargarApoderados);
-});

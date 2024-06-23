@@ -4,7 +4,7 @@ require_once '../../../includes/conexion.php';
 if (!empty($_GET['idseccion'])) {
     $idseccion = $_GET['idseccion'];
 
-    $sql = "SELECT * FROM secciones WHERE ID = ?";
+    $sql = "SELECT * FROM secciones WHERE id_seccion = ?";
     $query = $pdo->prepare($sql);
     $query->execute(array($idseccion));
 

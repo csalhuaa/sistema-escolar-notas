@@ -1,9 +1,7 @@
-ls
 $('#tableProfesores').DataTable();
 var tableProfesores;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializa DataTable
     tableProfesores = $('#tableProfesores').DataTable({
         "aProcessing": true,
         "aServerSide": true,
@@ -13,20 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
         "ajax": {
             "method": "POST",
             "url": "./models/profesores/table_profesores.php",
-            "dataSrc": "",
+            "dataSrc": ""
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "ID"},
-            {"data": "Nombre"},
-            {"data": "Apellido_Paterno"},
-            {"data": "Apellido_Materno"},
+            {"data": "id_usuario"},
+            {"data": "nombre"},
+            {"data": "apellido_paterno"},
+            {"data": "apellido_materno"},
             {"data": "nombre_usuario"},
+            {"data": "numero_contacto"},
             {"data": "info_contacto"},
             {"data": "tipo_usuario"},
             {"data": "id_rol"},
-            {"data": "especialidad"},
-            {"data": "Est_Reg"},
+            {"data": "est_reg"}
         ],
         "responsive": true,
         "bDestroy": true,
@@ -34,22 +32,19 @@ document.addEventListener('DOMContentLoaded', function() {
         "order": [[0, "asc"]]
     });
 
-    
     var formProfesor = document.querySelector('#formProfesor');
     formProfesor.onsubmit = function(e) {
         e.preventDefault();
 
-        // var formUsuario = document.querySelector('#formulario');
         var idprofesor = document.querySelector('#idprofesor').value;
-        var nombre = document.querySelector('#Nombre').value;
-        var apellido_paterno = document.querySelector('#Apellido_Paterno').value;
-        var apellido_materno = document.querySelector('#Apellido_Materno').value;
+        var nombre = document.querySelector('#nombre').value;
+        var apellido_paterno = document.querySelector('#apellido_paterno').value;
+        var apellido_materno = document.querySelector('#apellido_materno').value;
         var nombre_usuario = document.querySelector('#nombre_usuario').value;
         var contraseña = document.querySelector('#contraseña').value;
         var tipo_usuario = document.querySelector('#tipo_usuario').value;
         var id_rol = document.querySelector('#id_rol').value;
         var info_contacto = document.querySelector('#info_contacto').value;
-        var especialidad = document.querySelector('#especialidad').value;
         var Est_Reg = document.querySelector('#est_reg').value;
 
         if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
@@ -71,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
         request.onreadystatechange = function() {
             if (request.readyState == 4 && request.status == 200) {
                 var data = JSON.parse(request.responseText);
-                if (request.status) {
+                if (data.status) {
                     $('#modalProfesor').modal('hide');
                     formProfesor.reset();
                     Swal.fire({
@@ -100,8 +95,30 @@ function openModalProfesores() {
     $("#modalProfesor").modal('show');
 }
 
+window.addEventListener('load', function() {
+    showCursos();
+}, false);
+
+function showCursos() {
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var url = './models/options/optionsCursos.php';
+
+    request.open('GET', url, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            var data = JSON.parse(request.responseText);
+            data.forEach(function(valor) {
+                data += '<option value="' + valor.id_curso + '">' + valor.nombre + '</option>';
+            });
+            document.querySelector('#especialidad').innerHTML = data;
+        }
+    }
+}
+
 function editarProfesor(ID) {
     var idprofesor = ID;
+    console.log(idprofesor);
 
     document.querySelector('#tituloModal').innerHTML = 'Actualizar Profesor';
     document.querySelector('#action').innerHTML = 'Actualizar';
@@ -115,15 +132,14 @@ function editarProfesor(ID) {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idprofesor').value = data.data.ID;
-                document.querySelector('#Nombre').value = data.data.Nombre;
-                document.querySelector('#Apellido_Paterno').value = data.data.Apellido_Paterno;
-                document.querySelector('#Apellido_Materno').value = data.data.Apellido_Materno;
+                document.querySelector('#idprofesor').value = data.data.id_usuario;
+                document.querySelector('#nombre').value = data.data.nombre;
+                document.querySelector('#apellido_paterno').value = data.data.apellido_paterno;
+                document.querySelector('#apellido_materno').value = data.data.apellido_materno;
                 document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-                // document.querySelector('#tipo_usuario').value = data.data.tipo_usuario;
+                document.querySelector('#numero_contacto').value = data.data.numero_contacto;
                 document.querySelector('#info_contacto').value = data.data.info_contacto;
-                document.querySelector('#especialidad').value = data.data.especialidad;
-                // document.querySelector('#est_reg').value = data.data.Est_Reg;
+                document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalProfesor").modal('show');
             } else {
@@ -137,7 +153,7 @@ function editarProfesor(ID) {
     }
 }
 
-function eliminarProfesor(ID){
+function eliminarProfesor(ID) {
     var idprofesor = ID;
 
     Swal.fire({
@@ -153,12 +169,12 @@ function eliminarProfesor(ID){
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             var url = './models/profesores/delete-profesores.php';
             request.open('POST', url, true);
-            var strData = "idprofesor="+idprofesor;
+            var strData = "idprofesor=" + idprofesor;
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
 
-            request.onreadystatechange = function(){
-                if(request.readyState == 4 && request.status == 200){
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
                     console.log(request.responseText);  // Add this line
                     var data = JSON.parse(request.responseText);
                     if (data.status) {
