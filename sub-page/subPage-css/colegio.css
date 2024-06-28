@@ -91,19 +91,24 @@ header .logo {
     box-shadow: 0 0 6px rgba(0,0,0,.5);
     
 }
+
 .content-mv{
     max-width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 50px 20em;
+    gap: 10px;
+    
     
 }
+
 
 .content-mv .mv{
     height: auto;
     border: 1px solid #000;
     background-color: #C8C5C4;
+    border-radius: 5px;
 }
 .text-mv, .text-h1, .text-p{
     padding: 1em ;
@@ -118,23 +123,47 @@ header .logo {
 }
 .objetivo{
     display: flex;
-    flex-direction: column;
-    padding: 0 20em;
+    flex-direction: row;
+    padding: 0 22em;
     gap: 15px;
-    padding-bottom: 2em;
+    padding-bottom: 4em  ;
+    flex-wrap: wrap;
     
+    
+}
+.ob-tit{
+    padding: 1em;
+}
+.objetivo-vari{
+    size: 30px;
+    color: #000;
+    text-align: center;
+    padding-bottom: 2em;
+}
+.MI{
+    padding-bottom: 0;
+    padding-top: 2em;
 }
 .objetivo-var{
     border: 1px solid #000;
     background-color: #C8C5C4;
-    
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
 }
 .objetivo-var h1{
     text-align: center;
 }
 
 
-
+.objetivo-var p{
+    padding: 0 1em;
+    padding-bottom: 1em;
+}
+.separacion{
+    background:linear-gradient(rgb(40, 40, 178),rgb(243, 190, 77));
+    padding: 2em;
+}
 
 /* 
 FOOTER */
@@ -149,18 +178,22 @@ footer {
 
 .footer-content {
     display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
 
 .footer-logo img {
-    max-height: 80px;
-    margin-right: 20px;
+    width: 20
+    em;
+    height: 200px;
 }
 
 .footer-info p {
     margin: 5px 0;
+    list-style-type: georgian;
 }
 
 .footer-info {
@@ -168,7 +201,6 @@ footer {
 }
 
 .social-media {
-    width: 80%; 
     display: flex;
     justify-content: flex-end;
     margin: 20px 0; 

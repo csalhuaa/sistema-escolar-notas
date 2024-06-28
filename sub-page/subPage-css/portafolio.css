@@ -106,11 +106,12 @@ header .logo {
     flex-wrap: wrap;
 }
 .imagen_galeria{
-    width: 30%;
+    width: 15%;
     display: block;
     margin-bottom: 15px;
     box-shadow: 0 0 6px rgba(0,0,0, .5);
     cursor: pointer;
+    gap: 5px;
 }
 .imagen_light{
     position: fixed;
