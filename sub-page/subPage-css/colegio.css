@@ -106,9 +106,9 @@ header .logo {
 
 .content-mv .mv{
     height: auto;
-    border: 1px solid #000;
     background-color: #C8C5C4;
     border-radius: 5px;
+    box-shadow: 60px -16px rgb(155, 155, 204);
 }
 .text-mv, .text-h1, .text-p{
     padding: 1em ;
@@ -139,17 +139,22 @@ header .logo {
     color: #000;
     text-align: center;
     padding-bottom: 2em;
+    padding-top: 2em;
+    
+    margin-bottom: 2em;
 }
 .MI{
     padding-bottom: 0;
-    padding-top: 2em;
+    margin-top: 2em;
 }
 .objetivo-var{
-    border: 1px solid #000;
     background-color: #C8C5C4;
     width: 300px;
     height: auto;
     border-radius: 5px;
+    box-shadow:60px -16px rgb(155, 155, 204);
+}
+
 }
 .objetivo-var h1{
     text-align: center;
