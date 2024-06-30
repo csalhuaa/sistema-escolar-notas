@@ -107,12 +107,13 @@ function showPadres() {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             data.forEach(function(valor) {
-                data += '<option value="' + valor.id_usuario + '">' + valor.nombre + '</option>';
+                data += '<option value="' + valor.id_usuario + '">' + valor.nombre + ' ' +valor.apellido_paterno + ' ' + valor.apellido_materno + '</option>';
             });
             document.querySelector('#listpadre').innerHTML = data;
         }
     }
 }
+
 
 function editarAlumno(ID) {
     var idalumno = ID;
