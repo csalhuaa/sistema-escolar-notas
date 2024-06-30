@@ -1,15 +1,15 @@
 <?php
 session_start();
 if (!empty($_POST)) {
-    if (empty($_POST['login']) || empty($_POST['pass'])) {
+    if (empty($_POST['loginProf']) || empty($_POST['passProf'])) {
         echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert"></button>Todos los campos son necesarios</div>';
     } else {
         require_once "conexion.php"; // Asegúrate de que tu script de conexión esté correctamente incluido
 
         // Verifica si la conexión fue exitosa
         if ($pdo) {
-            $login = $_POST['login'];
-            $pass = $_POST['pass'];
+            $login = $_POST['loginProf'];
+            $pass = $_POST['passProf'];
             $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'docente' AND est_reg = 'A'";
             
             // Prepara y ejecuta la consulta SQL
