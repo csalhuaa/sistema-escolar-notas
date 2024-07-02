@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 01-07-2024 a las 01:30:18
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-07-2024 a las 16:06:20
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,26 +88,6 @@ INSERT INTO `aulas` (`id_aula`, `id_grado`, `id_seccion`, `est_reg`) VALUES
 (3, 3, 3, 'A'),
 (4, 4, 4, 'A'),
 (5, 5, 5, 'A');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `bimestre`
---
-
-CREATE TABLE `bimestre` (
-  `id_bimestre` int(11) NOT NULL,
-  `nombre_bimestre` varchar(50) NOT NULL,
-  `estado_registro` char(1) DEFAULT 'A'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `bimestre`
---
-
-INSERT INTO `bimestre` (`id_bimestre`, `nombre_bimestre`, `estado_registro`) VALUES
-(1, 'Primer Bimestre', 'A'),
-(2, 'Segundo Bimestre', 'A');
 
 -- --------------------------------------------------------
 
@@ -316,7 +296,7 @@ CREATE TABLE `notas` (
   `id_estudiante` int(11) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL,
   `id_competencia` int(11) DEFAULT NULL,
-  `id_bimestre` int(11) DEFAULT NULL,
+  `id_periodo` int(11) DEFAULT NULL,
   `nota` decimal(5,2) DEFAULT NULL,
   `est_reg` char(1) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -325,7 +305,7 @@ CREATE TABLE `notas` (
 -- Volcado de datos para la tabla `notas`
 --
 
-INSERT INTO `notas` (`id_nota`, `id_estudiante`, `id_curso`, `id_competencia`, `id_bimestre`, `nota`, `est_reg`) VALUES
+INSERT INTO `notas` (`id_nota`, `id_estudiante`, `id_curso`, `id_competencia`, `id_periodo`, `nota`, `est_reg`) VALUES
 (1, 1, 1, 1, 1, 12.00, 'A'),
 (2, 1, 1, 2, 1, 11.99, 'A'),
 (3, 1, 1, 3, 1, 12.00, 'A'),
@@ -350,6 +330,26 @@ INSERT INTO `notas` (`id_nota`, `id_estudiante`, `id_curso`, `id_competencia`, `
 (22, 3, 1, 2, 2, 12.00, 'A'),
 (23, 3, 1, 3, 2, 12.00, 'A'),
 (24, 3, 1, 4, 2, 12.00, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `periodos`
+--
+
+CREATE TABLE `periodos` (
+  `id_periodo` int(11) NOT NULL,
+  `nombre_periodo` varchar(50) NOT NULL,
+  `estado_registro` char(1) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `periodos`
+--
+
+INSERT INTO `periodos` (`id_periodo`, `nombre_periodo`, `estado_registro`) VALUES
+(1, 'Primer Bimestre', 'A'),
+(2, 'Segundo Bimestre', 'A');
 
 -- --------------------------------------------------------
 
@@ -497,7 +497,7 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `contraseña`, `tipo_usu
 (2, 'asmith', '$2y$10$UvvEXH2FsyQIbiJdH/6iLu.KYQ.Ku3.tyMbJQn62ZnFpGgZcunnd2', 'docente', 'Alice', 'Smith', 'Johnson', '987654321', 1, 'alice.smith@example.com', 'A'),
 (3, 'bwilliams', 'pass123', 'tutor', 'Bob', 'Williams', 'Brown', '123123123', 2, 'bob.williams@example.com', 'A'),
 (4, 'cwilliams', 'pass123', 'tutor', 'Charlie', 'Williams', 'Brown', '321321321', 2, 'charlie.williams@example.com', 'A'),
-(5, 'dwilson', 'pass123', 'tutor', 'David', 'Wilson', 'Green', '456456456', 2, 'david.wilson@example.com', 'A'),
+(5, 'dwilson', '$2y$10$pD501yVHb1faXHKg6wyreOg3O3v5xD1D.R73Q7TWR/dhstaeaewB.', 'tutor', 'David', 'Wilson', 'Green', '456456456', 2, 'david.wilson@example.com', 'A'),
 (6, 'admin', '$2y$10$eMuM0pcjvm87zSJ9NzgO2OSlo0XoOsV6TRMVNmHT8Jht.Dp2jruNi', 'admin', 'Navi', 'Leandros', 'Mercado', '931316402', 4, 'admin@gmail.com', 'A');
 
 --
@@ -519,12 +519,6 @@ ALTER TABLE `aulas`
   ADD PRIMARY KEY (`id_aula`),
   ADD KEY `id_grado` (`id_grado`),
   ADD KEY `id_seccion` (`id_seccion`);
-
---
--- Indices de la tabla `bimestre`
---
-ALTER TABLE `bimestre`
-  ADD PRIMARY KEY (`id_bimestre`);
 
 --
 -- Indices de la tabla `competencia`
@@ -592,7 +586,13 @@ ALTER TABLE `notas`
   ADD KEY `id_estudiante` (`id_estudiante`),
   ADD KEY `id_curso` (`id_curso`),
   ADD KEY `id_competencia` (`id_competencia`),
-  ADD KEY `id_bimestre` (`id_bimestre`);
+  ADD KEY `id_bimestre` (`id_periodo`);
+
+--
+-- Indices de la tabla `periodos`
+--
+ALTER TABLE `periodos`
+  ADD PRIMARY KEY (`id_periodo`);
 
 --
 -- Indices de la tabla `permisos`
@@ -777,7 +777,7 @@ ALTER TABLE `notas`
   ADD CONSTRAINT `notas_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiantes` (`id_estudiante`),
   ADD CONSTRAINT `notas_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`),
   ADD CONSTRAINT `notas_ibfk_3` FOREIGN KEY (`id_competencia`) REFERENCES `competencia` (`id_competencia`),
-  ADD CONSTRAINT `notas_ibfk_4` FOREIGN KEY (`id_bimestre`) REFERENCES `bimestre` (`id_bimestre`);
+  ADD CONSTRAINT `notas_ibfk_4` FOREIGN KEY (`id_periodo`) REFERENCES `periodos` (`id_periodo`);
 
 --
 -- Filtros para la tabla `permisos_roles`
