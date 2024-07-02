@@ -48,7 +48,10 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td><?= htmlspecialchars($row['nombre']) ?></td>
                                     <td><?= htmlspecialchars($row['apellido_paterno']) ?></td>
                                     <td><?= htmlspecialchars($row['apellido_materno']) ?></td>
-                                    <td><a href="agregar_nota.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-success">Agregar Nota</a></td>
+                                    <td>
+                                        <a href="agregar_nota.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-success">Agregar Nota</a>
+                                        <a href="ver_notas.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-primary">Ver Notas</a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
