@@ -28,47 +28,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     var formCurso = document.querySelector('#formCurso');
-    formCurso.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formCurso) {
+        formCurso.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        var idcurso = document.querySelector('#idcurso').value;
-        var nombre = document.querySelector('#Nombre').value;
-        var descripcion = document.querySelector('#descripcion').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            var idcurso = document.querySelector('#idcurso').value;
+            var nombre = document.querySelector('#Nombre').value;
+            var descripcion = document.querySelector('#descripcion').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || descripcion == '' || est_reg == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '' || descripcion == '' || est_reg == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/cursos/ajax-cursos.php';
-        var form = new FormData(formCurso);
-        request.open('POST', url, true);
-        request.send(form);
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalCurso').modal('hide');
-                    formCurso.reset();
-                    Swal.fire({
-                        title: 'Curso',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tableCursos.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Curso',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/cursos/ajax-cursos.php';
+            var form = new FormData(formCurso);
+            request.open('POST', url, true);
+            request.send(form);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalCurso').modal('hide');
+                        formCurso.reset();
+                        Swal.fire({
+                            title: 'Curso',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableCursos.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Curso',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }

@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="listRol">Rol</label>
                         <select class="form-control" name="tipo_usuario" id="tipo_usuario">
-                            <option value="administrador">Administrador</option>
+                            <option value="admin">Administrador</option>
                         </select>
                     </div>
                     <div class="mb-3">

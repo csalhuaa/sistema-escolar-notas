@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "acciones"},
             {"data": "id_seccion"},
             {"data": "nombre_seccion"},
-            {"data": "id_grado"},
             {"data": "est_reg"},
         ],
         "responsive": true,
@@ -28,47 +27,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     var formSeccion = document.querySelector('#formSeccion');
-    formSeccion.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formSeccion) {
+        formSeccion.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        var idseccion = document.querySelector('#idseccion').value;
-        var nombre = document.querySelector('#Nombre').value;
-        var listGrado = document.querySelector('#listGrado').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            var idseccion = document.querySelector('#idseccion').value;
+            var nombre = document.querySelector('#Nombre').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || listGrado == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/secciones/ajax-secciones.php';
-        var form = new FormData(formSeccion);
-        request.open('POST', url, true);
-        request.send(form);
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalSeccion').modal('hide');
-                    formSeccion.reset();
-                    Swal.fire({
-                        title: 'Sección',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tableSecciones.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Sección',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/secciones/ajax-secciones.php';
+            var form = new FormData(formSeccion);
+            request.open('POST', url, true);
+            request.send(form);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalSeccion').modal('hide');
+                        formSeccion.reset();
+                        Swal.fire({
+                            title: 'Sección',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableSecciones.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Sección',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }
@@ -81,27 +81,6 @@ function openModalSeccion() {
     document.querySelector('#action').innerHTML = 'Guardar';
     document.querySelector('#formSeccion').reset();
     $("#modalSeccion").modal('show');
-}
-
-window.addEventListener('load', function() {
-    showGrados();
-}, false);
-
-function showGrados() {
-    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/options/optionsGrados.php';
-
-    request.open('GET', url, true);
-    request.send();
-    request.onreadystatechange = function() {
-        if (request.readyState == 4 && request.status == 200) {
-            var data = JSON.parse(request.responseText);
-            data.forEach(function(valor) {
-                data += '<option value="' + valor.id_grado + '">' + valor.nombre_grado + '</option>';
-            });
-            document.querySelector('#listGrado').innerHTML = data;
-        }
-    }
 }
 
 
@@ -123,7 +102,6 @@ function editarSeccion(ID) {
             if (data.status) {
                 document.querySelector('#idseccion').value = data.data.id_seccion;
                 document.querySelector('#Nombre').value = data.data.nombre_seccion;
-                document.querySelector('#listGrado').value = data.data.id_grado;
                 document.querySelector('#est_reg').value = data.data.est_reg;
 
                 $("#modalSeccion").modal('show');

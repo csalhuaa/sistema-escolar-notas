@@ -10,7 +10,7 @@ if (!empty($_POST)) {
         if ($pdo) {
             $login = $_POST['login'];
             $pass = $_POST['pass'];
-            $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'administrador' AND est_reg = 'A'";
+            $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'admin' AND est_reg = 'A'";
             
             // Prepara y ejecuta la consulta SQL
             $query = $pdo->prepare($sql);

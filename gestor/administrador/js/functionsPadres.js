@@ -34,55 +34,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     var formPadre = document.querySelector('#formPadre');
-    formPadre.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formPadre) {
+        formPadre.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        // var formPadre = document.querySelector('#formPadre');
-        var idpadre = document.querySelector('#idpadre').value;
-        var nombre = document.querySelector('#nombre').value;
-        var apellido_paterno = document.querySelector('#apellido_paterno').value;
-        var apellido_materno = document.querySelector('#apellido_materno').value;
-        var nombre_usuario = document.querySelector('#nombre_usuario').value;
-        var contraseña = document.querySelector('#contraseña').value;
-        var tipo_usuario = document.querySelector('#tipo_usuario').value;
-        var id_rol = document.querySelector('#id_rol').value;
-        var info_contacto = document.querySelector('#info_contacto').value;
-        // var especialidad = document.querySelector('#especialidad').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            // var formPadre = document.querySelector('#formPadre');
+            var idpadre = document.querySelector('#idpadre').value;
+            var nombre = document.querySelector('#nombre').value;
+            var apellido_paterno = document.querySelector('#apellido_paterno').value;
+            var apellido_materno = document.querySelector('#apellido_materno').value;
+            var nombre_usuario = document.querySelector('#nombre_usuario').value;
+            var contraseña = document.querySelector('#contraseña').value;
+            var tipo_usuario = document.querySelector('#tipo_usuario').value;
+            var id_rol = document.querySelector('#id_rol').value;
+            var info_contacto = document.querySelector('#info_contacto').value;
+            // var especialidad = document.querySelector('#especialidad').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios - functions',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios - functions',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/padres/ajax-padres.php';
-        var form = new FormData(formPadre);
-        request.open('POST', url, true);
-        request.send(form);
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalPadre').modal('hide');
-                    formPadre.reset();
-                    Swal.fire({
-                        title: 'Usuario',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tablePadres.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Usuario',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/padres/ajax-padres.php';
+            var form = new FormData(formPadre);
+            request.open('POST', url, true);
+            request.send(form);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalPadre').modal('hide');
+                        formPadre.reset();
+                        Swal.fire({
+                            title: 'Usuario',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tablePadres.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Usuario',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }

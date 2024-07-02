@@ -13,12 +13,6 @@
                         <input type="text" class="form-control" name="Nombre" id="Nombre" style="text-transform: uppercase;">
                     </div>
                     <div class="mb-3">
-                        <label for="listGrado">Grado: </label>:</label>
-                        <select class="form-control" name="listGrado" id="listGrado">
-                            
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
                             <option value="A">A</option>

@@ -33,54 +33,56 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     var formProfesor = document.querySelector('#formProfesor');
-    formProfesor.onsubmit = function(e) {
-        e.preventDefault();
+    if (formProfesor) {
+        formProfesor.onsubmit = function(e) {
+            e.preventDefault();
 
-        var idprofesor = document.querySelector('#idprofesor').value;
-        var nombre = document.querySelector('#nombre').value;
-        var apellido_paterno = document.querySelector('#apellido_paterno').value;
-        var apellido_materno = document.querySelector('#apellido_materno').value;
-        var nombre_usuario = document.querySelector('#nombre_usuario').value;
-        var contraseña = document.querySelector('#contraseña').value;
-        var tipo_usuario = document.querySelector('#tipo_usuario').value;
-        var id_rol = document.querySelector('#id_rol').value;
-        var info_contacto = document.querySelector('#info_contacto').value;
-        var Est_Reg = document.querySelector('#est_reg').value;
+            var idprofesor = document.querySelector('#idprofesor').value;
+            var nombre = document.querySelector('#nombre').value;
+            var apellido_paterno = document.querySelector('#apellido_paterno').value;
+            var apellido_materno = document.querySelector('#apellido_materno').value;
+            var nombre_usuario = document.querySelector('#nombre_usuario').value;
+            var contraseña = document.querySelector('#contraseña').value;
+            var tipo_usuario = document.querySelector('#tipo_usuario').value;
+            var id_rol = document.querySelector('#id_rol').value;
+            var info_contacto = document.querySelector('#info_contacto').value;
+            var Est_Reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/profesores/ajax-profesores.php';
-        var form = new FormData(formProfesor);
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/profesores/ajax-profesores.php';
+            var form = new FormData(formProfesor);
 
-        request.open('POST', url, true);
-        request.send(form);
+            request.open('POST', url, true);
+            request.send(form);
 
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalProfesor').modal('hide');
-                    formProfesor.reset();
-                    Swal.fire({
-                        title: 'Profesor',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tableProfesores.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Profesor',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalProfesor').modal('hide');
+                        formProfesor.reset();
+                        Swal.fire({
+                            title: 'Profesor',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableProfesores.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Profesor',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }
@@ -111,7 +113,10 @@ function showCursos() {
             data.forEach(function(valor) {
                 data += '<option value="' + valor.id_curso + '">' + valor.nombre + '</option>';
             });
-            document.querySelector('#especialidad').innerHTML = data;
+            var especialidad = document.querySelector('#especialidad');
+            if (especialidad) {
+                especialidad.innerHTML = data;
+            }
         }
     }
 }

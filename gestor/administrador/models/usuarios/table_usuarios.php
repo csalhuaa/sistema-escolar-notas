@@ -1,7 +1,7 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM Usuarios WHERE tipo_usuario = "administrador"';
+    $sql = 'SELECT * FROM Usuarios WHERE tipo_usuario = "admin"';
     $query = $pdo->prepare($sql);
     $query->execute();  
 
