@@ -27,46 +27,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     var formGrado = document.querySelector('#formGrado');
-    formGrado.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formGrado) {
+        formGrado.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        var idgrado = document.querySelector('#idgrado').value;
-        var nombre = document.querySelector('#Nombre').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            var idgrado = document.querySelector('#idgrado').value;
+            var nombre = document.querySelector('#Nombre').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/grados/ajax-grados.php';
-        var form = new FormData(formGrado);
-        request.open('POST', url, true);
-        request.send(form);
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalGrado').modal('hide');
-                    formGrado.reset();
-                    Swal.fire({
-                        title: 'Grado',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tableGrados.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Grado',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/grados/ajax-grados.php';
+            var form = new FormData(formGrado);
+            request.open('POST', url, true);
+            request.send(form);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalGrado').modal('hide');
+                        formGrado.reset();
+                        Swal.fire({
+                            title: 'Grado',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableGrados.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Grado',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }

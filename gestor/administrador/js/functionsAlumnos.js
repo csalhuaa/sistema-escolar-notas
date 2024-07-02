@@ -31,53 +31,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     var formAlumno = document.querySelector('#formAlumno');
-    formAlumno.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formAlumno) {
+        formAlumno.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        // var formAlumno = document.querySelector('#formulario');
-        var idalumno = document.querySelector('#idalumno').value;
-        var nombre = document.querySelector('#nombre').value;
-        var apellido_paterno = document.querySelector('#apellido_paterno').value;
-        var apellido_materno = document.querySelector('#apellido_materno').value;
-        var fecha_nacimiento = document.querySelector('#fecha_nac').value;
-        var direccion = document.querySelector('#direccion').value;
-        var id_tutor = document.querySelector('#listpadre').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            // var formAlumno = document.querySelector('#formulario');
+            var idalumno = document.querySelector('#idalumno').value;
+            var nombre = document.querySelector('#nombre').value;
+            var apellido_paterno = document.querySelector('#apellido_paterno').value;
+            var apellido_materno = document.querySelector('#apellido_materno').value;
+            var fecha_nacimiento = document.querySelector('#fecha_nac').value;
+            var direccion = document.querySelector('#direccion').value;
+            var id_tutor = document.querySelector('#listpadre').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || est_reg == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios1',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || est_reg == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios1',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/alumnos/ajax-alumnos.php';
-        var formData = new FormData(formAlumno);
-        request.open('POST', url, true);
-        request.send(formData);
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/alumnos/ajax-alumnos.php';
+            var formData = new FormData(formAlumno);
+            request.open('POST', url, true);
+            request.send(formData);
 
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (data.status) {
-                    $('#modalAlumno').modal('hide');
-                    formAlumno.reset();
-                    Swal.fire({
-                        title: 'Alumno',
-                        text: data.msg,
-                        icon: 'success'
-                    });
-                    tableAlumnos.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Atención',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (data.status) {
+                        $('#modalAlumno').modal('hide');
+                        formAlumno.reset();
+                        Swal.fire({
+                            title: 'Alumno',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableAlumnos.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Atención',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }
@@ -109,7 +111,10 @@ function showPadres() {
             data.forEach(function(valor) {
                 data += '<option value="' + valor.id_usuario + '">' + valor.nombre + ' ' +valor.apellido_paterno + ' ' + valor.apellido_materno + '</option>';
             });
-            document.querySelector('#listpadre').innerHTML = data;
+            var listpadre = document.querySelector('#listpadre');
+            if (listpadre) {
+                listpadre.innerHTML = data;
+            }
         }
     }
 }

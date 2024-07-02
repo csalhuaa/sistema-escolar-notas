@@ -34,56 +34,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     var formUsuario = document.querySelector('#formUsuario');
-    formUsuario.onsubmit = function(e) {
-        console.log("Si entra al formulario.onsubmit");
-        e.preventDefault();
+    if (formUsuario) {
+        formUsuario.onsubmit = function(e) {
+            console.log("Si entra al formulario.onsubmit");
+            e.preventDefault();
 
-        // var formUsuario = document.querySelector('#formulario');
-        var idusuario = document.querySelector('#idusuario').value;
-        var nombre = document.querySelector('#nombre').value;
-        var apellido_paterno = document.querySelector('#apellido_paterno').value;
-        var apellido_materno = document.querySelector('#apellido_materno').value;
-        var nombre_usuario = document.querySelector('#nombre_usuario').value;
-        var contraseña = document.querySelector('#contraseña').value;
-        var tipo_usuario = document.querySelector('#tipo_usuario').value;
-        var id_rol = document.querySelector('#id_rol').value;
-        var info_contacto = document.querySelector('#info_contacto').value;
-        var est_reg = document.querySelector('#est_reg').value;
+            // var formUsuario = document.querySelector('#formulario');
+            var idusuario = document.querySelector('#idusuario').value;
+            var nombre = document.querySelector('#nombre').value;
+            var apellido_paterno = document.querySelector('#apellido_paterno').value;
+            var apellido_materno = document.querySelector('#apellido_materno').value;
+            var nombre_usuario = document.querySelector('#nombre_usuario').value;
+            var contraseña = document.querySelector('#contraseña').value;
+            var tipo_usuario = document.querySelector('#tipo_usuario').value;
+            var id_rol = document.querySelector('#id_rol').value;
+            var info_contacto = document.querySelector('#info_contacto').value;
+            var est_reg = document.querySelector('#est_reg').value;
 
-        if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
-            Swal.fire({
-                title: 'Atención',
-                text: 'Todos los campos son necesarios',
-                icon: 'error'
-            });
-            return false;
-        }
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
+                Swal.fire({
+                    title: 'Atención',
+                    text: 'Todos los campos son necesarios',
+                    icon: 'error'
+                });
+                return false;
+            }
 
-        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        var url = './models/usuarios/ajax-usuarios.php';
-        var form = new FormData(formUsuario);
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var url = './models/usuarios/ajax-usuarios.php';
+            var form = new FormData(formUsuario);
 
-        request.open('POST', url, true);
-        request.send(form);
+            request.open('POST', url, true);
+            request.send(form);
 
-        request.onreadystatechange = function() {
-            if (request.readyState == 4 && request.status == 200) {
-                var data = JSON.parse(request.responseText);
-                if (request.status) {
-                    $('#modalUsuario').modal('hide');
-                    formUsuario.reset();
-                    Swal.fire({
-                        title: 'Usuario',
-                        text: data.msg,
-                        icon: 'error'
-                    });
-                    tableUsuarios.ajax.reload();
-                } else {
-                    Swal.fire({
-                        title: 'Usuario',
-                        text: data.msg,
-                        icon: 'error'
-                    });
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var data = JSON.parse(request.responseText);
+                    if (request.status) {
+                        $('#modalUsuario').modal('hide');
+                        formUsuario.reset();
+                        Swal.fire({
+                            title: 'Usuario',
+                            text: data.msg,
+                            icon: 'success'
+                        });
+                        tableUsuarios.ajax.reload();
+                    } else {
+                        Swal.fire({
+                            title: 'Usuario',
+                            text: data.msg,
+                            icon: 'error'
+                        });
+                    }
                 }
             }
         }
