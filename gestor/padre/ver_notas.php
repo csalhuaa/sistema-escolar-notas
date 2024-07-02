@@ -6,13 +6,13 @@ $idEstudiante = $_GET['id_estudiante'];
 
 // Query to fetch the grades of the student
 $sql = "
-    SELECT n.nota, c.nombre AS nombre_curso, comp.descripcion AS descripcion_competencia, b.nombre_bimestre
+    SELECT n.nota, c.nombre AS nombre_curso, comp.descripcion AS descripcion_competencia, b.nombre_periodo
     FROM notas n
     INNER JOIN cursos c ON n.id_curso = c.id_curso
     INNER JOIN competencia comp ON n.id_competencia = comp.id_competencia
-    INNER JOIN bimestre b ON n.id_bimestre = b.id_bimestre
+    INNER JOIN periodos b ON n.id_periodo = b.id_periodo
     WHERE n.id_estudiante = ? AND n.est_reg = 'A'
-    ORDER BY c.nombre, comp.descripcion, b.id_bimestre
+    ORDER BY c.nombre, comp.descripcion, b.id_periodo
 ";
 
 $query = $pdo->prepare($sql);
@@ -24,7 +24,7 @@ $grades = [];
 foreach ($result as $row) {
     $course = $row['nombre_curso'];
     $competency = $row['descripcion_competencia'];
-    $bimester = $row['nombre_bimestre'];
+    $bimester = $row['nombre_periodo'];
     $grade = $row['nota'];
     
     if (!isset($grades[$course])) {
