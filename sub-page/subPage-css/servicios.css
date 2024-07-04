@@ -123,8 +123,8 @@ header .logo {
 /* 
 FOOTER */
 footer {
-    background-color: #333;
-    color: white;
+    background-color:#E0F7FA;
+    color: black;
     padding: 20px;
     display: flex;
     flex-direction: column; /* Cambiar a columna */
@@ -133,26 +133,32 @@ footer {
 
 .footer-content {
     display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
+/* .footer-logo{
+    background-color:#fff ;
+    border-radius: 1em;
+} */
 
 .footer-logo img {
-    max-height: 80px;
-    margin-right: 20px;
+    width: 20
+    em;
+    height: 200px;
 }
 
 .footer-info p {
     margin: 5px 0;
+    
 }
 
 .footer-info {
     text-align: left;
 }
-
 .social-media {
-    width: 80%; 
     display: flex;
     justify-content: flex-end;
     margin: 20px 0; 
@@ -165,14 +171,14 @@ footer {
     margin-left: 20px;
     width: 60px;
     height: 60px;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     border-radius: 50%;
-    color: #fff;
+    color: #000;
     transition: background 0.3s, color 0.3s; /* Añadir transición para hover */
 }
 
 .social-media-icon:hover {
-    background: #fff;
+    background: #000;
     color: #764ba2;
 }
 
@@ -184,6 +190,6 @@ footer {
     width: 90%;
     max-width: 1200px;
     height: 2px;
-    background: #fff;
+    background: #000;
     margin-top: 20px; 
 }
