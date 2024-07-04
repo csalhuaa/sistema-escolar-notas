@@ -24,31 +24,31 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
     <div class="app-sidebar__user">
-        <img class="app-sidebar__user-avatar" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Image">
+        <img class="app-sidebar__user-avatar" src="https://cdn-icons-png.flaticon.com/512/4656/4656822.png" alt="User Image">
         <div>
             <p class="app-sidebar__user-name"><?= htmlspecialchars($_SESSION['nombre_usuario']) ?></p>
             <p class="app-sidebar__user-designation">Tutor</p>
         </div>
     </div>
     <ul class="app-menu">
-        <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Inicio</span></a></li>
+        <li><a class="app-menu__item" href="index.php"><i class="app-menu__icon bi bi-house-door-fill"></i><span class="app-menu__label">Inicio</span></a></li>
         <li class="treeview">
-            <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Mis Hijos</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-person-standing"></i><span class="app-menu__label">Mis Hijos</span><i class="treeview-indicator bi bi-caret-down-fill"></i></a>
             <ul class="treeview-menu">
                 <?php if($result) { ?>
                     <?php foreach($result as $hijo) { ?>
                         <li>
                             <a class="treeview-item" href="ver_notas.php?id_estudiante=<?= $hijo['id_estudiante'] ?>">
-                                <i class="icon fa fa-circle-o"></i> <?= htmlspecialchars($hijo['nombre_estudiante'] . ' ' . $hijo['apellido_estudiante']) ?>
+                                <i class="app-menu__icon bi bi-person"></i> <?= htmlspecialchars($hijo['nombre_estudiante'] . ' ' . $hijo['apellido_estudiante']) ?>
                                 <span class="badge badge-info"><?= htmlspecialchars($hijo['nombre_grado'] . ' ' . $hijo['nombre_seccion']) ?></span>
                             </a>
                         </li>
                     <?php } ?>
                 <?php } else { ?>
-                    <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> No hay hijos registrados</a></li>
+                    <li><a class="treeview-item" href="#"><i class="app-menu__icon bi bi-person"></i> No hay hijos registrados</a></li>
                 <?php } ?>
             </ul>
         </li>
-        <li><a class="app-menu__item" href="../logout.php"><i class="app-menu__icon fa fa-sign-out"></i><span class="app-menu__label">Salir</span></a></li>
+        <li><a class="app-menu__item" href="../logout.php"><i class="app-menu__icon bi bi-power"></i><span class="app-menu__label">Salir</span></a></li>
     </ul>
 </aside>

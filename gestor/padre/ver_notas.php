@@ -37,47 +37,83 @@ foreach ($result as $row) {
 }
 ?>
 
+<style>
+    /* styles.css */
+body {
+    background-color: #f8f9fa;
+}
+
+.main-header {
+    background-color: #0200a3;
+    color: #ffffff;
+}
+
+.section-header {
+    background-color: #f0f0f0;
+    color: #0200a3;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table thead th {
+    background-color: #0200a3;
+    color: #ffffff;
+}
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+.table tbody .checkmark {
+    color: green;
+}
+
+.table tbody .cross {
+    color: red;
+}
+
+</style>
 <main class="app-content">
     <div class="row">
-        <div class="col-md-12 text-center border shadow p-2 bg-info text-white">
-            <h3 class="display-4">Notas de Estudiante</h3>
-        </div>
-    </div>
-    <div class="row">
         <?php if ($result) { ?>
-            <div class="col-md-12 text-center border mt-3 p-4 bg-light">
+            <div class="col-md-12 text-center border mt-3 p-4 section-header">
                 <h4>Notas de <?= htmlspecialchars($idEstudiante) ?></h4>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th rowspan="2">Curso</th>
-                            <th rowspan="2">Competencia</th>
-                            <th colspan="4">Bimestre</th>
-                        </tr>
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($grades as $course => $competencies) { ?>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
                             <tr>
-                                <td rowspan="<?= count($competencies) + 1 ?>"><?= htmlspecialchars($course) ?></td>
+                                <th rowspan="2">Curso</th>
+                                <th rowspan="2">Competencia</th>
+                                <th colspan="4">Bimestre</th>
                             </tr>
-                            <?php foreach ($competencies as $competency => $bimesters) { ?>
+                            <tr>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($grades as $course => $competencies) { ?>
                                 <tr>
-                                    <td><?= htmlspecialchars($competency) ?></td>
-                                    <td><?= htmlspecialchars($bimesters['Primer Bimestre'] ?? '') ?></td>
-                                    <td><?= htmlspecialchars($bimesters['Segundo Bimestre'] ?? '') ?></td>
-                                    <td><?= htmlspecialchars($bimesters['Tercer Bimestre'] ?? '') ?></td>
-                                    <td><?= htmlspecialchars($bimesters['Cuarto Bimestre'] ?? '') ?></td>
+                                    <td rowspan="<?= count($competencies) + 1 ?>"><?= htmlspecialchars($course) ?></td>
                                 </tr>
+                                <?php foreach ($competencies as $competency => $bimesters) { ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($competency) ?></td>
+                                        <td><?= htmlspecialchars($bimesters['Primer Bimestre'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($bimesters['Segundo Bimestre'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($bimesters['Tercer Bimestre'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($bimesters['Cuarto Bimestre'] ?? '') ?></td>
+                                    </tr>
+                                <?php } ?>
                             <?php } ?>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         <?php } else { ?>
             <div class="col-md-12 text-center">

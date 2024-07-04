@@ -21,12 +21,41 @@ $query->execute([$idPadre]);
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<style>
+    .header-section {
+        background-color: #020079;
+        color: white;
+    }
+    .header-section h3 {
+        margin: 0;
+        padding: 1rem;
+    }
+    .title-section {
+        background-color: #f8f9fa;
+        padding: 1.5rem 0;
+        margin-top: 1rem;
+    }
+    .card-custom {
+        width: 23rem;
+        margin-bottom: 1.5rem;
+    }
+    .card-custom img {
+        height: 150px;
+        object-fit: cover;
+    }
+    .card-custom .card-body {
+        text-align: left;
+    }
+    .btn-custom {
+        margin-top: 1rem;
+    }
+    .bg-info-light {
+        background-color: #e0e0ff;
+    }
+</style>
+
 <main class="app-content">
-    <div class="row">
-        <div class="col-md-12 text-center border shadow p-2 bg-info text-white">
-            <h3 class="display-4">SISTEMA ESCOLAR - SAN JOSE SCHOOL</h3>
-        </div>
-    </div>
+    
     <div class="row">
         <div class="col-md-12 text-center border mt-3 p-4 bg-light">
            <h4>Mis Hijos</h4> 
@@ -38,7 +67,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($result as $estudiante) { ?>
                 <div class="col-md-4 text-center border mt-3 p-4 bg-light">
                     <div class="card m2 shadow" style="width: 23rem;">
-                        <img src="images/card.webp" class="card-img-top" alt="">
+                        <img src="img/hijos.jpg" class="card-img-top" alt="">
                         <div class="card-body">
                             <h4 class="card-title text-center"><?= htmlspecialchars($estudiante['nombre_estudiante'] . ' ' . $estudiante['apellido_estudiante']) ?></h4>
                             <p class="card-text"><?= htmlspecialchars($estudiante['nombre_grado'] . ' - ' . $estudiante['nombre_seccion']) ?></p>

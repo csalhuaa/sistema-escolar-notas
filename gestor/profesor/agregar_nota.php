@@ -36,6 +36,35 @@ $bimestres = $query_bimestre->fetchAll(PDO::FETCH_ASSOC);
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+<style>
+    .app-title h1 {
+        color: #020079;
+    }
+    .app-title .breadcrumb-item a {
+        color: #020079;
+    }
+    .tile {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    .form-group label {
+        font-weight: bold;
+        color: #020079;
+    }
+    .form-control {
+        border: 1px solid #020079;
+    }
+    .btn-primary {
+        background-color: #020079;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 <main class="app-content">
     <div class="app-title">
         <div>
@@ -55,14 +84,17 @@ $bimestres = $query_bimestre->fetchAll(PDO::FETCH_ASSOC);
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" value="<?= htmlspecialchars($student['nombre']) ?>" disabled>
                         </div>
+                        <br>
                         <div class="form-group">
                             <label for="apellido_paterno">Apellido Paterno</label>
                             <input type="text" class="form-control" id="apellido_paterno" value="<?= htmlspecialchars($student['apellido_paterno']) ?>" disabled>
                         </div>
+                        <br>
                         <div class="form-group">
                             <label for="apellido_materno">Apellido Materno</label>
                             <input type="text" class="form-control" id="apellido_materno" value="<?= htmlspecialchars($student['apellido_materno']) ?>" disabled>
                         </div>
+                        <br>
                         <div class="form-group">
                             <label for="id_bimestre">Bimestre</label>
                             <select class="form-control" id="id_bimestre" name="id_bimestre">
@@ -71,11 +103,13 @@ $bimestres = $query_bimestre->fetchAll(PDO::FETCH_ASSOC);
                                 <?php } ?>
                             </select>
                         </div>
+                        <br>
                         <?php foreach ($competencias as $competencia) { ?>
                             <div class="form-group">
                                 <label for="competencia<?= $competencia['id_competencia'] ?>"><?= htmlspecialchars($competencia['descripcion']) ?></label>
                                 <input type="number" step="0.01" class="form-control" id="competencia<?= $competencia['id_competencia'] ?>" name="competencias[<?= $competencia['id_competencia'] ?>]" required>
                             </div>
+                            <br>
                         <?php } ?>
                         <input type="hidden" name="id_estudiante" value="<?= htmlspecialchars($id_estudiante) ?>">
                         <input type="hidden" name="id_curso" value="<?= htmlspecialchars($id_curso) ?>">

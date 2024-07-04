@@ -19,20 +19,16 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <main class="app-content">
     <div class="row">
-        <div class="col-md-12 text-center border shadow p-2 bg-info text-white">
-            <h3 class="display-4">Asistencia del Estudiante</h3>
+        <div class="col-md-12 text-center border mt-3 p-4" style="background-color: #f0f0f0;">
+           <h4 style="color: #0200a3;">Asistencia</h4> 
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 text-center border mt-3 p-4 bg-light">
-           <h4>Asistencia</h4> 
-        </div>
-    </div>
+    <br>
 
     <div class="row">
         <div class="col-md-12">
             <table class="table table-bordered">
-                <thead>
+                <thead style="background-color: #0200a3; color: #ffffff;">
                     <tr>
                         <th>Fecha</th>
                         <th>Asistencia</th>
@@ -45,9 +41,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= htmlspecialchars($asistencia['fecha']) ?></td>
                                 <td class="text-center">
                                     <?php if ($asistencia['asistio']) { ?>
-                                        <span>&#10003;</span> <!-- Checkmark -->
+                                        <span style="color: green;">&#10003;</span> <!-- Checkmark -->
                                     <?php } else { ?>
-                                        <span></span> <!-- Empty space -->
+                                        <span style="color: red;">&#10007;</span> <!-- Cross -->
                                     <?php } ?>
                                 </td>
                             </tr>

@@ -6,6 +6,7 @@ if (!empty($_GET['id_aula'])) {
     $id_aula = $_GET['id_aula'];
 } else {
     header('Location: index.php');
+    exit;
 }
 
 // Query to show students enrolled in the selected classroom
@@ -18,10 +19,42 @@ $query->execute(array($id_aula));
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<style>
+    .app-title h1 {
+        color: #020079;
+        font-weight: bold;
+    }
+    .app-title .breadcrumb-item a {
+        color: #020079;
+    }
+    .tile {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+    }
+    .table thead th {
+        background-color: #020079;
+        color: white;
+        text-align: center;
+    }
+    .table tbody tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+    .table tbody tr:hover {
+        background-color: #e6e6e6;
+    }
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+</style>
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i>Lista de Alumnos</h1>
+            <h1><i class="fa fa-dashboard"></i> Lista de Alumnos</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
             <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -36,7 +69,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <!-- <th>ID</th> -->
                                     <th>Nombre</th>
                                     <th>Apellido Paterno</th>
                                     <th>Apellido Materno</th>
@@ -45,10 +78,10 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                             <tbody>
                                 <?php foreach($result as $row) { ?>
                                 <tr>
-                                    <td><?= $row['id_estudiante'] ?></td>
-                                    <td><?= $row['nombre'] ?></td>
-                                    <td><?= $row['apellido_paterno'] ?></td>
-                                    <td><?= $row['apellido_materno'] ?></td>
+                                    <!-- <td><?= htmlspecialchars($row['id_estudiante']) ?></td> -->
+                                    <td><?= htmlspecialchars($row['nombre']) ?></td>
+                                    <td><?= htmlspecialchars($row['apellido_paterno']) ?></td>
+                                    <td><?= htmlspecialchars($row['apellido_materno']) ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
