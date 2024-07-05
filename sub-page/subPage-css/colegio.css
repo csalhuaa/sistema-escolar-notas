@@ -28,6 +28,7 @@ header {
 .menu .logo {
     width: 150px; 
     height: 100px; 
+    
 }
 .menu.abajo {
     background-color: #fff;
@@ -71,6 +72,7 @@ header .logo {
     background-image: url('/imgPage/imagen1.jpg');
     background-size: cover;
     background-position: center;
+    background-position-y: 25%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -91,6 +93,13 @@ header .logo {
     box-shadow: 0 0 6px rgba(0,0,0,.5);
     
 }
+.concepto_general{
+    padding: 50px 20em;
+    line-height: 2em;
+}
+.concepto_general h1{
+    padding-bottom: 1em;
+}
 
 .content-mv{
     max-width: 100%;
@@ -99,16 +108,20 @@ header .logo {
     flex-direction: row;
     padding: 50px 20em;
     gap: 10px;
-    
+    background-color:rgba(178, 178, 190, 0.833) ;
+    flex-wrap: wrap;
     
 }
-
-
+.img_mv img{
+    max-width: 370px;
+    height: 380px;
+    padding-top: 1em;
+}
 .content-mv .mv{
+    width: 60%;
     height: auto;
-    background-color: #C8C5C4;
     border-radius: 5px;
-    box-shadow: 60px -16px rgb(155, 155, 204);
+    box-shadow: 60PX;
 }
 .text-mv, .text-h1, .text-p{
     padding: 1em ;
@@ -117,14 +130,14 @@ header .logo {
 }
 .text-p{
     text-indent: 2em; /* Aplica sangría de 2em a la primera línea */
-    line-height: 1.5; /* Establece la separación de línea al 150% de la altura de la fuente */
+    line-height: 2em; /* Establece la separación de línea al 150% de la altura de la fuente */
     margin-bottom: 1em;
     
 }
 .objetivo{
     display: flex;
-    flex-direction: row;
-    padding: 0 22em;
+    flex-direction: column;
+    padding-left: 22em;
     gap: 15px;
     padding-bottom: 4em  ;
     flex-wrap: wrap;
@@ -133,26 +146,34 @@ header .logo {
 }
 .ob-tit{
     padding: 1em;
+    font-size: 30px;
+    font-weight: bold;
+    
 }
 .objetivo-vari{
     size: 30px;
     color: #000;
-    text-align: center;
     padding-bottom: 2em;
-    padding-top: 2em;
     
+    padding: 2em 22em;
     margin-bottom: 2em;
 }
-.MI{
-    padding-bottom: 0;
-    margin-top: 2em;
+.objetivo_doble{
+    display: flex;
+    flex-direction: row;
+    
+}
+.img_objetivo{
+    background-color: #ffff;
+    width: 50%;
+    height: auto;
+    
 }
 .objetivo-var{
-    background-color: #C8C5C4;
-    width: 300px;
+    width: auto;
     height: auto;
     border-radius: 5px;
-    box-shadow:60px -16px rgb(155, 155, 204);
+    box-shadow:10px 5px 5px black;
 }
 
 
@@ -164,10 +185,6 @@ header .logo {
 .objetivo-var p{
     padding: 0 1em;
     padding-bottom: 1em;
-}
-.separacion{
-    background:linear-gradient(rgb(40, 40, 178),rgb(243, 190, 77));
-    padding: 2em;
 }
 
 /* 
