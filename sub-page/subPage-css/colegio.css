@@ -114,17 +114,17 @@ header .logo {
 }
 
 .portada {
-    height: 100%;
-    background-image: url('/imgPage/imagen1.jpg');
+    height: 50vh; /* Altura ajustable según necesidad */
+    background-image: url('/imgPage/imagen1.jpg'); /* Ruta correcta y accesible de la imagen */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-position-y: 18.8%;
-    text-align: center;
+    text-align: center; /* Ajusta según el contenido */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    
+    color: #fff; /* Color del texto */
 }
 
 .menu-desglos{
@@ -393,8 +393,11 @@ footer {
     }
 
     .portada {
-        height: auto;
-        background-position-y: center;
+        background-position-y: center; /* Ajuste adicional para posición vertical en pantallas pequeñas */
+    }
+
+    .portada img {
+        display: none; /* Asegura que la imagen de fondo se muestre en su lugar */
     }
 
     .menu ul li a {
@@ -437,4 +440,38 @@ main.completo {
 
 footer {
     width: 100%;
+}
+
+@media (max-width: 360px) {
+    .menu {
+        width: 100%; /* Asegura que el menú ocupe todo el ancho */
+        padding: 10px;
+    }
+
+    .portada {
+        width: 100%; /* Asegura que la portada ocupe todo el ancho */
+    }
+
+    .menu .logo {
+        width: 80px; /* Reducción del tamaño del logo */
+    }
+
+    .menu-desglos {
+        display: none; /* Ocultar el icono de menú desglosable */
+    }
+
+    .menu ul {
+        flex-direction: column; /* Alineación del menú en columna */
+        align-items: center;
+        display: none; /* Ocultar menú desplegable por defecto */
+    }
+
+    .menu ul.active {
+        display: flex; /* Mostrar menú cuando se haga clic */
+    }
+
+
+    .concepto_general, .content-mv, .objetivo {
+        padding: 10px; /* Ajustes de padding en secciones principales */
+    }
 }
