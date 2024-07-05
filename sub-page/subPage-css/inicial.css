@@ -9,8 +9,8 @@ body {
 }
 
 header {
-    height: 30vh;
-    position: relative;
+    height: 50vh;
+    position:relative;
     z-index: 10;
     background: rgba(24, 19, 19, 0.1);
 }
@@ -117,7 +117,7 @@ header .logo {
     background-image: url('/imgPage/imagen1.jpg');
     background-size: cover;
     background-position: center;
-    background-position-y: 25%;
+    background-position-y: 18.8%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -154,7 +154,7 @@ header .logo {
 }
 
 .header-inicial .texto-inicial {
-    color: #000; 
+    color: #0056b3; 
     z-index: 2; 
     padding-left: 25em;
 }
@@ -163,14 +163,14 @@ header .logo {
 }
 
 .header-inicial .imagen-inicial {
-    height: 100%;
+    height: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .header-inicial .imagen-inicial img.inicio {
-    height: 100%;
+    height: 95%;
     object-fit: cover; 
 }
 .educacion-calidad {

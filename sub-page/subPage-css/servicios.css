@@ -9,8 +9,8 @@ body {
 }
 
 header {
-    height: 100vh;
-    position: relative;
+    height: 50vh;
+    position:relative;
     z-index: 10;
     background: rgba(24, 19, 19, 0.1);
 }
@@ -112,11 +112,12 @@ header .logo {
     border-radius: 50%;
 }
 
-/* .portada {
+.portada {
     height: 100%;
-    background-image: url('../imgPage/header-img1.png');
+    background-image: url('/imgPage/imagen1.jpg');
     background-size: cover;
     background-position: center;
+    background-position-y: 18.8%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -125,20 +126,6 @@ header .logo {
     
 }
 
-.portada .contenedor {
-    max-width: 1200px;
-    padding: 20px;
-}
-
-.portada h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.portada p {
-    font-size: 1.2rem;
-    font-weight: 500;
-} */
 .menu-desglos{
     position: fixed;
     top:50px;

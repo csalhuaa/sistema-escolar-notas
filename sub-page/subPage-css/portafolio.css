@@ -124,6 +124,19 @@ header .logo {
     box-shadow: 0 0 6px rgba(0,0,0,.5);
     
 }
+.portada {
+    height: 100%;
+    background-image: url('/imgPage/imagen1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-position-y: 18.8%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+}
 
 
 
