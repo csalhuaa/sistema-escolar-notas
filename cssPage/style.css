@@ -118,6 +118,7 @@ header .logo {
     background-image: url('../imgPage/header-img1.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -290,6 +291,7 @@ header .logo {
     background-image: url('../imgPage/motivacion.jpg');
     background-size: cover; /* Hace que la imagen cubra todo el contenedor */
     background-position: center; /* Centra la imagen */
+    background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
 }
