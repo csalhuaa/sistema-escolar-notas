@@ -259,8 +259,8 @@ header .logo {
 }
 
 .valor-img {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     padding: 12px;
     border-radius: 60%;
     align-items: center;
@@ -416,7 +416,7 @@ footer {
 @media (max-width: 768px) {
     .menu ul {
         flex-direction: column;
-        background-color: #fcfbfb;
+        background-color: #847b7bb5;
         position: absolute;
         top: 100px;
         left: 0;
@@ -458,10 +458,11 @@ footer {
     .contenedor-main {
         grid-template-columns: 1fr;
     }
-
-    .item img {
-        height: auto;
+    .valor-img {
+        width: 140px;
+        height: 140px;
     }
+
 
     .text-moti {
         flex-direction: column;
@@ -506,30 +507,47 @@ footer {
     }
 
     .valor-imagen .valor-item {
-        margin-bottom: 20px; /* Espacio entre cada ítem */
+        margin-bottom: 20px; 
     }
 
     .cont-margin {
-        margin-bottom: 0; /* Ajuste opcional para eliminar el margen inferior en las imágenes */
+        margin-bottom: 0;
+    }
+
+    .menu {
+        height: auto; 
+        padding: 10px; 
     }
 
     .menu ul {
-        top: 80px;
+        position: absolute; 
+        top: 100px;
+        left: 0; 
+        width: 100%; 
+        background-color: #847b7bb5; 
+        display: none; 
+        flex-direction: column; 
+        margin-top: 10px;
+    }
+
+    .menu ul.active {
+        display: flex;
+    }
+
+    .menu ul li {
+        margin: 10px 0; 
+        text-align: center; 
     }
 
     .menu ul li a {
-        font-size: 1.2rem;
+        color: #000;
     }
 
     .menu-desglos {
-        top: 20px;
-        right: 20px;
-        width: 30px;
-        height: 30px;
+        display: block; 
     }
 
     .portada{
-        height: 50%;
         background-size: 100%;
         background-repeat: no-repeat;
         background-position-y: 10%;
