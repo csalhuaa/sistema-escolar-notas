@@ -8,6 +8,7 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+/* Estilos generales */
 header {
     height: 100vh;
     position: relative;
@@ -24,10 +25,12 @@ header {
     padding: 30px 20px;
     z-index: 10;
 }
+
 .logo {
     width: 150px; 
     height: 100px; 
 }
+
 .menu.abajo {
     background-color: #fff;
     padding: 15px 20px;
@@ -46,7 +49,7 @@ nav {
 
 .menu ul li {
     margin: 0 15px;
-    position: relative; /* Asegura que el submenú esté posicionado correctamente */
+    position: relative;
 }
 
 .menu ul li a {
@@ -68,7 +71,7 @@ nav {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: red; /* Cambia este color por el que desees */
+    background-color: red;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -80,8 +83,8 @@ nav {
 
 .menu ul li ul {
     position: absolute;
-    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
-    left: 0; /* Alinea el submenú con el borde izquierdo del elemento principal */
+    top: 100%;
+    left: 0;
     width: 300px;
     background-color: rgba(1, 1, 1, 0.7);
     display: none;
@@ -95,14 +98,12 @@ nav {
 .menu ul li ul li ul {
     position: absolute;
     top: 0;
-    left: 300px; /* Ajusta la posición de los submenús anidados */
+    left: 300px;
 }
 
 .menu ul li:hover > ul {
     display: block;
 }
-
-
 
 .menu.abajo .logo,
 .menu.abajo ul li a {
@@ -124,7 +125,6 @@ header .logo {
     justify-content: center;
     align-items: center;
     color: #fff;
-    
 }
 
 .portada .contenedor {
@@ -141,26 +141,27 @@ header .logo {
     font-size: 1.2rem;
     font-weight: 500;
 }
-.menu-desglos{
+
+.menu-desglos {
     position: fixed;
-    top:50px;
+    top: 50px;
     right: 50px;
     background: #fff;
     width: 40px;
     height: 40px;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 0 6px rgba(0,0,0,.5);
-    
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
 }
 
-.titulo{
+.titulo {
     font-size: 60px;
     margin-bottom: 15px;
     font-weight: bold; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.texto{
+
+.texto {
     font-weight: 300;
     font-size: 25px;
 }
@@ -188,7 +189,7 @@ header .logo {
 
 .item img {
     max-width: 100%;
-    height: 400px;  /* Establece una altura fija para todas las imágenes */
+    height: 400px; 
     border-radius: 8px; 
     margin-bottom: 15px; 
 } 
@@ -204,77 +205,90 @@ header .logo {
 }
 
 .text-container h3 {
-    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
-    font-size: 1.5em; /* Tamaño de fuente del título */
+    margin-bottom: 10px;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
 .imagen-container {
     display: flex;
     align-items: center;
-    justify-content: center;  /* Añadido para centrar la imagen horizontalmente */
+    justify-content: center;
 }
-
-
 
 .text-container p {
-    font-size: 1em; /* Tamaño de fuente del párrafo */
-    color: #333; /* Color del texto */
+    font-size: 1em;
+    color: #333;
 }
-.subtitulo{
+
+.subtitulo {
     text-align: center;
     font-size: 3em;
     font-weight: 300;
     color: #08070a;
     margin: 40px;
 }
+
 .menu.abajo {
-    z-index: 1000; /* Menor que la imagen lightbox */
+    z-index: 1000;
 }
 
-.valor{
+.valor {
     width: 100%;
     height: auto;
     background-color: #a91b05;
     flex-wrap: wrap;
-
 }
-.valor-text{
-    color:#fff;
-    margin:0 50px 0 50px; 
+
+.valor-text {
+    color: #fff;
+    margin: 0 50px 0 50px; 
     padding: 2em;
 }
-.valor-sub{
+
+.valor-sub {
     padding-bottom: 1em;
 }
-.valor-imagen{
-    display: grid;
-    grid-auto-flow: column;
+
+.valor-imagen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
-    padding-bottom: 2em;
     
 }
-.valor-img{
+
+.valor-img {
     width: 180px;
     height: 180px;
     padding: 12px;
     border-radius: 60%;
     align-items: center;
 }
-.cont-margin{
-    width: 190px;
-    height: 190px;
-    border-radius: 60%;
+.valor-item {
+    flex-direction: row;  
+    text-align: center; /* Centrar texto dentro de cada ítem */
+    margin-bottom: 20px; /* Espacio entre cada ítem */
+}
+
+.cont-margin {
+    width: 140px; /* Ajusta según el tamaño deseado */
+    height: 140px; /* Ajusta según el tamaño deseado */
+    border-radius: 50%; /* Asegura que las imágenes sean redondas */
+    overflow: hidden;
     border: 1px solid #fff;
 }
-.item-texto-valor{
+
+.item-texto-valor {
     text-align: center;
     padding-bottom: 1em;
     color: #fff;
 }
- .valor-text .text-valores{
+
+.valor-text .text-valores {
     padding-bottom: 1em;
 }
+
 .motivacion-main {
     padding-top: 1em;
 }
@@ -282,15 +296,15 @@ header .logo {
 .content-motivacion {
     width: 100%;
     height: 50vh;
-    position: relative; /* Posiciona el contenedor para el uso de posicionamiento absoluto del overlay */
+    position: relative;
 }
 
 .elementos-motivacion {
     width: 100%;
     height: 100%;
     background-image: url('../imgPage/motivacion.jpg');
-    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen */
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
@@ -302,7 +316,7 @@ header .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo difuminado */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -316,23 +330,26 @@ header .logo {
     margin: 0;
     padding: 1em;
 }
+
 .text-moti {
     display: flex;
     justify-content: space-around;
     font-size: 1em;
 }
-.moti-element{
+
+.moti-element {
     padding: 50px;
     color: #fff;
 }
-/* 
-FOOTER */
+
+/* FOOTER */
+
 footer {
-    background-color:#E0F7FA;
+    background-color: #E0F7FA;
     color: black;
     padding: 20px;
     display: flex;
-    flex-direction: column; /* Cambiar a columna */
+    flex-direction: column;
     align-items: center;
 }
 
@@ -345,21 +362,19 @@ footer {
     width: 90%;
 }
 
-
 .footer-logo img {
-    width: 20
-    em;
+    width: 20em;
     height: 200px;
 }
 
 .footer-info p {
     margin: 5px 0;
-    
 }
 
 .footer-info {
     text-align: left;
 }
+
 .social-media {
     display: flex;
     justify-content: flex-end;
@@ -376,7 +391,7 @@ footer {
     border: 1px solid #000;
     border-radius: 50%;
     color: #000;
-    transition: background 0.3s, color 0.3s; /* Añadir transición para hover */
+    transition: background 0.3s, color 0.3s;
 }
 
 .social-media-icon:hover {
@@ -396,4 +411,181 @@ footer {
     margin-top: 20px; 
 }
 
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        background-color: #fcfbfb;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+
+    .menu ul.active {
+        display: flex;
+    }
+
+    .menu ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu ul li a {
+        color: #fff;
+    }
+
+    .menu-desglos {
+        display: block;
+    }
+
+    .menu {
+        height: auto;
+        padding: 10px 20px;
+    }
+    
+
+    .portada h1 {
+        font-size: 2rem;
+    }
+
+    .portada p {
+        font-size: 1rem;
+    }
+
+    .contenedor-main {
+        grid-template-columns: 1fr;
+    }
+
+    .item img {
+        height: auto;
+    }
+
+    .text-moti {
+        flex-direction: column;
+        text-align: center;
+    }
+    .valor-imagen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .valor-imagen .cont-margin {
+        margin-bottom: 20px; /* Añade un margen inferior para separar las imágenes */
+    }
+
+    .moti-element {
+        padding: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .social-media-icon {
+        margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header{
+        height: 50vh;
+    }
+    .valor-imagen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .valor-imagen .valor-item {
+        margin-bottom: 20px; /* Espacio entre cada ítem */
+    }
+
+    .cont-margin {
+        margin-bottom: 0; /* Ajuste opcional para eliminar el margen inferior en las imágenes */
+    }
+
+    .menu ul {
+        top: 80px;
+    }
+
+    .menu ul li a {
+        font-size: 1.2rem;
+    }
+
+    .menu-desglos {
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .portada{
+        height: 50%;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position-y: 10%;
+    }
+
+
+    .portada h1 {
+        font-size: 1.5rem;
+    }
+
+    .portada p {
+        font-size: 0.9rem;
+    }
+
+    .subtitulo {
+        font-size: 2rem;
+    }
+
+    .titulo {
+        font-size: 2.5rem;
+    }
+
+    .texto {
+        font-size: 1.5rem;
+    }
+
+    .item img {
+        height: auto;
+    }
+
+    .valor-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .cont-margin {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 0;
+    }
+
+    .valor-text {
+        margin: 0 20px;
+    }
+
+    .moti-element {
+        padding: 10px;
+    }
+
+    .social-media-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-media-icon i {
+        font-size: 20px;
+    }
+}
 
