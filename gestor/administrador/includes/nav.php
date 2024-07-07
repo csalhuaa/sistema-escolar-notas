@@ -25,8 +25,18 @@
         </li>
         <li>
             <a class="app-menu__item" href="listaSecciones.php"><i class="app-menu__icon bi bi-alphabet-uppercase"></i><span class="app-menu__label">Secciones</span></a>
-        </li><li>
+        </li>
+        <li>
             <a class="app-menu__item" href="listaCursos.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Cursos</span></a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="listaPeriodos.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Periodos</span></a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="listaDocentesAulas.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Docente Aula</span></a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="listaMatriculas.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Matriculas</span></a>
         </li>
         <li>
             <a class="app-menu__item" href="../logout.php"><i class="app-menu__icon bi bi-power"></i><span class="app-menu__label">Salir</span></a>

@@ -18,5 +18,8 @@
     <script src="js/functionsGrados.js"></script>
     <script src="js/functionsSecciones.js"></script>
     <script src="js/functionsCursos.js"></script>
+    <script src="js/functionsPeriodos.js"></script>
+    <script src="js/functionsDocentesAulas.js"></script>
+    <script src="js/functionsMatriculas.js"></script>
 </body>
 </html>
