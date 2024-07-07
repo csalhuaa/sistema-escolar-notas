@@ -150,9 +150,7 @@ header .logo {
 .content-mv{
     max-width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: row;
-    padding: 50px 20em;
+    padding: 50px 10em;
     gap: 10px;
     background-color:rgba(178, 178, 190, 0.833) ;
     flex-wrap: wrap;
@@ -162,9 +160,14 @@ header .logo {
     max-width: 370px;
     height: 380px;
     padding-top: 1em;
+    border-radius: 5px;
+    box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.7);
+
 }
 .content-mv .mv{
-    width: 60%;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
     height: auto;
     border-radius: 5px;
     box-shadow: 60PX;

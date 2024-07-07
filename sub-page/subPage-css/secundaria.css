@@ -205,8 +205,29 @@ header .logo {
     margin-top: 20px;
     font-weight: bold;
 }
+.division{
+    margin-bottom:1em ;
+    height: 5px; /* Grosor de la línea */
+    background-color: black; /* Color de la línea */
+    border: none;
+}
+.cursos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-
+.cursos-lista li {
+    flex: 1 1 30%; /* Ajusta el valor según el número de columnas deseadas */
+    margin: 10px;
+    padding: 15px;
+    color: black; /* Texto blanco para mayor contraste */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
 
 
 /* 
