@@ -3,14 +3,14 @@
     require_once '../../../includes/conexion.php';
 
     if($_POST){
-        $idperiodo = $_POST['idperiodo'];
+        $idbimestre = $_POST['idbimestre'];
 
-        $sql = "UPDATE periodos SET est_reg = 'I' WHERE id_periodo = ?";
+        $sql = "UPDATE bimestre SET est_reg = 'I' WHERE id_bimestre = ?";
         $query = $pdo->prepare($sql);
-        $result = $query->execute(array($idperiodo));
+        $result = $query->execute(array($idbimestre));
 
         if($result){
-            $respuesta = array('status' => true, 'msg' => 'Periodo eliminada correctamente');
+            $respuesta = array('status' => true, 'msg' => 'Bimestre eliminada correctamente');
         } else {
             $respuesta = array('status' => false, 'msg' => 'Error al eliminar sección');
         }

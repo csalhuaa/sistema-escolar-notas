@@ -29,9 +29,9 @@ $query_competencias->execute([$id_curso]);
 $competencias = $query_competencias->fetchAll(PDO::FETCH_ASSOC);
 
 // Get bimesters
-$sql_periodo = "SELECT id_bimestre, nombre_bimestre FROM bimestre";
-$query_periodo = $pdo->query($sql_periodo);
-$periodos = $query_periodo->fetchAll(PDO::FETCH_ASSOC);
+$sql_bimestre = "SELECT id_bimestre, nombre_bimestre FROM bimestre";
+$query_bimestre = $pdo->query($sql_bimestre);
+$bimestres = $query_bimestre->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -98,8 +98,8 @@ $periodos = $query_periodo->fetchAll(PDO::FETCH_ASSOC);
                         <div class="form-group">
                             <label for="id_bimestre">Bimestre</label>
                             <select class="form-control" id="id_bimestre" name="id_bimestre">
-                                <?php foreach ($periodos as $periodo) { ?>
-                                    <option value="<?= htmlspecialchars($periodo['id_bimestre']) ?>"><?= htmlspecialchars($periodo['nombre_bimestre']) ?></option>
+                                <?php foreach ($bimestres as $bimestre) { ?>
+                                    <option value="<?= htmlspecialchars($bimestre['id_bimestre']) ?>"><?= htmlspecialchars($bimestre['nombre_bimestre']) ?></option>
                                 <?php } ?>
                             </select>
                         </div>

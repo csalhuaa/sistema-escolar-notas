@@ -1,8 +1,8 @@
-$("#tablePeriodos").DataTable();
-var tablePeriodos;
+$("#tableBimestres").DataTable();
+var tableBimestres;
 
 document.addEventListener('DOMContentLoaded', function() {
-    tablePeriodos = $('#tablePeriodos').DataTable({
+    tableBimestres = $('#tableBimestres').DataTable({
         "aProcessing": true,
         "aServerSide": true,
         "language": {
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "ajax": {
             "method": "POST",
-            "url": "./models/periodos/table_periodos.php",
+            "url": "./models/bimestres/table_bimestres.php",
             "dataSrc": "",
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "id_periodo"},
-            {"data": "nombre_periodo"},
+            {"data": "id_bimestre"},
+            {"data": "nombre_bimestre"},
             {"data": "est_reg"},
         ],
         "responsive": true,
@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    var formPeriodo = document.querySelector('#formPeriodo');
-    if (formPeriodo) {
-        formPeriodo.onsubmit = function(e) {
+    var formBimestre = document.querySelector('#formBimestre');
+    if (formBimestre) {
+        formBimestre.onsubmit = function(e) {
             console.log("Si entra al formulario.onsubmit");
             e.preventDefault();
 
-            var idperiodo = document.querySelector('#idperiodo').value;
+            var idbimestre = document.querySelector('#idbimestre').value;
             var nombre = document.querySelector('#Nombre').value;
             var est_reg = document.querySelector('#est_reg').value;
 
@@ -46,25 +46,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var url = './models/periodos/ajax-periodos.php';
-            var form = new FormData(formPeriodo);
+            var url = './models/bimestres/ajax-bimestres.php';
+            var form = new FormData(formBimestre);
             request.open('POST', url, true);
             request.send(form);
             request.onreadystatechange = function() {
                 if (request.readyState == 4 && request.status == 200) {
                     var data = JSON.parse(request.responseText);
                     if (data.status) {
-                        $('#modalPeriodo').modal('hide');
-                        formPeriodo.reset();
+                        $('#modalBimestre').modal('hide');
+                        formBimestre.reset();
                         Swal.fire({
-                            title: 'Periodo',
+                            title: 'Bimestre',
                             text: data.msg,
                             icon: 'success'
                         });
-                        tablePeriodos.ajax.reload();
+                        tableBimestres.ajax.reload();
                     } else {
                         Swal.fire({
-                            title: 'Periodo',
+                            title: 'Bimestre',
                             text: data.msg,
                             icon: 'error'
                         });
@@ -75,24 +75,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModalPeriodo() {
-    document.querySelector('#idperiodo').value = "";
-    document.querySelector('#modalTitulo').innerHTML = 'Nuevo Sección';
+function openModalBimestre() {
+    document.querySelector('#idbimestre').value = "";
+    document.querySelector('#modalTitulo').innerHTML = 'Nuevo Bimestre';
     document.querySelector('#action').innerHTML = 'Guardar';
-    document.querySelector('#formPeriodo').reset();
-    $("#modalPeriodo").modal('show');
+    document.querySelector('#formBimestre').reset();
+    $("#modalBimestre").modal('show');
 }
 
 
-function editarPeriodo(ID) {
-    var idperiodo = ID;
-    console.log(idperiodo);
+function editarBimestre(ID) {
+    var idbimestre = ID;
+    console.log(idbimestre);
 
-    document.querySelector('#modalTitulo').innerHTML = 'Actualizar Periodo';
+    document.querySelector('#modalTitulo').innerHTML = 'Actualizar Bimestre';
     document.querySelector('#action').innerHTML = 'Actualizar';
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/periodos/edit-periodos.php?idperiodo='+idperiodo;
+    var url = './models/bimestres/edit-bimestres.php?idbimestre='+idbimestre;
     request.open('GET', url, true);
     request.send();
     request.onreadystatechange = function() {
@@ -100,15 +100,15 @@ function editarPeriodo(ID) {
             console.log(request.responseText); 
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idperiodo').value = data.data.id_periodo;
-                document.querySelector('#Nombre').value = data.data.nombre_periodo;
+                document.querySelector('#idbimestre').value = data.data.id_bimestre;
+                document.querySelector('#Nombre').value = data.data.nombre_bimestre;
                 document.querySelector('#est_reg').value = data.data.est_reg;
 
-                $("#modalPeriodo").modal('show');
+                $("#modalBimestre").modal('show');
 
             } else {
                 Swal.fire({
-                    title: 'Periodo',
+                    title: 'Bimestre',
                     text: data.msg,
                     icon: 'error'
                 });
@@ -117,12 +117,12 @@ function editarPeriodo(ID) {
     }
 }
 
-function eliminarPeriodo(ID){
-    var idperiodo = ID;
+function eliminarBimestre(ID){
+    var idbimestre = ID;
 
     Swal.fire({
-        title: "Eliminar Periodo",
-        text: "¿Desea eliminar al Periodo?",
+        title: "Eliminar Bimestre",
+        text: "¿Desea eliminar el Bimestre?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Si, eliminar",
@@ -131,9 +131,9 @@ function eliminarPeriodo(ID){
     }).then((result) => {
         if (result.isConfirmed) {
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var url = './models/periodos/delete-periodos.php';
+            var url = './models/bimestres/delete-bimestres.php';
             request.open('POST', url, true);
-            var strData = "idperiodo="+idperiodo;
+            var strData = "idbimestre="+idbimestre;
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
 
@@ -147,7 +147,7 @@ function eliminarPeriodo(ID){
                             text: data.msg,
                             icon: 'success'
                         });
-                        tablePeriodos.ajax.reload();
+                        tableBimestres.ajax.reload();
                     } else {
                         Swal.fire({
                             title: 'Atención',

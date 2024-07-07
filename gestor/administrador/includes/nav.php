@@ -30,7 +30,7 @@
             <a class="app-menu__item" href="listaCursos.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Cursos</span></a>
         </li>
         <li>
-            <a class="app-menu__item" href="listaPeriodos.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Periodos</span></a>
+            <a class="app-menu__item" href="listaBimestres.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Bimestres</span></a>
         </li>
         <li>
             <a class="app-menu__item" href="listaDocentesAulas.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Docente Aula</span></a>

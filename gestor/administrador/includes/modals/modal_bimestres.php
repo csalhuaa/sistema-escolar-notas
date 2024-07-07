@@ -1,15 +1,15 @@
-<div class="modal fade" id="modalPeriodo" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalBimestre" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalTitulo">Nuevo Periodo: </h1>
+                <h1 class="modal-title fs-5" id="modalTitulo">Nuevo Bimestre: </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formPeriodo" name="formPeriodo">
-                    <input type="hidden" id="idperiodo" name="idperiodo" value="">
+                <form id="formBimestre" name="formBimestre">
+                    <input type="hidden" id="idbimestre" name="idbimestre" value="">
                     <div class="mb-3">
-                        <label for="control-label">Nombre Periodo:</label>
+                        <label for="control-label">Nombre Bimestre:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre" >
                     </div>
                     <div class="mb-3">
