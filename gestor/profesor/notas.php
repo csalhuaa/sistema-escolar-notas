@@ -41,7 +41,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     .table tbody tr:hover {
         background-color: #c0c0ff;
     }
-    .btn-success, .btn-primary {
+    .btn-success, .btn-primary, .btn-warning {
         margin-right: 0.5rem;
     }
 </style>
@@ -78,7 +78,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                                     <td><?= htmlspecialchars($row['apellido_materno']) ?></td>
                                     <td class="text-center">
                                         <a href="agregar_nota.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-success">Agregar Nota</a>
-                                        <a href="ver_notas.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-warning  ">Ver Notas</a>
+                                        <a href="ver_notas.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-warning">Ver Notas</a>
+                                        <a href="agregar_reporte.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-primary">Agregar Reporte</a>
+                                        <a href="ver_reportes.php?id_estudiante=<?= htmlspecialchars($row['id_estudiante']) ?>&id_curso=<?= htmlspecialchars($idcurso) ?>" class="btn btn-warning">Ver Reportes</a>
                                     </td>
                                 </tr>
                                 <?php } ?>

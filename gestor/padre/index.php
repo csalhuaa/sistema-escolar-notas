@@ -65,7 +65,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="row">
         <?php if ($result) { ?>
             <?php foreach ($result as $estudiante) { ?>
-                <div class="col-md-4 text-center border mt-3 p-4 bg-light">
+                <div class="col-md-4 text-center mt-3 p-4">
                     <div class="card m2 shadow" style="width: 23rem;">
                         <img src="img/hijos.jpg" class="card-img-top" alt="">
                         <div class="card-body">
@@ -73,6 +73,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                             <p class="card-text"><?= htmlspecialchars($estudiante['nombre_grado'] . ' - ' . $estudiante['nombre_seccion']) ?></p>
                             <a href="ver_asistencia.php?id_estudiante=<?= $estudiante['id_estudiante'] ?>" class="btn btn-warning">Asistencia</a>
                             <a href="ver_notas.php?id_estudiante=<?= $estudiante['id_estudiante'] ?>" class="btn btn-success">Notas</a>
+                            <a href="ver_reportes.php?id_estudiante=<?= $estudiante['id_estudiante'] ?>" class="btn btn-info">Ver Reportes</a>
                         </div>
                     </div>
                 </div>

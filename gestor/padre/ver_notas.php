@@ -4,6 +4,19 @@ require_once '../includes/conexion.php';
 
 $idEstudiante = $_GET['id_estudiante'];
 
+// Obtener detalles del estudiante
+$sql_student = "SELECT nombre, apellido_paterno, apellido_materno FROM estudiantes WHERE id_estudiante = ?";
+$query_student = $pdo->prepare($sql_student);
+$query_student->execute([$idEstudiante]);
+$student = $query_student->fetch(PDO::FETCH_ASSOC);
+
+if (!$student) {
+    echo "Estudiante no encontrado.";
+    exit;
+}
+
+$nombreCompleto = $student['nombre'] . ' ' . $student['apellido_paterno'] . ' ' . $student['apellido_materno'];
+
 // Query to fetch the grades of the student
 $sql = "
     SELECT n.nota, c.nombre AS nombre_curso, comp.descripcion AS descripcion_competencia, b.nombre_bimestre
@@ -38,48 +51,46 @@ foreach ($result as $row) {
 ?>
 
 <style>
-    /* styles.css */
-body {
-    background-color: #f8f9fa;
-}
+    body {
+        background-color: #f8f9fa;
+    }
 
-.main-header {
-    background-color: #0200a3;
-    color: #ffffff;
-}
+    .main-header {
+        background-color: #0200a3;
+        color: #ffffff;
+    }
 
-.section-header {
-    background-color: #f0f0f0;
-    color: #0200a3;
-}
+    .section-header {
+        background-color: #f0f0f0;
+        color: #0200a3;
+    }
 
-.table-responsive {
-    margin-top: 20px;
-}
+    .table-responsive {
+        margin-top: 20px;
+    }
 
-.table thead th {
-    background-color: #0200a3;
-    color: #ffffff;
-}
+    .table thead th {
+        background-color: #0200a3;
+        color: #ffffff;
+    }
 
-.table tbody td {
-    vertical-align: middle;
-}
+    .table tbody td {
+        vertical-align: middle;
+    }
 
-.table tbody .checkmark {
-    color: green;
-}
+    .table tbody .checkmark {
+        color: green;
+    }
 
-.table tbody .cross {
-    color: red;
-}
-
+    .table tbody .cross {
+        color: red;
+    }
 </style>
 <main class="app-content">
     <div class="row">
         <?php if ($result) { ?>
             <div class="col-md-12 text-center border mt-3 p-4 section-header">
-                <h4>Notas de <?= htmlspecialchars($idEstudiante) ?></h4>
+                <h4>Notas de <?= htmlspecialchars($nombreCompleto) ?></h4>
                 <br>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
@@ -117,7 +128,7 @@ body {
             </div>
         <?php } else { ?>
             <div class="col-md-12 text-center">
-                <h4>No se encontraron notas registradas.</h4>
+                <h4>No se encontraron notas registradas para <?= htmlspecialchars($nombreCompleto) ?>.</h4>
             </div>
         <?php } ?>
     </div>

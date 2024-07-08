@@ -4,6 +4,19 @@ require_once '../includes/conexion.php';
 
 $idEstudiante = $_GET['id_estudiante'];
 
+// Obtener detalles del estudiante
+$sql_student = "SELECT nombre, apellido_paterno, apellido_materno FROM estudiantes WHERE id_estudiante = ?";
+$query_student = $pdo->prepare($sql_student);
+$query_student->execute([$idEstudiante]);
+$student = $query_student->fetch(PDO::FETCH_ASSOC);
+
+if (!$student) {
+    echo "Estudiante no encontrado.";
+    exit;
+}
+
+$nombreCompleto = $student['nombre'] . ' ' . $student['apellido_paterno'] . ' ' . $student['apellido_materno'];
+
 // Query to fetch attendance records for the student
 $sql = "
     SELECT fecha, presente as asistio
@@ -20,7 +33,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 <main class="app-content">
     <div class="row">
         <div class="col-md-12 text-center border mt-3 p-4" style="background-color: #f0f0f0;">
-           <h4 style="color: #0200a3;">Asistencia</h4> 
+           <h4 style="color: #0200a3;">Asistencia de <?= htmlspecialchars($nombreCompleto) ?></h4> 
         </div>
     </div>
     <br>
