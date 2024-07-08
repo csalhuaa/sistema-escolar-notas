@@ -9,8 +9,16 @@
                 <form id="formAlumno" name="formAlumno">
                     <input type="hidden" id="idalumno" name="idalumno" value="">
                     <div class="mb-3">
-                        <label for="Nombre" class="col-form-label">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre">
+                        <label for="nombre" class="col-form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido_paterno" class="col-form-label">Apellido Paterno:</label>
+                        <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno">
+                    </div>
+                    <div class="mb-3">
+                        <label for="apellido_materno" class="col-form-label">Apellido Materno:</label>
+                        <input type="text" class="form-control" name="apellido_materno" id="apellido_materno">
                     </div>
                     <div class="mb-3">
                         <label for="fecha_nac" class="col-form-label">Fecha Nacimiento:</label>
@@ -20,14 +28,14 @@
                         <label for="direccion" class="col-form-label">Dirección:</label>
                         <input type="text" class="form-control" name="direccion" id="direccion">
                     </div>
-                    <div class="form-group">
-                        <label for="listPadre">Apoderado</label>
+                    <div class="mb-3">
+                        <label for="listPadre" class="col-form-label">Apoderado</label>
                         <select class="form-control" name="listpadre" id="listpadre">
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="est_reg">Estado de Registro:</label>
+                    <div class="mb-3">
+                        <label for="est_reg" class="col-form-label">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
                             <option value="A">A</option>
                             <option value="I">I</option>

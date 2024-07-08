@@ -4,7 +4,7 @@ require_once '../../../includes/conexion.php';
 if (!empty($_GET['idprofesor'])) {
     $idprofesor = $_GET['idprofesor'];
 
-    $sql = "SELECT * FROM usuarios WHERE ID = ?";
+    $sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
     $query = $pdo->prepare($sql);
     $query->execute(array($idprofesor));
 

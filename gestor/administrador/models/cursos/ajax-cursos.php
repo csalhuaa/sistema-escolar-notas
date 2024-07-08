@@ -11,11 +11,12 @@ if (!empty($_POST)) {
         $descripcion = $_POST['descripcion'];
         $est_reg = $_POST['est_reg'];
 
+        // Verifica si el nombre del curso ya existe
         $sql = 'SELECT * FROM cursos WHERE nombre = ? AND est_reg = "A"';
         $params = [$nombre];
 
         if (!empty($idcurso)) {
-            $sql .= ' AND ID != ?';
+            $sql .= ' AND id_curso != ?';
             $params[] = $idcurso;
         }
 
@@ -29,23 +30,23 @@ if (!empty($_POST)) {
                 'msg' => 'El nombre del curso ya existe',
             );
         } else {
-            // Crea una nueva sección
+            // Crea un nuevo curso o actualiza uno existente
             if (empty($idcurso)) {   
-                $sqlInsert = 'INSERT INTO secciones (nombre_seccion, id_grado, est_reg) VALUES (?, ?, ?)';
+                $sqlInsert = 'INSERT INTO cursos (nombre, descripcion, est_reg) VALUES (?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
-                $request = $queryInsert->execute(array($nombre, $listGrados, $est_reg));
+                $request = $queryInsert->execute(array($nombre, $descripcion, $est_reg));
                 $accion = 1;
             } else {
-                $sqlUpdate = 'UPDATE secciones SET nombre_seccion = ?, id_grado = ?, est_reg = ? WHERE ID = ?';
+                $sqlUpdate = 'UPDATE cursos SET nombre = ?, descripcion = ?, est_reg = ? WHERE id_curso = ?';
                 $queryUpdate = $pdo->prepare($sqlUpdate);
-                $request = $queryUpdate->execute(array($nombre, $listGrados, $est_reg, $idseccion));
+                $request = $queryUpdate->execute(array($nombre, $descripcion, $est_reg, $idcurso));
                 $accion = 2;
             }
 
             if ($request) {
                 $respuesta = array(
                     'status' => true,
-                    'msg' => $accion == 1 ? 'Curso creado correctamente' : 'Curso actuaizado correctamente'
+                    'msg' => $accion == 1 ? 'Curso creado correctamente' : 'Curso actualizado correctamente'
                 );
             } else {
                 $respuesta = array(
@@ -54,8 +55,8 @@ if (!empty($_POST)) {
                 );
             }
         }
-        header('Content-Type: application/json');
-        echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     }
+    header('Content-Type: application/json');
+    echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
 }
 ?>

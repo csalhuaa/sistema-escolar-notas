@@ -25,8 +25,7 @@ require_once 'includes/modals/modal_secciones.php';
                                 <tr>
                                     <th>ACCIONES</th>
                                     <th>ID</th>
-                                    <th>SECCIÓN</th>
-                                    <th>GRADO</th>
+                                    <th>SECCIÓN</th> 
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>

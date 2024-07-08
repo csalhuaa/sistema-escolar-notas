@@ -85,11 +85,19 @@ input {
     padding: .7em;
     border: none;
     border-radius: 8px;
-    background: #153744;
+    background: #010709;
     color: #fff;
     cursor: pointer;
 }
 
 .alert {
     color: red;
+}
+
+.app .app-header_logo{
+    background: #af1805    !important;
+
+}
+.app .app-sidebar, .app .app-nav, .app .app-header {
+    background: #020079   !important;
 }

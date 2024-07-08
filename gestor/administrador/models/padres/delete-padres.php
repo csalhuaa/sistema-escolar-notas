@@ -5,7 +5,7 @@
     if($_POST){
         $idpadre = $_POST['idpadre'];
 
-        $sql = "UPDATE usuarios SET Est_Reg = 'I' WHERE ID = ?";
+        $sql = "UPDATE usuarios SET est_reg = 'I' WHERE id_usuario = ?";
         $query = $pdo->prepare($sql);
         $result = $query->execute(array($idpadre));
 

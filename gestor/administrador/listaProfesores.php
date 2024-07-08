@@ -29,10 +29,10 @@ require_once 'includes/modals/modal_profesor.php';
                                     <th>APELLIDO PATERNO</th>
                                     <th>APELLIDO MATERNO</th>
                                     <th>USUARIO</th>
-                                    <th>CONTACTO</th>
+                                    <th>NUMERO CONTACTO</th>
+                                    <th>CORREO</th>
                                     <th>ROL</th>
                                     <th>ID ROL</th>
-                                    <th>ESPECIALIDAD</th>
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>

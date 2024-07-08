@@ -2,21 +2,24 @@
 require_once '../../../includes/conexion.php';
 
 if (!empty($_POST)) {
-    if (empty($_POST['Nombre']) || empty($_POST['Apellido_Paterno']) || empty($_POST['Apellido_Materno']) || empty($_POST['nombre_usuario']) || empty($_POST['info_contacto']) || empty($_POST['tipo_usuario']) || empty($_POST['id_rol'])) {
-        $respuesta = array('status' => false, 'msg' => 'Todos los campos requeridos son necesarios');
+    if (empty($_POST['nombre']) || empty($_POST['apellido_paterno']) || empty($_POST['apellido_materno']) || empty($_POST['nombre_usuario']) || empty($_POST['tipo_usuario']) || empty($_POST['id_rol'])) {
+        $respuesta = array(
+            'status' => false,
+            'msg' => 'Todos los campos requeridos son necesarios'
+        );
     } else {
         // Asigna las variables desde el formulario
         $idprofesor = $_POST['idprofesor'];
-        $nombre = $_POST['Nombre'];
-        $apellido_paterno = $_POST['Apellido_Paterno'];
-        $apellido_materno = $_POST['Apellido_Materno'];
+        $nombre = $_POST['nombre'];
+        $apellido_paterno = $_POST['apellido_paterno'];
+        $apellido_materno = $_POST['apellido_materno'];
         $nombre_usuario = $_POST['nombre_usuario'];
         $contraseña = $_POST['contraseña'];
         $tipo_usuario = $_POST['tipo_usuario'];
+        $numero_contacto = !empty($_POST['numero_contacto']) ? $_POST['numero_contacto'] : null;
         $id_rol = $_POST['id_rol'];
-        $info_contacto = ($_POST['info_contacto']); 
-        $especialidad = ($_POST['especialidad']);
-        $est = $_POST['est_reg'];
+        $info_contacto = !empty($_POST['info_contacto']) ? $_POST['info_contacto'] : null;
+        $est_reg = $_POST['est_reg'];
 
         // Encriptar la contraseña solo si se proporciona
         if (!empty($contraseña)) {
@@ -24,11 +27,11 @@ if (!empty($_POST)) {
         }
 
         // Verifica si el nombre de usuario o la combinación de nombre completo ya existen
-        $sql = 'SELECT * FROM usuarios WHERE (nombre_usuario = ? OR (Nombre = ? AND Apellido_Paterno = ? AND Apellido_Materno = ?)) AND est_reg = "A"';
+        $sql = 'SELECT * FROM usuarios WHERE (nombre_usuario = ? OR (nombre = ? AND apellido_paterno = ? AND apellido_materno = ?)) AND est_reg = "A"';
         $params = [$nombre_usuario, $nombre, $apellido_paterno, $apellido_materno];
 
         if (!empty($idprofesor)) {
-            $sql .= ' AND ID != ?';
+            $sql .= ' AND id_usuario != ?';
             $params[] = $idprofesor;
         }
 
@@ -40,27 +43,28 @@ if (!empty($_POST)) {
             $respuesta = array(
                 'status' => false,
                 'msg' => 'El nombre de usuario o la combinación de nombre completo ya existen',
-                'idprofesor' => $idprofesor // Agregar el idusuario a la respuesta
+                'idprofesor' => $idprofesor // Agregar el idprofesor a la respuesta
             );
         } else {
-            // Si $idusuario está vacío, estamos insertando un nuevo usuario
+            // Si $idprofesor está vacío, estamos insertando un nuevo profesor
             if (empty($idprofesor)) {
-                $sqlInsert = 'INSERT INTO usuarios (Nombre, Apellido_Paterno, Apellido_Materno, nombre_usuario, contraseña, tipo_usuario, id_rol, info_contacto, especialidad, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                $sqlInsert = 'INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno, nombre_usuario, contraseña, tipo_usuario, numero_contacto, id_rol, info_contacto, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
-                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est));
+                $paramsInsert = array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $numero_contacto, $id_rol, $info_contacto, $est_reg);
+                $request = $queryInsert->execute($paramsInsert);
                 $accion = 1;
             } else {
+                // Si la contraseña no está vacía, la actualizamos también
                 if (!empty($contraseña)) {
-                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
-                    $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est, $idprofesor));
-                    $accion = 2;
+                    $sqlUpdate = 'UPDATE usuarios SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, nombre_usuario = ?, contraseña = ?, tipo_usuario = ?, numero_contacto = ?, id_rol = ?, info_contacto = ?, est_reg = ? WHERE id_usuario = ?';
+                    $paramsUpdate = array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $numero_contacto, $id_rol, $info_contacto, $est_reg, $idprofesor);
                 } else {
-                    $sqlUpdate = 'UPDATE usuarios SET Nombre = ?, Apellido_Paterno = ?, Apellido_Materno = ?, nombre_usuario = ?, contraseña = ?, tipo_usuario = ?, id_rol = ?, info_contacto = ?, especialidad = ?, est_reg = ? WHERE ID = ?';
-                    $queryUpdate = $pdo->prepare($sqlUpdate);
-                    $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $contraseña, $tipo_usuario, $id_rol, $info_contacto, $especialidad, $est, $idprofesor));
-                    $accion = 3;
+                    $sqlUpdate = 'UPDATE usuarios SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, nombre_usuario = ?, tipo_usuario = ?, numero_contacto = ?, id_rol = ?, info_contacto = ?, est_reg = ? WHERE id_usuario = ?';
+                    $paramsUpdate = array($nombre, $apellido_paterno, $apellido_materno, $nombre_usuario, $tipo_usuario, $numero_contacto, $id_rol, $info_contacto, $est_reg, $idprofesor);
                 }
+                $queryUpdate = $pdo->prepare($sqlUpdate);
+                $request = $queryUpdate->execute($paramsUpdate);
+                $accion = 2;
             }
 
             if ($request) {
@@ -68,20 +72,20 @@ if (!empty($_POST)) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario creado correctamente',
-                        'idprofesor' => $idprofesor // Agregar el idusuario a la respuesta
+                        'idprofesor' => $pdo->lastInsertId() // Obteniendo el idprofesor del nuevo registro
                     );
-                } else if ($accion == 2 || $accion == 3) {
+                } else if ($accion == 2) {
                     $respuesta = array(
                         'status' => true,
                         'msg' => 'Usuario actualizado correctamente',
-                        'idprofesor' => $idprofesor // Agregar el idusuario a la respuesta
+                        'idprofesor' => $idprofesor
                     );
                 }
             } else {
                 $respuesta = array(
                     'status' => false,
                     'msg' => 'No se pudo ejecutar la operación',
-                    'idprofesor' => $idprofesor // Agregar el idusuario a la respuesta
+                    'idprofesor' => $idprofesor
                 );
             }
         }
