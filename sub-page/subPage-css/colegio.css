@@ -425,7 +425,7 @@ header .logo {
     
 }
 .objetivo-vari{
-    size: 30px;
+    font-size: 20px;
     color: #0056b3;
     padding-bottom: 2em; 
     padding: 2em 15em;
@@ -443,24 +443,31 @@ header .logo {
     height: auto;
     
 }
-.objetivo-var{
+.objetivo-var {
     width: 300px;
     height: auto;
     border-radius: 5px;
-    box-shadow:10px 5px 5px #0056b3;
+    box-shadow: 10px 5px 5px #0056b3;
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.25); /* Inicialmente escalado */
+    transition: opacity 1s linear, transform 1s linear; /* Transición suave */
 }
 
-
-.objetivo-var h1{
+.objetivo-var h1 {
     text-align: center;
 }
 
-
-.objetivo-var p{
+.objetivo-var p {
     padding: 0 1em;
     padding-bottom: 1em;
     line-height: 1.5em;
 }
+
+.objetivo-var.show {
+    opacity: 1; /* Aparecerá */
+    transform: scale(1) translateY(10px); /* Volverá a su posición original */
+}
+
 
 /* 
 FOOTER */
