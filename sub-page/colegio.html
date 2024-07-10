@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./subPage-css/colegio.css">
     <title>Document</title>
 </head>
@@ -38,34 +41,54 @@
             <h1>SOBRE NOSOTROS</h1>
             <p>En San José School, nos dedicamos a brindar una educación de calidad que forma ciudadanos comprometidos con el desarrollo del país y la transformación de la sociedad. Nuestra misión y visión reflejan nuestro compromiso con los valores católicos y el carisma de San José, ofreciendo una educación integral que responde a las necesidades actuales y promueve una cultura de paz y sostenibilidad. Aspiramos a ser referentes en el uso de nuevas tecnologías y metodologías pedagógicas, asegurando una formación completa y actualizada para nuestros estudiantes, preparándolos para ser líderes y agentes de cambio en un mundo globalizado.</p>
         </div>
-        <div class="content-mv">
-            
-            <div class="mv 1">
-                
-                <div class="text-mv">
-                    <h1 class="text-h1">Misión</h1>
-                    <p class="text-p">Somos una institución educativa católica que, inspirada en el carisma de San José, forma ciudadanos comprometidos con el desarrollo del país a través de un currículo integral, promoviendo valores morales y una cultura de paz.</p>
+        <div class="carrusel ">
+            <div class="list">
+                <div class="item">
+                    <img src="../imgPage/colegio_imagen1.jpg" alt="imagen 1">
+                    <div class="content">
+                        <div class="autor">San José School </div>
+                        <div class="title">MISIÓN</div>
+                        <div class="description">Somos una institución educativa católica que, inspirada en el carisma de San José, forma ciudadanos comprometidos con el desarrollo del país a través de un currículo integral, promoviendo valores morales y una cultura de paz.</div>
+                    </div>
                 </div>
-                <div class="img_mv">
-                    <img src="../imgPage/colegio_imagen1.jpg" alt="catolico">
+                <div class="item">
+                    <img src="../imgPage/colegio_imagen2.jpg" alt="imagen 1">
+                    <div class="content">
+                        <div class="autor">San José School</div>
+                        <div class="title">VISIÓN</div>
+                        <div class="description">Ser referentes en nuevas tecnologías y pedagogías actuales, garantizando una formación integral en valores, ciudadanía y sostenibilidad, preparando a nuestros estudiantes para ser líderes y agentes de cambio en una sociedad globalizada.</div>
+                    </div>
                 </div>
-                
-                
             </div>
-            
-            
-            <div class="mv 2">
-                <div class="img_mv">
-                    <img src="../imgPage/colegio_imagen2.jpg" alt="catolico">
+            <div class="thumbnail">
+                <div class="item">
+                    <img src="../imgPage/colegio_imagen1.jpg">
+                    <div class="content">
+                        <div class="title">
+                            MISIÓN
+                        </div>
+                        <div class="des">
+                            description
+                        </div>
+                    </div>
                 </div>
-                <div class="text-mv">
-                    <h1 class="text-h1">Visión</h1>
-                    <p class="text-p">
-                        Ser referentes en nuevas tecnologías y pedagogías actuales, garantizando una formación integral en valores, ciudadanía y sostenibilidad, preparando a nuestros estudiantes para ser líderes y agentes de cambio en una sociedad globalizada.</p>
+                <div class="item">
+                    <img src="../imgPage/colegio_imagen2.jpg" alt="imagen1">
+                    <div class="content">
+                        <div class="title">
+                            VISION
+                        </div>
+                        <div class="des">
+                            description
+                        </div>
+                    </div>
                 </div>
-                
-
             </div>
+            <div class="arrows">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <div class="time"></div>
         </div>
         <div class="objetivos-main">
             <div class="objetivo-vari">
@@ -131,5 +154,6 @@
     </footer>
     <script type="text/javascript" src="../jsPage/menu.js">    </script>
     <script type ="text/javascript"src="../jsPage/lightbox.js"></script>
+    <script type ="text/javascript"src="../jsPage/navegation.js"></script>
 </body>
 </html>
