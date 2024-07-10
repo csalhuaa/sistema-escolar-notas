@@ -5,7 +5,7 @@
     if($_POST){
         $idcurso = $_POST['idcurso'];
 
-        $sql = "UPDATE cursos SET Est_Reg = 'I' WHERE ID = ?";
+        $sql = "UPDATE cursos SET est_reg = 'I' WHERE id_curso = ?";
         $query = $pdo->prepare($sql);
         $result = $query->execute(array($idcurso));
 

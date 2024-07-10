@@ -10,15 +10,15 @@
                     <input type="hidden" id="idusuario" name="idusuario" value="">
                     <div class="mb-3">
                         <label for="control-label">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre">
+                        <input type="text" class="form-control" name="nombre" id="nombre">
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Apellido Paterno:</label>
-                        <input type="text" class="form-control" name="Apellido_Paterno" id="Apellido_Paterno">
+                        <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno">
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Apellido Materno:</label>
-                        <input type="text" class="form-control" name="Apellido_Materno" id="Apellido_Materno">
+                        <input type="text" class="form-control" name="apellido_materno" id="apellido_materno">
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Usuario:</label>
@@ -29,13 +29,17 @@
                         <input type="password" class="form-control" id="contraseña" name="contraseña">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label">Contacto:</label>
+                        <label for="control-label">Numero de Contacto:</label>
+                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="control-label">Correo:</label>
                         <input type="text" class="form-control" name="info_contacto" id="info_contacto">
                     </div>
                     <div class="form-group">
                         <label for="listRol">Rol</label>
                         <select class="form-control" name="tipo_usuario" id="tipo_usuario">
-                            <option value="administrador">Administrador</option>
+                            <option value="admin">Administrador</option>
                         </select>
                     </div>
                     <div class="mb-3">

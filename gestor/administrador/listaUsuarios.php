@@ -24,12 +24,13 @@ require_once 'includes/modals/modal.php';
                             <thead>
                                 <tr>
                                     <th>ACCIONES</th>
-                                    <th>ID</th>
+                                    <th>ID USUARIO</th>
                                     <th>NOMBRE</th>
                                     <th>APELLIDO PATERNO</th>
                                     <th>APELLIDO MATERNO</th>
                                     <th>USUARIO</th>
                                     <th>CONTACTO</th>
+                                    <th>CORREO</th>
                                     <th>ROL</th>
                                     <th>ESTADO</th>
                                 </tr>

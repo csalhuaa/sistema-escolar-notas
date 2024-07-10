@@ -7,38 +7,42 @@
             </div>
             <div class="modal-body">
                 <form id="formPadre" name="formPadre">
-                <input type="hidden" id="idpadre" name="idpadre" value="">
+                    <input type="hidden" id="idpadre" name="idpadre" value="">
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre">
+                        <label for="control-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Apellido Paterno:</label>
-                        <input type="text" class="form-control" name="Apellido_Paterno" id="Apellido_Paterno">
+                        <label for="control-label">Apellido Paterno:</label>
+                        <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Apellido Materno:</label>
-                        <input type="text" class="form-control" name="Apellido_Materno" id="Apellido_Materno">
+                        <label for="control-label">Apellido Materno:</label>
+                        <input type="text" class="form-control" name="apellido_materno" id="apellido_materno">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Usuario:</label>
+                        <label for="control-label">Usuario:</label>
                         <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Contraseña:</label>
+                        <label for="control-label">Contraseña:</label>
                         <input type="password" class="form-control" id="contraseña" name="contraseña">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Contacto:</label>
+                        <label for="control-label">Numero de Contacto:</label>
+                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="control-label" class="col-form-label">Correo:</label>
                         <input type="text" class="form-control" name="info_contacto" id="info_contacto">
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="listRol">Rol</label>
                         <select class="form-control" name="tipo_usuario" id="tipo_usuario">
                             <option value="tutor">Tutor</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <!-- <label for="id_rol">ID Rol</label> -->
                         <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="3">
                     </div>
@@ -46,7 +50,7 @@
                         <label for="control-label" class="col-form-label">Especialidad:</label>
                         <input type="text" class="form-control" name="especialidad" id="especialidad">
                     </div> -->
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
                             <option value="A">A</option>

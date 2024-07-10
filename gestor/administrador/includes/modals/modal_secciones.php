@@ -12,18 +12,7 @@
                         <label for="control-label">Nombre Sección:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre" style="text-transform: uppercase;">
                     </div>
-                    <div class="form-group">
-                        <label for="listGrado">Grado: </label>:</label>
-                        <select class="form-control" name="listGrado" id="listGrado">
-                            <option value="1">1ro</option>
-                            <option value="2">2do</option>
-                            <option value="3">3ro</option>
-                            <option value="4">4to</option>
-                            <option value="5">5to</option>
-                            <option value="6">6to</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
                             <option value="A">A</option>

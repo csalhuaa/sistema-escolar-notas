@@ -12,7 +12,7 @@ if (!empty($_POST)) {
         $est_reg = $_POST['est_reg'];
 
         // Verifica si el usuario ya existe
-        $sql = 'SELECT * FROM grados WHERE nombre_grado = ? AND ID != ? AND Est_Reg = "A"';
+        $sql = 'SELECT * FROM grados WHERE nombre_grado = ? AND id_grado != ? AND est_reg = "A"';
         $query = $pdo->prepare($sql);
         $query->execute(array($nombre, $idgrado));
         $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
                 $accion = 1;
             } else {
                 // Actualiza el estudiante existente
-                $sqlUpdate = 'UPDATE grados SET nombre_grado = ?, est_reg = ? WHERE ID = ?';
+                $sqlUpdate = 'UPDATE grados SET nombre_grado = ?, est_reg = ? WHERE id_grado = ?';
                 $queryUpdate = $pdo->prepare($sqlUpdate);
                 $request = $queryUpdate->execute(array($nombre, $est_reg, $idgrado));
                 $accion = 2;

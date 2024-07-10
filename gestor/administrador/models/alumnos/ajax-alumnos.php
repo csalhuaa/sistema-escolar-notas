@@ -2,13 +2,15 @@
 require_once '../../../includes/conexion.php';
 
 if (!empty($_POST)) {
-    if (empty($_POST['Nombre']) || empty($_POST['fecha_nac']) || empty($_POST['direccion']) || empty($_POST['listpadre']) || empty($_POST['est_reg'])) {
-        $respuesta = array('status' => false, 'msg' => 'Todos los campos requeridos son necesarios');
+    if (empty($_POST['nombre']) || empty($_POST['fecha_nac']) || empty($_POST['direccion']) || empty($_POST['listpadre']) || empty($_POST['est_reg'])) {
+        $respuesta = array('status' => false, 'msg' => 'Todos los campos requeridos son necesarios2');
     } else {
         // Asigna las variables desde el formulario
        //  $idalumno = !empty($_POST['idalumno']) ? $_POST['idalumno'] : 0;
         $idalumno = $_POST['idalumno'];
-        $nombre = $_POST['Nombre'];
+        $nombre = $_POST['nombre'];
+        $apellido_paterno = $_POST['apellido_paterno'];
+        $apellido_materno = $_POST['apellido_materno'];
         $fecha_nacimiento = $_POST['fecha_nac'];
         $direccion = $_POST['direccion'];
         $id_tutor = $_POST['listpadre'];
@@ -19,7 +21,7 @@ if (!empty($_POST)) {
         $params = [$nombre, $id_tutor];
 
         if (!empty($idalumno)) {
-            $sql .= ' AND ID != ?';
+            $sql .= ' AND id_estudiante != ?';
             $params[] = $idalumno;
         }
 
@@ -35,15 +37,15 @@ if (!empty($_POST)) {
             );
         } else {
             if (empty($idalumno)) {    
-                $sqlInsert = 'INSERT INTO estudiantes (nombre, fecha_nacimiento, direccion, id_tutor, est_reg) VALUES (?, ?, ?, ?, ?)';
+                $sqlInsert = 'INSERT INTO estudiantes (nombre, apellido_paterno, apellido_materno, fecha_nacimiento, direccion, id_tutor, est_reg) VALUES (?, ?, ?, ?, ?, ?, ?)';
                 $queryInsert = $pdo->prepare($sqlInsert);
-                $request = $queryInsert->execute(array($nombre, $fecha_nacimiento, $direccion, $id_tutor, $est_reg));
+                $request = $queryInsert->execute(array($nombre, $apellido_paterno, $apellido_materno, $fecha_nacimiento, $direccion, $id_tutor, $est_reg));
                 $accion = 1;
             } else {
                 // Actualiza el estudiante existente
-                $sqlUpdate = 'UPDATE estudiantes SET nombre = ?, fecha_nacimiento = ?, direccion = ?, id_tutor = ?, est_reg = ? WHERE ID = ?';
+                $sqlUpdate = 'UPDATE estudiantes SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, fecha_nacimiento = ?, direccion = ?, id_tutor = ?, est_reg = ? WHERE id_estudiante = ?';
                 $queryUpdate = $pdo->prepare($sqlUpdate);
-                $request = $queryUpdate->execute(array($nombre, $fecha_nacimiento, $direccion, $id_tutor, $est_reg, $idalumno));
+                $request = $queryUpdate->execute(array($nombre, $apellido_paterno, $apellido_materno, $fecha_nacimiento, $direccion, $id_tutor, $est_reg, $idalumno));
                 $accion = 2;
             }
 
