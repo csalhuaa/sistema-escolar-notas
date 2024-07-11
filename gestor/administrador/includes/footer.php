@@ -21,5 +21,7 @@
     <script src="js/functionsBimestres.js"></script>
     <script src="js/functionsDocentesAulas.js"></script>
     <script src="js/functionsMatriculas.js"></script>
+    <script src="js/functionsAulas.js"></script>
+    <script src="js/functionsCompetencias.js"></script>
 </body>
 </html>
