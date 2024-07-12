@@ -429,13 +429,11 @@ header .logo {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transición suave */
 }
 
-/* Animación de aparición */
 .objetivo-var.show {
-    opacity: 1; /* Aparecerá */
-    transform: translateY(0); /* Volverá a su posición original */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
-/* Estilo del texto dentro de cada objetivo */
 .objetivo-var p {
     font-size: 1em;
     color: #555;
@@ -443,7 +441,7 @@ header .logo {
     margin-top: 0.5em;
 }
 
-/* Mejora la responsividad */
+
 
 
 

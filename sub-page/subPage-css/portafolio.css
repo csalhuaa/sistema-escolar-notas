@@ -274,6 +274,7 @@ footer {
     margin-top: 20px; 
 }
 
+/* tablet */
 @media (max-width: 768px) {
     .menu ul {
         flex-direction: column;
