@@ -118,7 +118,7 @@ header .logo {
 }
 .concepto_general{
     background: #f0f4f8;
-    padding: 50px 20em;
+    padding: 50px 10em;
     line-height: 2em;
     margin-bottom: 2em;
 }
@@ -562,8 +562,26 @@ footer {
         font-size: 1rem;
     }
 
+    .concepto_general{
+        
+        padding: 50px 5em;
+        
+    }
     .contenedor-main {
         grid-template-columns: 1fr;
+    }
+    .carrusel .list .item .content{
+        padding-right: 0;
+    }
+    .carrusel .list .item .content .title{
+        font-size: 50px;
+    }
+    .carrusel .list .item .content .autor{
+      
+        font-size: 22px;
+    }
+    .carrusel .list .item .content .description{
+        font-size: 20px;
     }
 
     .objetivo {
@@ -572,36 +590,13 @@ footer {
     .objetivo-var {
         width: 90%;
     }
-    .valor-img {
-        width: 140px;
-        height: 140px;
-    }
-
-
-    .text-moti {
-        flex-direction: column;
-        text-align: center;
-    }
-    .valor-imagen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .valor-imagen .cont-margin {
-        margin-bottom: 20px; /* Añade un margen inferior para separar las imágenes */
-    }
-
-    .moti-element {
-        padding: 20px;
-    }
 
     .footer-content {
         flex-direction: column;
         align-items: center;
     }
     .footer-logo img{
-        width: 16em;
+        width: 18em;
         height: 150px;
     }
 
@@ -614,9 +609,10 @@ footer {
     }
 }
 
+/* Responsi Mobile */
 @media only screen and (max-width: 480px) {
     header{
-        height: 50vh;
+        height: 30vh;
     }
     .valor-imagen {
         display: flex;
@@ -666,9 +662,7 @@ footer {
     }
 
     .portada{
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: 10%;
+        height: 30vh;
     }
 
 
@@ -678,6 +672,14 @@ footer {
 
     .portada p {
         font-size: 0.9rem;
+    }
+    .concepto_general{
+        
+        padding: 50px 2em;
+        
+    }
+    .concepto_general h1{
+        font-size: 35px;
     }
 
     .subtitulo {
@@ -695,25 +697,49 @@ footer {
     .item img {
         height: auto;
     }
-
-    .valor-img {
-        width: 120px;
-        height: 120px;
+    .carrusel {
+        height: 50vh; /* Ajusta la altura del carrusel para pantallas más pequeñas */
     }
 
-    .cont-margin {
-        width: 130px;
-        height: 130px;
-        margin-bottom: 0;
+    .carrusel .list .item .content {
+        top: 10%;
+        width: 90%;
+        padding-right: 0;
+        max-width: 100%;
+        font-size: 0.8em; /* Reduce el tamaño del texto */
     }
 
-    .valor-text {
-        margin: 0 20px;
+    .carrusel .list .item .content .title {
+        font-size: 2em; /* Ajusta el tamaño del título */
     }
 
-    .moti-element {
-        padding: 10px;
+    .carrusel .thumbnail {
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        gap: 10px;
     }
+
+    .thumbnail .item {
+        width: 80px;
+        height: 110px;
+    }
+
+    .arrows {
+        top: 90%;
+        right: 50%;
+        transform: translateX(50%);
+        width: 200px;
+        max-width: 100%;
+    }
+
+    .arrows button {
+        width: 30px;
+        height: 30px;
+        font-size: medium;
+    }
+
+    
 
     .social-media-icon {
         width: 40px;
@@ -724,11 +750,4 @@ footer {
         font-size: 20px;
     }
 }
-@media screen and (max-width:678px){
-    .carrusel .list .item .content{
-       padding-right: 0;
-    }
-    .carrusel .list .item .content .title{
-       font-size: 30px;
-    }
- }
+
