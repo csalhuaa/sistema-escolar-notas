@@ -308,44 +308,17 @@ footer {
     }
     
 
-    .portada h1 {
-        font-size: 2rem;
-    }
-
-    .portada p {
-        font-size: 1rem;
-    }
-
-    .contenedor-main {
-        grid-template-columns: 1fr;
-    }
-    .valor-img {
-        width: 140px;
-        height: 140px;
-    }
-
-
-    .text-moti {
-        flex-direction: column;
-        text-align: center;
-    }
-    .valor-imagen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .valor-imagen .cont-margin {
-        margin-bottom: 20px; /* Añade un margen inferior para separar las imágenes */
-    }
-
-    .moti-element {
-        padding: 20px;
+    .imagen_galeria {
+        width: 25%;
     }
 
     .footer-content {
         flex-direction: column;
         align-items: center;
+    }
+    .footer-logo img{
+        width: 18em;
+        height: 150px;
     }
 
     .social-media {
@@ -359,20 +332,7 @@ footer {
 
 @media only screen and (max-width: 480px) {
     header{
-        height: 50vh;
-    }
-    .valor-imagen {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .valor-imagen .valor-item {
-        margin-bottom: 20px; 
-    }
-
-    .cont-margin {
-        margin-bottom: 0;
+        height: 33vh;
     }
 
     .menu {
@@ -407,57 +367,15 @@ footer {
     .menu-desglos {
         display: block; 
     }
-
-    .portada{
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: 10%;
-    }
-
-
-    .portada h1 {
-        font-size: 1.5rem;
-    }
-
-    .portada p {
-        font-size: 0.9rem;
-    }
+    
 
     .subtitulo {
         font-size: 2rem;
     }
-
-    .titulo {
-        font-size: 2.5rem;
-    }
-
-    .texto {
-        font-size: 1.5rem;
-    }
-
-    .item img {
-        height: auto;
-    }
-
-    .valor-img {
-        width: 120px;
+    .footer-logo img {
+        width: 15em;
         height: 120px;
     }
-
-    .cont-margin {
-        width: 130px;
-        height: 130px;
-        margin-bottom: 0;
-    }
-
-    .valor-text {
-        margin: 0 20px;
-    }
-
-    .moti-element {
-        padding: 10px;
-    }
-
     .social-media-icon {
         width: 40px;
         height: 40px;
