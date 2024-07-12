@@ -152,82 +152,109 @@ header .logo {
 /* Main */
 .header-inicial {
     background-image: url('/imgPage/niveles-fondo.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
     height: 40vh;
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    
+    color: #fff;
+    text-align: center;
 }
 
 .header-inicial .texto-inicial {
-    color: #0056b3; 
-    z-index: 2; 
-    text-align: center;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2em;
+    background: rgba(0, 86, 179, 0.7);
+    border-radius: 10px;
 }
-.texto-inicial h1{
-    padding-top: 3rem;
-    font-size: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Efecto text-shadow mejorado */
+
+.texto-inicial h1 {
+    font-size: 3em;
     margin: 0;
     padding-bottom: 0.5em;
 }
 
-.texto-inicial p{
-    color: #000;
-    padding: 0 5em;
-    line-height: 2em;
+.texto-inicial p {
+    font-size: 1.2em;
+    line-height: 1.5em;
 }
 
 .educacion-calidad {
-    padding: 20px;
-    background-color: #f9f9f9; /* Fondo claro para contrastar */
-    color: #333; /* Color del texto */
-    line-height: 1.6; /* Espaciado entre líneas */
+    padding: 4em 2em;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
 }
 
 .educacion-calidad h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #0056b3; /* Color del título */
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #0056b3;
 }
 
 .educacion-calidad ul {
-    list-style-type: none; /* Elimina los puntos de la lista */
+    list-style-type: none;
     padding: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .educacion-calidad ul li {
-    background: url('https://via.placeholder.com/10x10') no-repeat left center; /* Punto personalizado */
-    padding-left: 20px; /* Espaciado a la izquierda del texto */
-    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+    position: relative;
+    padding-left: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
 }
 
-.educacion-calidad p {
-    margin-top: 20px;
-    
+.educacion-calidad ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #0056b3;
+    font-weight: bold;
 }
-.servicios{
+
+.servicios {
     display: flex;
-    padding: 0 10em;
-}
-.image-ser{
-    display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    
+    gap: 2em;
+    padding: 2em 0;
 }
-.servicios .image-ser{
+
+.image-ser {
+    max-width: 500px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-servi {
     width: 100%;
-    
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.img-servi{
-    width: 400px;
-    height: 50%;
-    border-radius: 5px;
-    box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.7);
+
+.img-servi:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+.division {
+    margin: 2em 0;
+    border: 0;
+    height: 1px;
+    background: #ddd;
+}
+
 /* CARRUSEL INICIO */
 .carrusel{
     width: 100vw;
