@@ -411,7 +411,7 @@ footer {
     margin-top: 20px; 
 }
 
-/* Responsive Design */
+/* Responsive Tablet */
 
 @media (max-width: 768px) {
     .menu ul {
@@ -485,6 +485,10 @@ footer {
     .footer-content {
         flex-direction: column;
         align-items: center;
+    }
+    .footer-logo img {
+        width: 18em;
+        height: 150px;
     }
 
     .social-media {
@@ -595,6 +599,10 @@ footer {
 
     .moti-element {
         padding: 10px;
+    }
+    .footer-logo img {
+        width: 15em;
+        height: 120px;
     }
 
     .social-media-icon {
