@@ -81,30 +81,6 @@ nav {
     transform-origin: bottom left;
 }
 
-.menu ul li ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 300px;
-    background-color: rgba(1, 1, 1, 0.7);
-    display: none;
-}
-
-.menu ul li ul li a {
-    font-size: 15px;
-    text-transform: capitalize;
-}
-
-.menu ul li ul li ul {
-    position: absolute;
-    top: 0;
-    left: 300px;
-}
-
-.menu ul li:hover > ul {
-    display: block;
-}
-
 .menu.abajo .logo,
 .menu.abajo ul li a {
     color: #000;

@@ -22,8 +22,13 @@ const aparecerImagen =(imagen)=>{
     imagenLight.classList.toggle('showImage')
 }
 window.addEventListener("scroll", function() {
-    var menu = document.querySelector(".menu");
-    if (!document.body.classList.contains('lightbox-active')) {
-        menu.classList.toggle("abajo", window.scrollY > 0);
-    }
+    var elementos = document.querySelectorAll(".objetivo-var");
+    elementos.forEach(function(elemento) {
+        var position = elemento.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight / 1.3;
+
+        if (position < screenPosition) {
+            elemento.classList.add("show");
+        }
+    });
 });
