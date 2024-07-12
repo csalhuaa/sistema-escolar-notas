@@ -213,70 +213,81 @@ header .logo {
     z-index: 1000;
 }
 
-.valor {
+/* Valores del Colegio */
+.contenido-valor{
     width: 100%;
-    height: auto;
     background-color: #a91b05;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 1em;
+    color: #fff;
 }
 
 .valor-text {
-    color: #fff;
-    margin: 0 50px 0 50px; 
-    padding: 2em;
+    text-align: center;
+    margin-bottom: 2em;
 }
 
-.valor-sub {
-    padding-bottom: 1em;
+.text-valores {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.valor-text p {
+    font-size: 1.2em;
+    max-width: 70%;
+    margin: 0 auto;
 }
 
 .valor-imagen {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
 }
 
-.valor-img {
-    width: 140px;
-    height: 140px;
-    padding: 12px;
-    border-radius: 60%;
-    align-items: center;
-}
 .valor-item {
-    flex-direction: row;  
-    text-align: center; /* Centrar texto dentro de cada ítem */
-    margin-bottom: 20px; /* Espacio entre cada ítem */
+    text-align: center;
 }
 
 .cont-margin {
-    width: 140px; /* Ajusta según el tamaño deseado */
-    height: 140px; /* Ajusta según el tamaño deseado */
-    border-radius: 50%; /* Asegura que las imágenes sean redondas */
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
     overflow: hidden;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.valor-item:hover .cont-margin {
+    transform: scale(1.1);
+}
+
+.valor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .item-texto-valor {
-    text-align: center;
-    padding-bottom: 1em;
-    color: #fff;
+    margin-top: 1em;
 }
 
-.valor-text .text-valores {
-    padding-bottom: 1em;
-}
+/* Motivación */
 
-.motivacion-main {
-    padding-top: 1em;
-}
 
 .content-motivacion {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .elementos-motivacion {
@@ -286,7 +297,6 @@ header .logo {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     position: relative;
 }
 
@@ -296,30 +306,40 @@ header .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    padding: 1em;
+    color: white;
 }
 
 .overlay h1 {
-    color: white;
-    font-size: 2em;
-    text-align: center;
+    font-size: 1.5em;
     margin: 0;
-    padding: 1em;
+    padding: 0 1em;
+    max-width: 800px;
 }
 
 .text-moti {
     display: flex;
     justify-content: space-around;
-    font-size: 1em;
+    gap: 1em;
+    margin-top: 1em;
+    flex-wrap: wrap;
 }
 
 .moti-element {
-    padding: 50px;
-    color: #fff;
+    font-size: 1.5em;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1em 2em;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.moti-element:hover {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* FOOTER */

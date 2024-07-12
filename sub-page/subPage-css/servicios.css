@@ -23,12 +23,14 @@ header {
     justify-content: space-around;
     transition: 0.7s;
     padding: 30px 20px;
-    z-index: 100;
+    z-index: 10;
 }
-.menu .logo {
+
+.logo {
     width: 150px; 
     height: 100px; 
 }
+
 .menu.abajo {
     background-color: #fff;
     padding: 15px 20px;
@@ -47,7 +49,7 @@ nav {
 
 .menu ul li {
     margin: 0 15px;
-    position: relative; /* Asegura que el submenú esté posicionado correctamente */
+    position: relative;
 }
 
 .menu ul li a {
@@ -69,7 +71,7 @@ nav {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: red; /* Cambia este color por el que desees */
+    background-color: red;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -77,30 +79,6 @@ nav {
 .menu ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-}
-
-.menu ul li ul {
-    position: absolute;
-    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
-    left: 0; /* Alinea el submenú con el borde izquierdo del elemento principal */
-    width: 300px;
-    background-color: rgba(1, 1, 1, 0.7);
-    display: none;
-}
-
-.menu ul li ul li a {
-    font-size: 15px;
-    text-transform: capitalize;
-}
-
-.menu ul li ul li ul {
-    position: absolute;
-    top: 0;
-    left: 300px; /* Ajusta la posición de los submenús anidados */
-}
-
-.menu ul li:hover > ul {
-    display: block;
 }
 
 .menu.abajo .logo,

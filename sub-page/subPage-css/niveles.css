@@ -25,10 +25,12 @@ header {
     padding: 30px 20px;
     z-index: 10;
 }
-.menu .logo {
+
+.logo {
     width: 150px; 
     height: 100px; 
 }
+
 .menu.abajo {
     background-color: #fff;
     padding: 15px 20px;
@@ -47,7 +49,7 @@ nav {
 
 .menu ul li {
     margin: 0 15px;
-    position: relative; /* Asegura que el submenú esté posicionado correctamente */
+    position: relative;
 }
 
 .menu ul li a {
@@ -69,7 +71,7 @@ nav {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: red; /* Cambia este color por el que desees */
+    background-color: red;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -79,35 +81,10 @@ nav {
     transform-origin: bottom left;
 }
 
-.menu ul li ul {
-    position: absolute;
-    top: 100%; /* Coloca el submenú justo debajo del elemento principal */
-    left: 0; /* Alinea el submenú con el borde izquierdo del elemento principal */
-    width: 300px;
-    background-color: rgba(1, 1, 1, 0.7);
-    display: none;
-}
-
-.menu ul li ul li a {
-    font-size: 15px;
-    text-transform: capitalize;
-}
-
-.menu ul li ul li ul {
-    position: absolute;
-    top: 0;
-    left: 300px; /* Ajusta la posición de los submenús anidados */
-}
-
-.menu ul li:hover > ul {
-    display: block;
-}
-
 .menu.abajo .logo,
 .menu.abajo ul li a {
     color: #000;
 }
-
 header .logo {
     border-radius: 50%;
 }
@@ -144,69 +121,104 @@ header .logo {
     
 }
 
-/* Main */
+/* General Styles */
 
-.header-inicial {
-    background-image: url('/imgPage/niveles-fondo.png');
-    background-size: cover; 
-    background-position: center;
-    height: 40vh;
+.niveles {
     display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    position: relative;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em;
+    background-color: #f4f4f4;
 }
 
-.header-inicial .texto-inicial {
-    color: #0056b3; 
-    z-index: 2; 
-    padding-left: 25em;
-}
-.texto-inicial h1{
-    font-size: 60px;
+.nivel {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.header-inicial .imagen-inicial {
-    height: 100%;
+.header-nivel {
     display: flex;
     align-items: center;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 1em;
+    position: relative;
+    
+}
+
+.header-nivel .texto-nivel {
+    flex: 1;
+}
+
+.header-nivel h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.header-nivel .imagen-nivel {
+    flex: 1;
+    display: flex;
     justify-content: center;
 }
 
-.header-inicial .imagen-inicial img.inicio {
-    height: 100%;
-    object-fit: cover; 
+.header-nivel .imagen-nivel img {
+    max-width: 100%;
+    border-radius: 8px;
 }
+
 .educacion-calidad {
-    padding: 20px;
-    background-color: #f9f9f9; /* Fondo claro para contrastar */
-    color: #333; /* Color del texto */
-    line-height: 1.6; /* Espaciado entre líneas */
+    padding: 1.5em;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
 }
 
 .educacion-calidad h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #0056b3; /* Color del título */
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #0056b3;
 }
 
 .educacion-calidad ul {
-    list-style-type: none; /* Elimina los puntos de la lista */
+    list-style-type: none;
     padding: 0;
 }
 
 .educacion-calidad ul li {
-    background: url('https://via.placeholder.com/10x10') no-repeat left center; /* Punto personalizado */
-    padding-left: 20px; /* Espaciado a la izquierda del texto */
-    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+    margin-bottom: 0.5em;
+    padding-left: 20px;
+    position: relative;
 }
 
-.educacion-calidad p {
-    margin-top: 20px;
-    font-weight: bold;
+.educacion-calidad ul li::before {
+    content: '•';
+    color: #0056b3;
+    position: absolute;
+    left: 0;
 }
 
+.division {
+    margin: 1.5em 0;
+    border: 0;
+    border-top: 2px solid #ddd;
+}
 
+.cursos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.cursos-lista li {
+    flex: 1 1 30%;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    padding: 1em;
+    text-align: center;
+}
 
 
 /* 
@@ -230,8 +242,7 @@ footer {
 }
 
 .footer-logo img {
-    width: 20
-    em;
+    width: 20em;
     height: 200px;
 }
 
@@ -278,7 +289,6 @@ footer {
     background: #000;
     margin-top: 20px; 
 }
-
 @media (max-width: 768px) {
     .menu ul {
         flex-direction: column;
