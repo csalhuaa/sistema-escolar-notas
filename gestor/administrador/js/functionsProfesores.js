@@ -46,9 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var tipo_usuario = document.querySelector('#tipo_usuario').value;
             var id_rol = document.querySelector('#id_rol').value;
             var info_contacto = document.querySelector('#info_contacto').value;
+            var numero_contacto = document.querySelector('#numero_contacto').value;
             var Est_Reg = document.querySelector('#est_reg').value;
 
-            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '' || info_contacto == '' || numero_contacto == '') {
                 Swal.fire({
                     title: 'Atención',
                     text: 'Todos los campos son necesarios',

@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Si entra al formulario.onsubmit");
             e.preventDefault();
 
-            // var formPadre = document.querySelector('#formPadre');
             var idpadre = document.querySelector('#idpadre').value;
             var nombre = document.querySelector('#nombre').value;
             var apellido_paterno = document.querySelector('#apellido_paterno').value;
@@ -48,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var contraseña = document.querySelector('#contraseña').value;
             var tipo_usuario = document.querySelector('#tipo_usuario').value;
             var id_rol = document.querySelector('#id_rol').value;
+            var numero_contacto = document.querySelector('#numero_contacto').value;
             var info_contacto = document.querySelector('#info_contacto').value;
-            // var especialidad = document.querySelector('#especialidad').value;
             var est_reg = document.querySelector('#est_reg').value;
 
-            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '') {
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '' || info_contacto == '' || numero_contacto == '') {
                 Swal.fire({
                     title: 'Atención',
                     text: 'Todos los campos son necesarios - functions',

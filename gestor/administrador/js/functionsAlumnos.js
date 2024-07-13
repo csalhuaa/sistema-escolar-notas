@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var id_tutor = document.querySelector('#listpadre').value;
             var est_reg = document.querySelector('#est_reg').value;
 
-            if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || est_reg == '') {
+            if (nombre == '' || fecha_nacimiento == '' || direccion == '' || id_tutor == '' || est_reg == '' || apellido_paterno == '' || apellido_materno == '') {
                 Swal.fire({
                     title: 'Atención',
-                    text: 'Todos los campos son necesarios1',
+                    text: 'Todos los campos son necesarios',
                     icon: 'error'
                 });
                 return false;
