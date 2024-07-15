@@ -1,7 +1,10 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM usuarios WHERE tipo_usuario = "tutor" ORDER BY id_usuario ASC';
+    $sql = "SELECT u.*, r.nombre_rol 
+            FROM Usuarios u
+            JOIN roles r ON u.id_rol = r.id_rol
+            WHERE r.nombre_rol = 'Tutor'";
     $query = $pdo->prepare($sql);
     $query->execute();  
 

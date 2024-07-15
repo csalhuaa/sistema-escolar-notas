@@ -31,12 +31,6 @@ require_once 'includes/modals/modal_alumno.php';
                                     <th>FECHA NACIMIENTO</th>
                                     <th>DIRECCIÓN</th>
                                     <th>APODERADO</th>
-                                    <!-- 
-                                    <th>USUARIO</th>
-                                    <th>CONTACTO</th>
-                                    <th>ROL</th>
-                                    <th>ID ROL</th>
-                                    <th>ESPECIALIDAD</th> -->
                                     <th>ESTADO</th>
                                 </tr>
                             </thead>

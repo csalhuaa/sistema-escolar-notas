@@ -1,7 +1,6 @@
 <?php
 require_once 'includes/header.php';
-require_once 'includes/modals/modal_matricula.php'; // Modal para nueva matrícula
-
+require_once 'includes/modals/modal_matricula.php';
 ?>
 
 <main class="app-content">

@@ -29,7 +29,7 @@
                         <input type="text" class="form-control" name="direccion" id="direccion">
                     </div>
                     <div class="mb-3">
-                        <label for="listPadre" class="col-form-label">Apoderado</label>
+                        <label for="listpadre" class="col-form-label">Apoderado</label>
                         <select class="form-control" name="listpadre" id="listpadre">
                             <!-- Las opciones se llenarán dinámicamente -->
                         </select>
@@ -37,8 +37,8 @@
                     <div class="mb-3">
                         <label for="est_reg" class="col-form-label">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">

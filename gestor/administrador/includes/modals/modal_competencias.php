@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <label for="id_curso" class="col-form-label">Curso:</label>
                         <select class="form-control" name="id_curso" id="id_curso">
-                            <!-- Aquí se cargarán dinámicamente los docentes -->
+                            <!-- Aquí se cargarán dinámicamente los Cursos -->
                         </select>
                     </div>
                     <div class="mb-3">
@@ -21,8 +21,8 @@
                     <div class="form-group">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">

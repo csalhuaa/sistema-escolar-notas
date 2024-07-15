@@ -30,17 +30,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Numero de Contacto:</label>
-                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto">
+                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto" pattern="\d{9}">
                     </div>
                     <div class="mb-3">
                         <label for="info_contacto" class="col-form-label">Correo:</label>
-                        <input type="text" class="form-control" name="info_contacto" id="info_contacto">
-                    </div>
-                    <div class="mb-3p">
-                        <label for="tipo_usuario">Rol</label>
-                        <select class="form-control" name="tipo_usuario" id="tipo_usuario">
-                            <option value="docente">Profesor</option>
-                        </select>
+                        <input type="email" class="form-control" name="info_contacto" id="info_contacto">
                     </div>
                     <div class="mb-3">
                         <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="2">
@@ -48,8 +42,8 @@
                     <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">

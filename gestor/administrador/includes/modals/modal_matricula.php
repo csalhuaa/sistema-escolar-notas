@@ -17,13 +17,13 @@
                     <div class="mb-3">
                         <label for="id_grado" class="col-form-label">Grado:</label>
                         <select class="form-control" name="id_grado" id="id_grado">
-                            <!-- Aquí se cargarán dinámicamente los cursos -->
+                            <!-- Aquí se cargarán dinámicamente los Grados -->
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="id_seccion" class="col-form-label">Seccion:</label>
                         <select class="form-control" name="id_seccion" id="id_seccion">
-                            <!-- Aquí se cargarán dinámicamente las aulas -->
+                            <!-- Aquí se cargarán dinámicamente las Secciones -->
                         </select>
                     </div>
                     <div class="mb-3">
@@ -33,8 +33,8 @@
                     <div class="mb-3">
                         <label for="est_reg" class="col-form-label">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">
