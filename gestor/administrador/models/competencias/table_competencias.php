@@ -19,8 +19,8 @@ require_once "../../../includes/conexion.php";
         }
 
         $consulta[$i]['acciones'] = '
-            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarCompetencia('.$consulta[$i]['id_competencia'].')"><i class="fas fa-edit"></i>Editar</button>
-            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarCompetencia('.$consulta[$i]['id_competencia'].')"><i class="fas fa-trash-alt">Eliminar</i></button>
+            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarCompetencia('.$consulta[$i]['id_competencia'].')"><i class="fas fa-edit"></i>  Editar</button>
+            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarCompetencia('.$consulta[$i]['id_competencia'].')"><i class="fas fa-trash-alt">  Eliminar</i></button>
         ';
     }
 

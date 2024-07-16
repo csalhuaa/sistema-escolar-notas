@@ -2,7 +2,6 @@
 require_once 'includes/header.php';
 require_once 'includes/modals/modal.php';
 ?>  
-<!-- <script src="../js/jquery-3.7.0.min.js"></script> -->
 
 <main class="app-content">
     <div class="app-title">
@@ -24,7 +23,7 @@ require_once 'includes/modals/modal.php';
                             <thead>
                                 <tr>
                                     <th>ACCIONES</th>
-                                    <th>ID USUARIO</th>
+                                    <th>ID</th>
                                     <th>NOMBRE</th>
                                     <th>APELLIDO PATERNO</th>
                                     <th>APELLIDO MATERNO</th>

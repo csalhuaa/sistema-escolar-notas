@@ -12,7 +12,7 @@ $sql = "
     INNER JOIN aulas a ON e.id_aula = a.id_aula
     INNER JOIN grados g ON a.id_grado = g.id_grado
     INNER JOIN secciones s ON a.id_seccion = s.id_seccion
-    WHERE u.tipo_usuario = 'tutor' AND u.id_usuario = ?
+    WHERE u.id_rol = 3 AND u.id_usuario = ?
 ";
 
 $query = $pdo->prepare($sql);
@@ -26,8 +26,8 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="app-sidebar__user">
         <img class="app-sidebar__user-avatar" src="https://cdn-icons-png.flaticon.com/512/4656/4656822.png" alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><?= htmlspecialchars($_SESSION['nombre_usuario']) ?></p>
-            <p class="app-sidebar__user-designation">Tutor</p>
+            <p class="app-sidebar__user-name"><?= $_SESSION['nombre_completo'] ?></p>
+            <p class="app-sidebar__user-designation"><?= $_SESSION['nombre_rol'] ?></p>
         </div>
     </div>
     <ul class="app-menu">

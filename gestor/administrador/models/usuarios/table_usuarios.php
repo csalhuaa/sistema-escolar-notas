@@ -1,7 +1,11 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM Usuarios WHERE tipo_usuario = "admin"';
+    $sql = "SELECT u.*, r.nombre_rol 
+            FROM Usuarios u
+            JOIN roles r ON u.id_rol = r.id_rol
+            WHERE r.nombre_rol = 'Administrador'";
+
     $query = $pdo->prepare($sql);
     $query->execute();  
 
@@ -15,8 +19,8 @@ require_once "../../../includes/conexion.php";
         }
 
         $consulta[$i]['acciones'] = '
-            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario('.$consulta[$i]['id_usuario'].')"><i class="fas fa-edit"></i>Editar</button>
-            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario('.$consulta[$i]['id_usuario'].')"><i class="fas fa-trash-alt">Eliminar</i></button>
+            <button class="btn btn-primary btn-sm" title="Editar" onclick="editarUsuario('.$consulta[$i]['id_usuario'].')"><i class="fas fa-edit"></i>  Editar</button>
+            <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarUsuario('.$consulta[$i]['id_usuario'].')"><i class="fas fa-trash-alt">  Eliminar</i></button>
         ';
     }
 

@@ -17,8 +17,8 @@ $consulta = $query->fetchAll(PDO::FETCH_ASSOC);
 
 for ($i = 0; $i < count($consulta); $i++) {
     $consulta[$i]['acciones'] = '
-        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarDocenteAula('.$consulta[$i]['id_docente_aula'].')"><i class="fas fa-edit"></i> Editar</button>
-        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarDocenteAula('.$consulta[$i]['id_docente_aula'].')"><i class="fas fa-trash-alt"></i> Eliminar</button>
+        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarDocenteAula('.$consulta[$i]['id_docente_aula'].')"><i class="fas fa-edit"></i>  Editar</button>
+        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarDocenteAula('.$consulta[$i]['id_docente_aula'].')"><i class="fas fa-trash-alt"></i>  Eliminar</button>
     ';
 }
 

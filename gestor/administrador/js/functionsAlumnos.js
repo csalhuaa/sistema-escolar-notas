@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     var formAlumno = document.querySelector('#formAlumno');
-    if (formAlumno) {
+    if (formAlumno) {   
         formAlumno.onsubmit = function(e) {
             console.log("Si entra al formulario.onsubmit");
             e.preventDefault();

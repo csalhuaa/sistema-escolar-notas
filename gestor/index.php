@@ -87,7 +87,7 @@ if (!empty($_SESSION['active'])) {
                     </div>
                 </div>
                 <div class="text-center mt-3">
-                    <a href="../index.html" class="btn btn-link">Regresar al inicio</a>
+                    <a href="index.html" class="btn btn-link">Regresar al inicio</a>
                 </div>
             </div>
         </div>

@@ -12,12 +12,11 @@
                         <label for="Nombre" class="col-form-label">Nombre Grado:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre">
                     </div>
-                    
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">

@@ -1,8 +1,7 @@
 <?php
 require_once 'includes/header.php';
 require_once 'includes/modals/modal_aulas.php';
-?>  
-<!-- <script src="../js/jquery-3.7.0.min.js"></script> -->
+?> 
 
 <main class="app-content">
     <div class="app-title">

@@ -1,9 +1,8 @@
-$('#tableUsuarios').DataTable();
-var tableUsuarios;
+$('#tableComunicados').DataTable();
+var tableComunicados;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializa DataTable
-    tableUsuarios = $('#tableUsuarios').DataTable({
+    tableComunicados = $('#tableComunicados').DataTable({
         "aProcessing": true,
         "aServerSide": true,
         "language": {
@@ -11,20 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         "ajax": {
             "method": "POST",
-            "url": "./models/usuarios/table_usuarios.php",
-            "dataSrc": "",
+            "url": "./models/comunicados/table_comunicados.php",
+            "dataSrc": ""
         },
         "columns": [
             {"data": "acciones"},
-            {"data": "id_usuario"},
-            {"data": "nombre"},
-            {"data": "apellido_paterno"},
-            {"data": "apellido_materno"},
-            {"data": "nombre_usuario"},
-            {"data": "numero_contacto"},
-            {"data": "info_contacto"},
+            {"data": "id_comunicado"},
+            {"data": "titulo"},
+            {"data": "asunto"},
+            {"data": "fecha"},
             {"data": "nombre_rol"},
-            {"data": "est_reg"},
+            {"data": "est_reg"}
         ],
         "responsive": true,
         "bDestroy": true,
@@ -32,26 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
         "order": [[0, "asc"]]
     });
 
-    
-    var formUsuario = document.querySelector('#formUsuario');
-    if (formUsuario) {
-        formUsuario.onsubmit = function(e) {
-            console.log("Si entra al formulario.onsubmit");
+    var formComunicado = document.querySelector('#formComunicado');
+    if (formComunicado) {
+        formComunicado.onsubmit = function(e) {
             e.preventDefault();
 
-            // var formUsuario = document.querySelector('#formulario');
-            var idusuario = document.querySelector('#idusuario').value;
-            var nombre = document.querySelector('#nombre').value;
-            var apellido_paterno = document.querySelector('#apellido_paterno').value;
-            var apellido_materno = document.querySelector('#apellido_materno').value;
-            var nombre_usuario = document.querySelector('#nombre_usuario').value;
-            var contraseña = document.querySelector('#contraseña').value;
-            var id_rol = document.querySelector('#id_rol').value;
-            var info_contacto = document.querySelector('#info_contacto').value;
-            var numero_contacto = document.querySelector('#numero_contacto').value;
-            var est_reg = document.querySelector('#est_reg').value;
+            var idcomunicado = document.querySelector('#idcomunicado').value;
+            var titulo = document.querySelector('#titulo').value;
+            var asunto = document.querySelector('#asunto').value;
+            var fecha = document.querySelector('#fecha').value;
 
-            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || id_rol == '' || info_contacto == '' || numero_contacto == '') {
+            if (titulo == '' || asunto == '' || fecha == '') {
                 Swal.fire({
                     title: 'Atención',
                     text: 'Todos los campos son necesarios',
@@ -61,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var url = './models/usuarios/ajax-usuarios.php';
-            var form = new FormData(formUsuario);
+            var url = './models/comunicados/ajax-comunicados.php';
+            var form = new FormData(formComunicado);
 
             request.open('POST', url, true);
             request.send(form);
@@ -70,18 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
             request.onreadystatechange = function() {
                 if (request.readyState == 4 && request.status == 200) {
                     var data = JSON.parse(request.responseText);
-                    if (request.status) {
-                        $('#modalUsuario').modal('hide');
-                        formUsuario.reset();
+                    if (data.status) {
+                        $('#modalComunicado').modal('hide');
+                        formComunicado.reset();
                         Swal.fire({
-                            title: 'Usuario',
+                            title: 'Comunicado',
                             text: data.msg,
                             icon: 'success'
                         });
-                        tableUsuarios.ajax.reload();
+                        tableComunicados.ajax.reload();
                     } else {
                         Swal.fire({
-                            title: 'Usuario',
+                            title: 'Comunicado',
                             text: data.msg,
                             icon: 'error'
                         });
@@ -92,22 +79,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function openModalUsuarios() {
-    document.querySelector('#idusuario').value = "";
-    document.querySelector('#tituloModal').innerHTML = 'Nuevo Usuario';
+function openModalComunicado() {
+    document.querySelector('#idcomunicado').value = "";
+    document.querySelector('#tituloModal').innerHTML = 'Nuevo Comunicado';
     document.querySelector('#action').innerHTML = 'Guardar';
-    document.querySelector('#formUsuario').reset();
-    $("#modalUsuario").modal('show');
+    document.querySelector('#formComunicado').reset();
+    $("#modalComunicado").modal('show');
 }
 
-function editarUsuario(ID) {
-    var idusuario = ID;
-    console.log("ID: ", idusuario);
-    document.querySelector('#tituloModal').innerHTML = 'Actualizar Usuario';
+function editarComunicado(ID) {
+    var idcomunicado = ID;
+    console.log(idcomunicado);
+
+    document.querySelector('#tituloModal').innerHTML = 'Actualizar Comunicado';
     document.querySelector('#action').innerHTML = 'Actualizar';
 
     var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    var url = './models/usuarios/edit-usuarios.php?idusuario=' + idusuario;
+    var url = './models/comunicados/edit-comunicados.php?idcomunicado=' + idcomunicado;
     request.open('GET', url, true);
     request.send();
 
@@ -115,20 +103,18 @@ function editarUsuario(ID) {
         if (request.readyState == 4 && request.status == 200) {
             var data = JSON.parse(request.responseText);
             if (data.status) {
-                document.querySelector('#idusuario').value = data.data.id_usuario;
-                document.querySelector('#nombre').value = data.data.nombre;
-                document.querySelector('#apellido_paterno').value = data.data.apellido_paterno;
-                document.querySelector('#apellido_materno').value = data.data.apellido_materno;
-                document.querySelector('#nombre_usuario').value = data.data.nombre_usuario;
-                document.querySelector('#numero_contacto').value = data.data.numero_contacto;
-                document.querySelector('#info_contacto').value = data.data.info_contacto;
+
+                document.querySelector('#idcomunicado').value = data.data.id_comunicado;
+                document.querySelector('#titulo').value = data.data.titulo;
+                document.querySelector('#asunto').value = data.data.asunto;
+                document.querySelector('#fecha').value = data.data.fecha;
                 document.querySelector('#id_rol').value = data.data.id_rol;
                 document.querySelector('#est_reg').value = data.data.est_reg;
 
-                $("#modalUsuario").modal('show');
+                $("#modalComunicado").modal('show');
             } else {
                 Swal.fire({
-                    title: 'Usuario',
+                    title: 'Atención',
                     text: data.msg,
                     icon: 'error'
                 });
@@ -137,12 +123,11 @@ function editarUsuario(ID) {
     }
 }
 
-
-function eliminarUsuario(ID){
-    var idusuario = ID;
+function eliminarComunicado(ID) {
+    var idcomunicado = ID;
 
     Swal.fire({
-        title: "Eliminar Usuario",
+        title: "Eliminar Comunicado",
         text: "¿Desea eliminar al Usuario?",
         icon: "warning",
         showCancelButton: true,
@@ -152,14 +137,15 @@ function eliminarUsuario(ID){
     }).then((result) => {
         if (result.isConfirmed) {
             var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-            var url = './models/usuarios/delete-usuarios.php';
+            var url = './models/comunicados/delete-comunicados.php';
             request.open('POST', url, true);
-            var strData = "idusuario=" + idusuario;
+            var strData = "idcomunicado=" + idcomunicado;
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(strData);
-    
+
             request.onreadystatechange = function() {
                 if (request.readyState == 4 && request.status == 200) {
+                    console.log(request.responseText);  // Add this line
                     var data = JSON.parse(request.responseText);
                     if (data.status) {
                         Swal.fire({
@@ -167,7 +153,7 @@ function eliminarUsuario(ID){
                             text: data.msg,
                             icon: 'success'
                         });
-                        tableUsuarios.ajax.reload();
+                        tableComunicados.ajax.reload();
                     } else {
                         Swal.fire({
                             title: 'Atención',
@@ -178,5 +164,5 @@ function eliminarUsuario(ID){
                 }
             }
         }
-    });    
+    })
 }

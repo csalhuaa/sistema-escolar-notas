@@ -25,8 +25,8 @@ for ($i = 0; $i < count($consulta); $i++) {
     }
 
     $consulta[$i]['acciones'] = '
-        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarMatricula('.$consulta[$i]['id_matricula'].')"><i class="fas fa-edit"></i>Editar</button>
-        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarMatricula('.$consulta[$i]['id_matricula'].')"><i class="fas fa-trash-alt">Eliminar</i></button>
+        <button class="btn btn-primary btn-sm" title="Editar" onclick="editarMatricula('.$consulta[$i]['id_matricula'].')"><i class="fas fa-edit"></i>  Editar</button>
+        <button class="btn btn-danger btn-sm" title="Eliminar" onclick="eliminarMatricula('.$consulta[$i]['id_matricula'].')"><i class="fas fa-trash-alt">  Eliminar</i></button>
     ';
 }
 

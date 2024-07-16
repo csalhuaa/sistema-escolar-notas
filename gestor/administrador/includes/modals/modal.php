@@ -30,31 +30,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Numero de Contacto:</label>
-                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto">
+                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto" pattern="\d{9}">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label">Correo:</label>
-                        <input type="text" class="form-control" name="info_contacto" id="info_contacto">
-                    </div>
-                    <div class="form-group">
-                        <label for="listRol">Rol</label>
-                        <select class="form-control" name="tipo_usuario" id="tipo_usuario">
-                            <option value="admin">Administrador</option>
-                        </select>
+                        <label for="info_contacto" class="col-form-label">Correo:</label>
+                        <input type="email" class="form-control" name="info_contacto" id="info_contacto">
                     </div>
                     <div class="mb-3">
-                        <!-- <label for="control-label">ID Rol:</label> -->
                         <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="1">
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="control-label">Especialidad:</label>
-                        <input type="text" class="form-control" name="especialidad" id="especialidad">
-                    </div> -->
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="est_reg">Estado de Registro:</label>
                         <select class="form-control" name="est_reg" id="est_reg">
-                            <option value="A">A</option>
-                            <option value="I">I</option>
+                            <option value="A">Activo</option>
+                            <option value="I">Inactivo</option>
                         </select>
                     </div>
                     <div class="modal-footer">

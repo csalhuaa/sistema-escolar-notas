@@ -5,8 +5,6 @@ if (!empty($_POST)) {
     if (empty($_POST['nombre']) || empty($_POST['fecha_nac']) || empty($_POST['direccion']) || empty($_POST['listpadre']) || empty($_POST['est_reg'])) {
         $respuesta = array('status' => false, 'msg' => 'Todos los campos requeridos son necesarios2');
     } else {
-        // Asigna las variables desde el formulario
-       //  $idalumno = !empty($_POST['idalumno']) ? $_POST['idalumno'] : 0;
         $idalumno = $_POST['idalumno'];
         $nombre = $_POST['nombre'];
         $apellido_paterno = $_POST['apellido_paterno'];
@@ -16,9 +14,9 @@ if (!empty($_POST)) {
         $id_tutor = $_POST['listpadre'];
         $est_reg = $_POST['est_reg'];
 
-        // Verifica si el nombre de usuario ya existe
-        $sql = 'SELECT * FROM estudiantes WHERE nombre = ? AND id_tutor = ? AND est_reg = "A"';
-        $params = [$nombre, $id_tutor];
+        // Verifica si el estudiante ya existe basado en nombre completo y tutor
+        $sql = 'SELECT * FROM estudiantes WHERE nombre = ? AND apellido_paterno = ? AND apellido_materno = ? AND est_reg = "A"';
+        $params = [$nombre, $apellido_paterno, $apellido_materno];
 
         if (!empty($idalumno)) {
             $sql .= ' AND id_estudiante != ?';
