@@ -31,9 +31,9 @@ if (!empty($_SESSION['active'])) {
             </div>
             <div class="col-lg-6 bg-white p-5 rounded-3 shadow">
                 <h1 class="text-center mb-4">Bienvenid@</h1>
-                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Admin</button>
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Administrador</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profesor</button>
@@ -44,7 +44,7 @@ if (!empty($_SESSION['active'])) {
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                        <form action="" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()" class="p-4 rounded shadow-sm bg-white">
                             <div class="mb-3">
                                 <label for="usuario" class="form-label">Usuario</label>
                                 <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre de usuario">
@@ -58,7 +58,7 @@ if (!empty($_SESSION['active'])) {
                         </form>
                     </div>
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                        <form action="" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()" class="p-4 rounded shadow-sm bg-white">
                             <div class="mb-3">
                                 <label for="usuarioProfesor" class="form-label">Usuario</label>
                                 <input type="text" name="usuarioProfesor" id="usuarioProfesor" class="form-control" placeholder="Nombre de usuario">
@@ -72,7 +72,7 @@ if (!empty($_SESSION['active'])) {
                         </form>
                     </div>
                     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                        <form action="" onsubmit="return validar()">
+                        <form action="" onsubmit="return validar()" class="p-4 rounded shadow-sm bg-white">
                             <div class="mb-3">
                                 <label for="usuarioPadre" class="form-label">Usuario</label>
                                 <input type="text" name="usuarioPadre" id="usuarioPadre" class="form-control" placeholder="Nombre de usuario">
