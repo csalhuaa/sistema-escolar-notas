@@ -45,6 +45,9 @@
             <a class="app-menu__item" href="listaMatriculas.php"><i class="app-menu__icon bi bi-pencil-square"></i><span class="app-menu__label">Matriculas</span></a>
         </li>
         <li>
+            <a class="app-menu__item" href="listaComunicados.php"><i class="app-menu__icon bi bi-chat-left-text"></i><span class="app-menu__label">Comunicados</span></a>
+        </li>
+        <li>
             <a class="app-menu__item" href="../logout.php"><i class="app-menu__icon bi bi-power"></i><span class="app-menu__label">Salir</span></a>
         </li>
     </ul>
