@@ -11,7 +11,7 @@ if (!empty($_POST)) {
             $login = $_POST['login'];
             $pass = $_POST['pass'];
             $sql = "SELECT u.*, r.nombre_rol, CONCAT(u.nombre, ' ', u.apellido_paterno, ' ', u.apellido_materno) AS nombre_completo
-                    FROM Usuarios u
+                    FROM usuarios u
                     JOIN roles r ON u.id_rol = r.id_rol
                     WHERE u.nombre_usuario = ? AND r.nombre_rol = 'Tutor' AND u.est_reg = 'A'";
 
