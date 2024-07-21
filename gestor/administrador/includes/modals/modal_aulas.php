@@ -12,13 +12,13 @@
                     <div class="mb-3">
                         <label for="id_grado" class="col-form-label">Grado:</label>
                         <select class="form-control" name="id_grado" id="id_grado">
-                            <!-- Aquí se cargarán dinámicamente los docentes -->
+                            <!-- Aquí se cargarán dinámicamente los Grados -->
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="id_seccion" class="col-form-label">Seccion:</label>
                         <select class="form-control" name="id_seccion" id="id_seccion">
-                            <!-- Aquí se cargarán dinámicamente los docentes -->
+                            <!-- Aquí se cargarán dinámicamente las Secciones -->
                         </select>
                     </div>
 

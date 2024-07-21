@@ -30,14 +30,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="control-label">Numero de Contacto:</label>
-                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto">
+                        <input type="text" class="form-control" name="numero_contacto" id="numero_contacto" pattern="\d{9}">
                     </div>
                     <div class="mb-3">
-                        <label for="control-label" class="col-form-label">Correo:</label>
-                        <input type="text" class="form-control" name="info_contacto" id="info_contacto">
+                        <label for="info_contacto" class="col-form-label">Correo:</label>
+                        <input type="email" class="form-control" name="info_contacto" id="info_contacto">
                     </div>
                     <div class="mb-3">
-                        <!-- <label for="id_rol">ID Rol</label> -->
                         <input type="hidden" class="form-control" name="id_rol" id="id_rol" value="3">
                     </div>
                     <div class="mb-3">

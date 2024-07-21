@@ -23,5 +23,6 @@
     <script src="js/functionsMatriculas.js"></script>
     <script src="js/functionsAulas.js"></script>
     <script src="js/functionsCompetencias.js"></script>
+    <script src="js/functionsComunicados.js"></script>
 </body>
 </html>

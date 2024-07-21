@@ -17,6 +17,25 @@ $sql = "SELECT c.id_curso, c.nombre AS nombre_curso, c.descripcion,
 $query = $pdo->prepare($sql);
 $query->execute(array($idprofesor));
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$sqlComunicadosVigentes = "SELECT c.id_comunicado, c.titulo, c.asunto, c.fecha, r.nombre_rol
+        FROM comunicados c
+        INNER JOIN roles r ON c.id_rol = r.id_rol
+        WHERE c.id_rol = 2 AND c.fecha >= CURDATE()";
+
+$queryComunicadosVigentes = $pdo->prepare($sqlComunicadosVigentes);
+$queryComunicadosVigentes->execute();
+$resultComunicadosVigentes = $queryComunicadosVigentes->fetchAll(PDO::FETCH_ASSOC);
+
+// Query to fetch the past communications directed to the role
+$sqlComunicadosPasados = "SELECT c.id_comunicado, c.titulo, c.asunto, c.fecha, r.nombre_rol
+        FROM comunicados c
+        INNER JOIN roles r ON c.id_rol = r.id_rol
+        WHERE c.id_rol = 2 AND c.fecha < CURDATE()";
+
+$queryComunicadosPasados = $pdo->prepare($sqlComunicadosPasados);
+$queryComunicadosPasados->execute();
+$resultComunicadosPasados = $queryComunicadosPasados->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <style>
@@ -53,7 +72,58 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 </style>
 
 <main class="app-content">
-   
+    <div class="row">
+        <div class="col-md-12 text-center border mt-3 title-section">
+           <h4>Mis Comunicados</h4> 
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <button id="btnVigentes" class="btn btn-primary">Comunicados Vigentes</button>
+        <button id="btnPasados" class="btn btn-secondary">Comunicados Pasados</button>
+    </div>
+    <br>
+    <div id="comunicadosVigentes" class="row">
+        <?php if ($resultComunicadosVigentes) { ?>
+            <?php foreach ($resultComunicadosVigentes as $comunicado) { ?>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card card-custom border-light shadow">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= htmlspecialchars($comunicado['titulo']) ?></h4><hr>
+                            <p class="card-text"><?= htmlspecialchars($comunicado['asunto']) ?></p><hr>
+                            <p class="card-text">Fecha del Evento: <?= htmlspecialchars($comunicado['fecha']) ?></p>
+                            <p class="card-text">Destinatario: <?= htmlspecialchars($comunicado['nombre_rol']) ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php } else { ?>
+            <div class="col-md-12 text-center">
+                <h4>No hay comunicados vigentes disponibles</h4>
+            </div>
+        <?php } ?>
+    </div>
+    <div id="comunicadosPasados" class="row" style="display: none;">
+        <?php if ($resultComunicadosPasados) { ?>
+            <?php foreach ($resultComunicadosPasados as $comunicado) { ?>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card card-custom border-light shadow">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= htmlspecialchars($comunicado['titulo']) ?></h4><hr>
+                            <p class="card-text"><?= htmlspecialchars($comunicado['asunto']) ?></p><hr>
+                            <p class="card-text">Fecha del Evento: <?= htmlspecialchars($comunicado['fecha']) ?></p>
+                            <p class="card-text">Destinatario: <?= htmlspecialchars($comunicado['nombre_rol']) ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        <?php } else { ?>
+            <div class="col-md-12 text-center">
+                <h4>No hay comunicados pasados disponibles</h4>
+            </div>
+        <?php } ?>
+    </div>
+
     <div class="row">
         <div class="col-md-12 text-center border mt-3 title-section">
            <h4>Mis Cursos</h4> 
@@ -92,3 +162,17 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 <?php
 require_once 'includes/footer.php';
 ?>
+<script>
+    document.getElementById('btnVigentes').addEventListener('click', function() {
+        document.getElementById('comunicadosVigentes').style.display = 'flex';
+        document.getElementById('comunicadosPasados').style.display = 'none';
+    });
+
+    document.getElementById('btnPasados').addEventListener('click', function() {
+        document.getElementById('comunicadosVigentes').style.display = 'none';
+        document.getElementById('comunicadosPasados').style.display = 'flex';
+    });
+</script>
+
+
+

@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <label for="id_curso" class="col-form-label">Curso:</label>
                         <select class="form-control" name="id_curso" id="id_curso">
-                            <!-- Aquí se cargarán dinámicamente los docentes -->
+                            <!-- Aquí se cargarán dinámicamente los Cursos -->
                         </select>
                     </div>
                     <div class="mb-3">

@@ -12,7 +12,7 @@ $sql = "
     INNER JOIN aulas a ON e.id_aula = a.id_aula
     INNER JOIN grados g ON a.id_grado = g.id_grado
     INNER JOIN secciones s ON a.id_seccion = s.id_seccion
-    WHERE u.tipo_usuario = 'tutor' AND u.id_usuario = ?
+    WHERE u.id_rol = 3 AND u.id_usuario = ?
 ";
 
 $query = $pdo->prepare($sql);

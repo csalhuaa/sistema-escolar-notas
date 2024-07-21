@@ -15,10 +15,10 @@
             <a class="app-menu__item" href="listaProfesores.php"><i class="app-menu__icon bi bi-person"></i><span class="app-menu__label">Profesores</span></a>
         </li>
         <li>
-            <a class="app-menu__item" href="listaAlumnos.php"><i class="app-menu__icon bi bi-mortarboard-fill"></i><span class="app-menu__label">Alumnos</span></a>
+            <a class="app-menu__item" href="listaPadres.php"><i class="app-menu__icon bi bi-person-video"></i><span class="app-menu__label">Padres</span></a>
         </li>
         <li>
-            <a class="app-menu__item" href="listaPadres.php"><i class="app-menu__icon bi bi-person-video"></i><span class="app-menu__label">Padres</span></a>
+            <a class="app-menu__item" href="listaAlumnos.php"><i class="app-menu__icon bi bi-mortarboard-fill"></i><span class="app-menu__label">Alumnos</span></a>
         </li>
         <li>
             <a class="app-menu__item" href="listaGrados.php"><i class="app-menu__icon bi bi-123"></i><span class="app-menu__label">Grados</span></a>
@@ -27,7 +27,13 @@
             <a class="app-menu__item" href="listaSecciones.php"><i class="app-menu__icon bi bi-alphabet-uppercase"></i><span class="app-menu__label">Secciones</span></a>
         </li>
         <li>
+            <a class="app-menu__item" href="listaAulas.php"><i class="app-menu__icon bi bi-house-fill"></i><span class="app-menu__label">Aulas</span></a>
+        </li>
+        <li>
             <a class="app-menu__item" href="listaCursos.php"><i class="app-menu__icon bi bi-book-fill"></i><span class="app-menu__label">Cursos</span></a>
+        </li>
+        <li>
+            <a class="app-menu__item" href="listaCompetencias.php"><i class="app-menu__icon bi bi-card-list"></i><span class="app-menu__label">Competencias</span></a>
         </li>
         <li>
             <a class="app-menu__item" href="listaBimestres.php"><i class="app-menu__icon bi bi-calendar-week"></i><span class="app-menu__label">Bimestres</span></a>
@@ -39,10 +45,8 @@
             <a class="app-menu__item" href="listaMatriculas.php"><i class="app-menu__icon bi bi-pencil-square"></i><span class="app-menu__label">Matriculas</span></a>
         </li>
         <li>
-            <a class="app-menu__item" href="listaAulas.php"><i class="app-menu__icon bi bi-pencil-square"></i><span class="app-menu__label">Aulas</span></a>
+            <a class="app-menu__item" href="listaComunicados.php"><i class="app-menu__icon bi bi-chat-left-text"></i><span class="app-menu__label">Comunicados</span></a>
         </li>
-        <li>
-            <a class="app-menu__item" href="listaCompetencias.php"><i class="app-menu__icon bi bi-pencil-square"></i><span class="app-menu__label">Competencias</span></a>
         <li>
             <a class="app-menu__item" href="../logout.php"><i class="app-menu__icon bi bi-power"></i><span class="app-menu__label">Salir</span></a>
         </li>
