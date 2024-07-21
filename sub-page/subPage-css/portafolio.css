@@ -108,7 +108,8 @@ header .logo {
 }
 .portada {
     height: 100%;
-    background-image: url('/imgPage/imagen1.jpg');
+    background-image: url('../../imgPage/imagen1.jpg');
+
     background-size: cover;
     background-position: center;
     background-position-y: 18.8%;

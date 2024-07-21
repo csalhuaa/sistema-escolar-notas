@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    font-family: Roboto;
+}
 body h1,h2,h3,li {
     font-family: Montserrat;
 }
@@ -95,7 +97,7 @@ header .logo {
 
 .portada {
     height: 50vh; 
-    background-image: url('/imgPage/imagen1.jpg'); 
+    background-image: url('../../imgPage/imagen1.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
