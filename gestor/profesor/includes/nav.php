@@ -24,8 +24,8 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="app-sidebar__user">
         <img class="app-sidebar__user-avatar" src="https://cdn.icon-icons.com/icons2/343/PNG/512/Teachers_35749.png" alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><?= $_SESSION['nombre_usuario'] ?></p>
-            <p class="app-sidebar__user-designation">Profesor</p>
+            <p class="app-sidebar__user-name"><?= $_SESSION['nombre_completo'] ?></p>
+            <p class="app-sidebar__user-designation"><?= $_SESSION['nombre_rol'] ?></p>
         </div>
     </div>
     <ul class="app-menu">

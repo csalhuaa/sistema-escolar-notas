@@ -3,8 +3,8 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><?= $_SESSION['nombre'] ?></p>
-            <p class="app-sidebar__user-designation"><?= $_SESSION['tipo_usuario'] ?></p>
+            <p class="app-sidebar__user-name"><?= $_SESSION['nombre_completo'] ?></p>
+            <p class="app-sidebar__user-designation"><?= $_SESSION['nombre_rol'] ?></p>
         </div>
     </div>
     <ul class="app-menu">

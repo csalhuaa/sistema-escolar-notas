@@ -10,7 +10,10 @@ if (!empty($_POST)) {
         if ($pdo) {
             $login = $_POST['login'];
             $pass = $_POST['pass'];
-            $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = ? AND tipo_usuario = 'tutor' AND est_reg = 'A'";
+            $sql = "SELECT u.*, r.nombre_rol, CONCAT(u.nombre, ' ', u.apellido_paterno, ' ', u.apellido_materno) AS nombre_completo
+                    FROM Usuarios u
+                    JOIN roles r ON u.id_rol = r.id_rol
+                    WHERE u.nombre_usuario = ? AND r.nombre_rol = 'Tutor' AND u.est_reg = 'A'";
 
             // Prepara y ejecuta la consulta SQL
             $query = $pdo->prepare($sql);
@@ -39,7 +42,9 @@ if (!empty($_POST)) {
                     if (password_verify($pass, $result['contraseña'])) {
                         $_SESSION['activeP'] = true;
                         $_SESSION['id_usuario'] = $result['id_usuario'];
+                        $_SESSION['nombre_completo'] = $result['nombre_completo'];
                         $_SESSION['nombre_usuario'] = $result['nombre_usuario'];
+                        $_SESSION['nombre_rol'] = $result['nombre_rol'];
 
                         // Restablece el contador de intentos fallidos
                         if (isset($_SESSION['login_attempts'][$login])) {

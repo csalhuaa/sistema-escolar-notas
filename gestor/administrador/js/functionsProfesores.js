@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             {"data": "nombre_usuario"},
             {"data": "numero_contacto"},
             {"data": "info_contacto"},
-            {"data": "tipo_usuario"},
-            {"data": "id_rol"},
+            {"data": "nombre_rol"},
             {"data": "est_reg"}
         ],
         "responsive": true,
@@ -43,13 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var apellido_materno = document.querySelector('#apellido_materno').value;
             var nombre_usuario = document.querySelector('#nombre_usuario').value;
             var contraseña = document.querySelector('#contraseña').value;
-            var tipo_usuario = document.querySelector('#tipo_usuario').value;
             var id_rol = document.querySelector('#id_rol').value;
             var info_contacto = document.querySelector('#info_contacto').value;
             var numero_contacto = document.querySelector('#numero_contacto').value;
             var Est_Reg = document.querySelector('#est_reg').value;
 
-            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || tipo_usuario == '' || id_rol == '' || info_contacto == '' || numero_contacto == '') {
+            if (nombre == '' || apellido_paterno == '' || apellido_materno == '' || nombre_usuario == '' || id_rol == '' || info_contacto == '' || numero_contacto == '') {
                 Swal.fire({
                     title: 'Atención',
                     text: 'Todos los campos son necesarios',

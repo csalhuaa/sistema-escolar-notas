@@ -1,7 +1,11 @@
 <?php
 require_once "../../../includes/conexion.php";
 
-    $sql = 'SELECT * FROM Usuarios WHERE tipo_usuario = "admin"';
+    $sql = "SELECT u.*, r.nombre_rol 
+            FROM Usuarios u
+            JOIN roles r ON u.id_rol = r.id_rol
+            WHERE r.nombre_rol = 'Administrador'";
+
     $query = $pdo->prepare($sql);
     $query->execute();  
 
